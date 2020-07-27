@@ -133,6 +133,12 @@ public abstract class BaseWallet {
                 return;
         }
 
+        if (TextUtils.isEmpty(address)) {
+            LogUtils.e("地址生成为空!!!");
+            listener.onResult(ResultCode.FAIL, null);
+            return;
+        }
+
         walletInfo.setAddress(address);
         walletInfo.setWalletName(walletName);
         walletInfo.setStorageSaveType(storageSaveType);
