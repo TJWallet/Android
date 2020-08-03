@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#393C95</color>
+    <color name="colorPrimaryDark">#384AEF</color>
+    <color name="colorAccent">#d6d9f4</color>
+
+    <color name="primary">#393C95</color>
+    <color name="primaryLight">#384AEF</color>
+    <color name="secondary">#8D8FC2</color>
+    <color name="tertiary">#C8CCEB</color>
+    <color name="hintColor">#D6D9F4</color>
+    <color name="hintTextColor">#80D6D9F4</color>
+    <color name="darkOrange">#C92D2D</color>
+    <color name="darkCyan">#19AABB</color>
+    <color name="borderColor">#60A4A4E9</color>
+    <color name="transparent">#00000000</color>
+    <color name="dialogMask">#80000000</color>
+    <color name="defaultImgBackground">#F7F8FD</color>
+
+    <color name="colorAccent15">#F9FAFE</color>
+    <!--按钮-->
+    <color name="btn_enabled">#292C88</color>
+    <color name="btn_normal">#3A3EA8</color>
+
+    <!--主要跟次要的文字颜色-->
+    <color name="textMajor">#353892</color>
+    <color name="textMinor">#C8CCEB</color>
+    <color name="textHint">#D6D9F4</color>
+    <!--通用背景颜色-->
+    <color name="bg">#F6F6FF</color>
+
+    <!--二维码-->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <!--纯色-->
+    <color name="white">#ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="blue">#0000ff</color>
+    <color name="yellow">#ffff00</color>
+    <color name="black">#000000</color>
+
+    <!--MainActivity底部导航栏-->
+    <color name="bottom_gray">#d6d9f4</color>
+    <color name="text_selected">#353892</color>
+    <color name="text_normal">#d6d9f4</color>
+    <!--MainActivity-->
+    <color name="user_block">#31348a</color>
+
+    <!--WalletFragment-->
+    <color name="wallet_fg_text">#353892</color>
+
+    <!--DialogWalletManager-->
+    <color name="coin_selected_bg">#f6f6fb</color>
+
+    <!--AssetsDetailsActivity-->
+    <color name="view_line">#a4a4e9</color>
+
+    <!--TransferDetailsActivity-->
+    <color name="transfer_details_title">#8D8FC2</color>
+
+    <!--WalletDetailsActivity-->
+    <color name="warning_red">#FE574F</color>
+    <color name="wallet_list_bg">#4df6f6fb</color>
+
 </resources>

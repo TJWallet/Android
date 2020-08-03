@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="296dp"
+    android:layout_height="440dp"
+    android:background="@drawable/update_bg"
+    android:minHeight="440dp">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:text="@string/clear_hardware"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns_description"
+        android:layout_width="match_parent"
+        android:layout_height="121dp"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/basic_marginLR">
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/btn_not_update"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/radius_btn_normal"
+        android:text="@string/update_now"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textBig" />
+
+    <Button
+        android:id="@+id/btn_not_update"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_btn_minor"
+        android:text="@string/update_wait"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/textBig" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_progress_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!--下载进度条-->
+        <LinearLayout
+            android:id="@+id/ll_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@style/progressbarStyle_Horizontal_Update"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="7" />
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:text="0%"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textSmall" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/close_update"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

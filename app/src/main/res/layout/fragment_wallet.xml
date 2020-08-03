@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg">
+
+                <RelativeLayout
+                    android:id="@+id/rl_top_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@color/colorPrimary">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="@dimen/basic_marginLR">
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radius_bg_wallet_name_out"
+                            android:padding="1dp">
+
+                            <!--钱包名称-->
+                            <RelativeLayout
+                                android:id="@+id/rl_wallet_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/radius_bg_wallet_name">
+
+                                <TextView
+                                    android:id="@+id/tv_wallet_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/basic_marginLR"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/textNormal" />
+
+                                <ImageView
+                                    android:layout_width="10dp"
+                                    android:layout_height="6dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginRight="@dimen/basic_marginLR"
+                                    android:layout_toRightOf="@+id/tv_wallet_name"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/arrow_down" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                        <!--消息-->
+                        <ImageView
+                            android:id="@+id/img_message"
+                            android:layout_width="16dp"
+                            android:layout_height="19dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/basic_marginLR"
+                            android:layout_toLeftOf="@+id/img_scan"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/message" />
+                        <!--扫一扫-->
+                        <ImageView
+                            android:id="@+id/img_scan"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/scan" />
+
+                        <!--消息-->
+                        <ImageView
+                            android:id="@+id/img_connect_type"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/basic_marginLR"
+                            android:layout_toLeftOf="@+id/img_message"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/usb_connected"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_top_bg"
+                    android:layout_marginTop="-100dp"
+                    android:orientation="vertical">
+
+                    <!--首页卡片区域-->
+                    <RelativeLayout
+                        android:id="@+id/rl_assets_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="185dp"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:background="@drawable/radius_bg_assets_card">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_assets_card_topmsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/basic_marginLR"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="@dimen/basic_marginLR">
+
+                            <TextView
+                                android:id="@+id/tv_my_assets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/my_assets"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/textNormal" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_eye"
+                                android:layout_width="30dp"
+                                android:layout_height="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/tv_my_assets">
+
+                                <ImageView
+                                    android:id="@+id/img_eye"
+                                    android:layout_width="16dp"
+                                    android:layout_height="10dp"
+                                    android:layout_centerInParent="true"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/cansee" />
+
+                            </RelativeLayout>
+
+
+                            <ImageView
+                                android:id="@+id/img_more"
+                                android:layout_width="32dp"
+                                android:layout_height="16dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/icon_more" />
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_my_assets_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_assets_card_topmsg"
+                            android:layout_marginLeft="@dimen/basic_marginLR"
+                            android:layout_marginTop="10dp"
+                            android:text="¥0.00"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_my_assets_value"
+                            android:layout_marginTop="23dp">
+
+                            <TextView
+                                android:id="@+id/tv_address"
+                                android:layout_width="175dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/basic_marginLR"
+                                android:ellipsize="middle"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/textNormal" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_copy"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/tv_address">
+
+                                <ImageView
+                                    android:id="@+id/img_copy"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_centerInParent="true"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/copy" />
+
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tv_hardware"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/basic_marginLR"
+                                android:text="@string/observer_wallet"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/textSmall"
+                                android:visibility="gone" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="47dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/radius_bg_assets_card_bottom">
+
+                            <View
+                                android:id="@+id/view_line1"
+                                android:layout_width="1dp"
+                                android:layout_height="12dp"
+                                android:layout_centerInParent="true"
+                                android:background="@color/white" />
+
+                            <!--转账-->
+                            <RelativeLayout
+                                android:id="@+id/rl_transfer"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toLeftOf="@+id/view_line1">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true">
+
+                                    <ImageView
+                                        android:id="@+id/img_transfer"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/transfer" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_toRightOf="@+id/img_transfer"
+                                        android:text="@string/transfer"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/textNormal" />
+
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+                            <!--收款-->
+                            <RelativeLayout
+                                android:id="@+id/rl_collect"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toRightOf="@+id/view_line1">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true">
+
+                                    <ImageView
+                                        android:id="@+id/img_collect"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/collect" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_toRightOf="@+id/img_collect"
+                                        android:text="@string/collect"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/textNormal" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <!--是否有备份助记词-->
+                    <LinearLayout
+                        android:id="@+id/ll_mnemonic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center_vertical"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/backup_warning_icon" />
+
+                        <TextView
+                            android:id="@+id/tv_no_mnemonic"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="6"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/no_back_up"
+                            android:textColor="@color/warning_red"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:text="@string/goto_back_up"
+                            android:textColor="#384aef"
+                            android:textSize="@dimen/textNormal" />
+
+                    </LinearLayout>
+
+
+                    <!--资产列表-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/radius_bg_white">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_mid_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="@dimen/basic_marginLR">
+
+                            <View
+                                android:id="@+id/view_line"
+                                android:layout_width="2dp"
+                                android:layout_height="14dp"
+                                android:layout_centerVertical="true"
+                                android:background="@color/btn_normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/basic_marginLR"
+                                android:text="@string/assets_details"
+                                android:textColor="@color/wallet_fg_text"
+                                android:textSize="@dimen/textBig" />
+
+
+                            <RelativeLayout
+                                android:id="@+id/img_add"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_centerInParent="true"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/add" />
+
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_mid_text"
+                            android:layout_marginLeft="@dimen/basic_marginLR"
+                            android:layout_marginRight="@dimen/basic_marginLR" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>

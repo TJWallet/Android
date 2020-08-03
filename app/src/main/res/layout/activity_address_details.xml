@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_chain_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_icon"
+                android:text="ETH"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#59a4a4e9" />
+
+        <!--转入地址-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/textNormal" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+        </LinearLayout>
+
+
+        <!--地址名称-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_name_hint"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/textNormal" />
+
+            <TextView
+                android:id="@+id/tv_address_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="0.00000252ETH"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+        </LinearLayout>
+
+
+        <!--描述-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_tips"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/textNormal" />
+
+            <TextView
+                android:id="@+id/tv_address_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_edit_address"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_collect_copy"
+        android:text="@string/edit_address"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+
+</RelativeLayout>

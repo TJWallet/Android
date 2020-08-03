@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- author:jason -->
+<resources>
+    <!-- 圆角图片圆角半径 -->
+    <declare-styleable name="RoundImageView">
+        <attr name="border_radius" format="integer">
+        </attr>
+    </declare-styleable>
+</resources>

@@ -1,19 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <!--        <RelativeLayout-->
+        <!--            android:id="@+id/main_fragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_above="@+id/main_tabbar">-->
+
+        <!--        </RelativeLayout>-->
+
+        <com.tianji.tjwallet.view.NoAnimationViewPager
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_above="@+id/main_tabbar">
 
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </com.tianji.tjwallet.view.NoAnimationViewPager>
+
+        <RelativeLayout
+            android:id="@+id/main_tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentTop="true"
+                android:background="@color/bottom_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!--钱包-->
+                <RelativeLayout
+                    android:id="@+id/rl_tabbar_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_tabbar_wallet"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_marginTop"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/wallet_selected" />
+
+                    <TextView
+                        android:id="@+id/tv_tabbar_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_tabbar_wallet"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_belowImg"
+                        android:gravity="center"
+                        android:text="@string/wallet"
+                        android:textSize="@dimen/tabbar_text_size" />
+                </RelativeLayout>
+
+                <!--资讯-->
+                <RelativeLayout
+                    android:id="@+id/rl_tabbar_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/img_tabbar_article"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_marginTop"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/icon_article_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_tabbar_article"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_tabbar_article"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_belowImg"
+                        android:gravity="center"
+                        android:text="@string/article"
+                        android:textSize="@dimen/tabbar_text_size" />
+                </RelativeLayout>
+
+                <!--发现-->
+                <RelativeLayout
+                    android:id="@+id/rl_tabbar_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_tabbar_find"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_marginTop"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/find_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_tabbar_find"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_tabbar_find"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_belowImg"
+                        android:gravity="center"
+                        android:text="@string/find"
+                        android:textSize="@dimen/tabbar_text_size" />
+                </RelativeLayout>
+
+                <!--我的-->
+                <RelativeLayout
+                    android:id="@+id/rl_tabbar_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_tabbar_main"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_marginTop"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/main_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_tabbar_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_tabbar_main"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/tabbar_item_belowImg"
+                        android:gravity="center"
+                        android:text="@string/main"
+                        android:textSize="@dimen/tabbar_text_size" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

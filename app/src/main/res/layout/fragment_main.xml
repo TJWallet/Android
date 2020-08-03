@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+        <!--钱包管理-->
+        <RelativeLayout
+            android:id="@+id/rl_wallet_manager"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_wallet_manager"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/wallet_manager" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/img_wallet_manager"
+                android:text="@string/wallet_manager"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#59a4a4e9" />
+
+
+        <!--地址簿-->
+        <RelativeLayout
+            android:id="@+id/rl_address_book"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_address"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/address" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/img_address"
+                android:text="@string/address_book"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_one"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <!--系统设置-->
+        <RelativeLayout
+            android:id="@+id/rl_setting"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_setting"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/setting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/img_setting"
+                android:text="@string/setting"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#59a4a4e9" />
+
+        <!--帮助中心-->
+        <RelativeLayout
+            android:id="@+id/rl_help_center"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_help"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/help" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/img_help"
+                android:text="@string/help_center"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#59a4a4e9" />
+
+        <!--关于我们-->
+        <RelativeLayout
+            android:id="@+id/rl_about_as"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/img_about_as"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/about_as" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/img_about_as"
+                android:text="@string/about_as"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+
+            <View
+                android:id="@+id/view_check_update"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/img_arrow_right"
+                android:background="@drawable/radius_red_point"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_arrow_right"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_choose_chain_type"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@drawable/radius_bg_white"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/eth_icon_selected" />
+
+            <TextView
+                android:id="@+id/tv_chain_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_icon"
+                android:text="ETH"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/radius_bg_white"
+            android:orientation="vertical">
+
+            <!--填写地址-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:background="@drawable/radius_btn_minor"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/basic_paddingLR"
+                android:paddingRight="@dimen/basic_paddingLR">
+
+                <EditText
+                    android:id="@+id/edt_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:hint="@string/edit_address_hint"
+                    android:textColor="@color/textMajor"
+                    android:textColorHint="@color/textHint"
+                    android:textSize="@dimen/textNormal" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_scan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/scan_dark" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--地址名称-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:background="@drawable/radius_btn_minor"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/basic_paddingLR"
+                android:paddingRight="@dimen/basic_paddingLR">
+
+                <EditText
+                    android:id="@+id/edt_address_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/address_name_hint"
+                    android:singleLine="true"
+                    android:textColor="@color/textMajor"
+                    android:textColorHint="@color/textHint"
+                    android:textSize="@dimen/textNormal" />
+
+            </LinearLayout>
+
+
+            <!--地址描述-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/radius_btn_minor"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/basic_paddingLR"
+                android:paddingRight="@dimen/basic_paddingLR">
+
+                <EditText
+                    android:id="@+id/edt_address_tips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/address_tips_hint"
+                    android:singleLine="true"
+                    android:textColor="@color/textMajor"
+                    android:textColorHint="@color/textHint"
+                    android:textSize="@dimen/textNormal" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_collect_copy"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textNormal" />
+
+        <Button
+            android:id="@+id/btn_delete_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/radius_btn_warning"
+            android:text="@string/delete_address"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textNormal" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

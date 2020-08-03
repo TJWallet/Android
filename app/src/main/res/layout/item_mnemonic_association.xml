@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_mnemonic_ass"
+    android:layout_width="68dp"
+    android:layout_height="40dp"
+    android:layout_marginRight="8dp"
+    android:background="@color/colorAccent15"
+    android:gravity="center"
+    android:minWidth="68dp"
+    android:minHeight="40dp"
+    android:textColor="@color/textMajor"
+    android:textSize="@dimen/textNormal">
+
+</TextView>

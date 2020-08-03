@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="77dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_bg_white"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/basic_paddingLR"
+            android:paddingBottom="@dimen/basic_paddingLR">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_dialog_wallet_manager"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/btn_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/set_pin"
+                    android:textColor="@color/textMajor"
+                    android:textSize="@dimen/textBig" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:text="@string/pin_desc"
+                android:textColor="@color/textMinor"
+                android:textSize="@dimen/textSmall" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal">
+
+                <!--1-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_one"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!--2-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_two"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <!--3-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_three"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <!--4-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_four"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <!--5-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_five"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_five"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <!--6-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_six"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/pin_edit_item"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edt_six"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="numberPassword"
+                            android:maxLength="1"
+                            android:singleLine="true"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+
+                        <View
+                            android:id="@+id/view_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="#00000000" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

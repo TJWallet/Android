@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="296dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/radius_bg_white"
+    android:minHeight="296dp"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/dialog_text_title" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_margin"
+        android:lineSpacingExtra="8dp"
+        android:textColor="@color/secondary"
+        android:textSize="@dimen/textNormal" />
+
+    <RelativeLayout
+        android:layout_width="232dp"
+        android:layout_height="232dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/colorAccent15">
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="168dp"
+            android:layout_height="168dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btn_positive"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_collect_copy"
+            android:text="@string/save_img"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSmall" />
+
+        <TextView
+            android:id="@+id/tv_negative"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@+id/btn_positive"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textSmall" />
+
+    </RelativeLayout>
+
+</LinearLayout>

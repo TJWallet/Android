@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:id="@+id/ll_wallet_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="78dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/radius_dialog_wallet_manager">
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="2dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:background="@color/btn_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/view_line"
+                android:text="@string/wallet_info"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+        </RelativeLayout>
+        <!--钱包名字-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_wallet_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:hint="@string/hint_wallet_name"
+                android:singleLine="true"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textNormal" />
+
+        </LinearLayout>
+
+        <!--钱包密码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="7"
+                android:background="@null"
+                android:hint="@string/hint_wallet_password"
+                android:singleLine="true"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textNormal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_pwd_eye"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_pwd_eye"
+                    android:layout_width="18dp"
+                    android:layout_height="12dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="center"
+                    android:src="@drawable/cantsee_dark" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--再次输入密码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_password_again"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="7"
+                android:background="@null"
+                android:hint="@string/hint_wallet_password_again"
+                android:singleLine="true"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textNormal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_pwd_eye_again"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_pwd_eye_again"
+                    android:layout_width="18dp"
+                    android:layout_height="12dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="center"
+                    android:src="@drawable/cantsee_dark" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--密码提示-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_pwd_remind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:hint="@string/hint_password_info"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textNormal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_wallet_info"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/radius_dialog_wallet_manager">
+
+            <View
+                android:id="@+id/view_line1"
+                android:layout_width="2dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:background="@color/btn_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/view_line1"
+                android:text="@string/save_path"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+        </RelativeLayout>
+
+        <!--本地存储-->
+        <LinearLayout
+            android:id="@+id/ll_save_path"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <TextView
+                android:id="@+id/tv_save_path"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="7"
+                android:background="@null"
+                android:maxLines="1"
+                android:text="@string/save_local"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow_down_dark" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/tv_import"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:textAllCaps="false"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_collect_copy"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+    <TextView
+        android:id="@+id/tv_import"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_btn_minor"
+        android:gravity="center"
+        android:text="@string/improt_my_walley"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/textNormal" />
+
+
+</RelativeLayout>

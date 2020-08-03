@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="1dp"
+            android:layout_height="8dp"
+            android:alpha="0.5"
+            android:visibility="invisible"
+            android:background="@color/tertiary">
+        </View>
+        <View
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/shape_round_primary_light_background">
+        </View>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:minHeight="200dp"
+            android:background="@color/tertiary">
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:paddingTop="4dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSmall"
+            android:minWidth="100dp"
+            android:background="@drawable/layer_skeleton_text_white_bg"
+            android:textColor="@color/tertiary">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/shape_card_background">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textBig"
+                android:background="@drawable/layer_skeleton_text_bg"
+                android:textColor="@color/primary">
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textNormal"
+                android:textColor="@color/secondary"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/layer_skeleton_text_bg">
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textNormal"
+                android:textColor="@color/secondary"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/layer_skeleton_text_bg">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+    
+</LinearLayout>

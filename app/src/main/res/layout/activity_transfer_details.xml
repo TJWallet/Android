@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <RelativeLayout
+            android:id="@+id/rl_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/actionBarHeight"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/rl_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top_bg"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="-42dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/transfer_info_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textMajor"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tv_coin_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/tv_amount"
+                    android:textColor="@color/textMajor"
+                    android:textSize="@dimen/textNormal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/img_transfer_type"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/tv_transfer_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/img_transfer_type"
+                        android:textColor="@color/textMajor"
+                        android:textSize="@dimen/textNormal" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/dotted_line"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:orientation="vertical">
+
+                <!--矿工费用-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/miner_fee"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4">
+
+                        <TextView
+                            android:id="@+id/tv_miner_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:id="@+id/tv_miner_fee_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/hintColor"
+                            android:textSize="@dimen/textNormal" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--付款地址-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/pay_address"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_pay_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:id="@+id/tv_from_wallet_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/textSmall"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--收款地址-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/collect_address"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_collect_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:id="@+id/tv_to_wallet_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/textSmall"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_check_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/check_info"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/textSmall"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--交易时间-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/transfer_time"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+                    <TextView
+                        android:id="@+id/tv_transfer_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:textColor="@color/textMajor"
+                        android:textSize="@dimen/textNormal" />
+
+                </LinearLayout>
+
+
+                <!--                &lt;!&ndash;备注&ndash;&gt;-->
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="23dp"-->
+                <!--                    android:orientation="horizontal">-->
+
+                <!--                    <TextView-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:text="@string/remarks"-->
+                <!--                        android:textColor="@color/transfer_details_title"-->
+                <!--                        android:textSize="@dimen/textNormal" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_remarks"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="4"-->
+                <!--                        android:text=""-->
+                <!--                        android:textColor="@color/textMajor"-->
+                <!--                        android:textSize="@dimen/textNormal" />-->
+
+                <!--                </LinearLayout>-->
+
+
+                <!--交易号-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/transfer_number"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+                    <TextView
+                        android:id="@+id/tv_transfer_hash"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:textColor="@color/textMajor"
+                        android:textSize="@dimen/textNormal" />
+
+                </LinearLayout>
+
+
+                <!--区块-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/block"
+                        android:textColor="@color/transfer_details_title"
+                        android:textSize="@dimen/textNormal" />
+
+                    <TextView
+                        android:id="@+id/tv_block"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:textColor="@color/textMajor"
+                        android:textSize="@dimen/textNormal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="35dp">
+
+                <ImageView
+                    android:id="@+id/img_qrcode"
+                    android:layout_width="106dp"
+                    android:layout_height="106dp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tv_to_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_qrcode"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#384AEF"
+                    android:textSize="@dimen/textNormal" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

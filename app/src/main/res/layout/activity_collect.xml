@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white">
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="68dp">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/basic_marginLR" />
+
+            <TextView
+                android:id="@+id/tv_collect_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_icon"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:src="@drawable/share" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/dotted_line"
+                android:layerType="software" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_set_amount"
+            android:layout_width="208dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/rl_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/radius_bg_collect_edt">
+
+            <EditText
+                android:id="@+id/edt_set_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="@string/set_amount"
+                android:inputType="number|numberDecimal"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/textNormal" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="228dp"
+            android:layout_height="228dp"
+            android:layout_below="@+id/rl_set_amount"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/eth_icon_selected" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_qrcode"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+
+        <Button
+            android:id="@+id/btn_copy_address"
+            android:layout_width="156dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_address"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/btn_collect_copy"
+            android:text="@string/copy_address"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textNormal" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

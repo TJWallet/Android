@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:layout_marginLeft="@dimen/basic_marginLR"
+    android:layout_marginRight="@dimen/basic_marginLR"
+    android:minHeight="68dp">
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/eth_icon_selected" />
+
+    <TextView
+        android:id="@+id/tv_chain_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_icon"
+        android:text="ETH"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/textNormal" />
+
+    <TextView
+        android:id="@+id/tv_complete_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/tv_chain_name"
+        android:text="(Ethereum)"
+        android:textColor="@color/textMinor"
+        android:textSize="@dimen/textNormal" />
+
+
+    <Switch
+        android:id="@+id/sw_assets"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:showText="false"
+        android:thumb="@drawable/switch_custom_thumb_selector"
+        android:track="@drawable/switch_custom_track_selector" />
+
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#59a4a4e9" />
+
+</RelativeLayout>

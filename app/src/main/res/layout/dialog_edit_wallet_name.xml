@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="296dp"
+    android:layout_height="176dp"
+    android:background="@drawable/radius_bg_white"
+    android:minWidth="296dp"
+    android:minHeight="176dp"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/basic_paddingLR"
+    android:paddingRight="@dimen/basic_paddingLR">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/radius_dialog_wallet_manager">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="修改钱包名称"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textBig" />
+
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/close_dark" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/radius_btn_minor"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <EditText
+            android:id="@+id/edt_wallet_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:hint="请输入新的钱包名称"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textSmall" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_edit_wallet_name_ok"
+        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_collect_copy"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+
+</LinearLayout>

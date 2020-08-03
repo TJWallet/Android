@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <!--中文-->
+        <RelativeLayout
+            android:id="@+id/rl_chinese"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_language_icon"
+                android:text="@string/chinese"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:id="@+id/img_chinese"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/checked"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#59a4a4e9" />
+        <!--英文-->
+        <RelativeLayout
+            android:id="@+id/rl_english"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_language_icon"
+                android:text="@string/english"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <ImageView
+                android:id="@+id/img_english"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/checked"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_collect_copy"
+        android:gravity="center"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+</RelativeLayout>

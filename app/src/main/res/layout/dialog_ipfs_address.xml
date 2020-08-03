@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/radius_dialog_wallet_manager"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/basic_paddingLR"
+    android:paddingRight="@dimen/basic_paddingLR"
+    android:paddingBottom="@dimen/basic_paddingLR">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_title_block_height"
+        android:background="@drawable/radius_dialog_wallet_manager">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/ipfs_address_info"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textBig"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/close_dark" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ipfs_hash_address"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/textNormal"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_ipfs_hash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorAccent15"
+        android:orientation="horizontal"
+        android:padding="@dimen/basic_paddingLR">
+
+        <TextView
+            android:id="@+id/tv_ipfs_hash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/primaryLight"
+            android:textSize="@dimen/textNormal" />
+
+        <ImageView
+            android:id="@+id/img_copy"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@drawable/copy_dark" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/public_node"
+        android:textColor="@color/textMajor"
+        android:textSize="@dimen/textNormal"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_ipfs_web_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorAccent15"
+        android:orientation="horizontal"
+        android:padding="@dimen/basic_paddingLR">
+
+        <TextView
+            android:id="@+id/tv_ipfs_web_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@drawable/enter" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_ipfs_web_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorAccent15"
+        android:orientation="horizontal"
+        android:padding="@dimen/basic_paddingLR">
+
+        <TextView
+            android:id="@+id/tv_ipfs_web_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@drawable/enter" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_ipfs_web_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorAccent15"
+        android:orientation="horizontal"
+        android:padding="@dimen/basic_paddingLR">
+
+        <TextView
+            android:id="@+id/tv_ipfs_web_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/textMajor"
+            android:textSize="@dimen/textNormal" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@drawable/enter" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="17dp"
+        android:text="@string/ipfs_dialog_bottom_desc"
+        android:textColor="@color/tertiary"
+        android:textSize="@dimen/textNormal"
+        android:textStyle="bold" />
+
+</LinearLayout>

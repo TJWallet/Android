@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/white" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/basic_btn_radius"
+        android:bottomRightRadius="@dimen/basic_btn_radius"
+        android:topLeftRadius="@dimen/basic_btn_radius"
+        android:topRightRadius="@dimen/basic_btn_radius" />
+</shape>

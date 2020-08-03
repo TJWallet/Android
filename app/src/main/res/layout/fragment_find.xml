@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?><!-- author:jason -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/svMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="32dp">
+
+                <RelativeLayout
+                    android:id="@+id/layoutHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/shape_round_angle_background"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="16dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/discovery_search_icon" />
+
+                        <TextView
+                            android:id="@+id/tvGoSearch"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="6dp"
+                            android:paddingEnd="6dp"
+                            android:text="@string/search_dapp"
+                            android:textColor="@color/hintColor"
+                            android:textSize="@dimen/textNormal" />
+
+                        <ImageButton
+                            android:id="@+id/btnScanCode"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:background="@color/transparent"
+                            app:srcCompat="@drawable/discovery_scan_icon" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- 轮播广告 -->
+                <com.tianji.tjwallet.component.RoundAngleLayout
+                    android:id="@+id/layoutBannerWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@+id/layoutHeader"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="-100dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_card_background">
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/bannerTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.tianji.tjwallet.component.RoundImageView
+                        android:id="@+id/ivBannerPlaceholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_discovery_banner_default"
+                        android:visibility="gone"
+                        app:border_radius="12" />
+
+                </com.tianji.tjwallet.component.RoundAngleLayout>
+
+                <!-- 最近使用 -->
+                <LinearLayout
+                    android:id="@+id/layoutRecentUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutBannerWrapper"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_card_background"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="14dp"
+                            android:background="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvRecentTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="12dp"
+                            android:text="@string/recently_used"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/textBig" />
+
+                        <Button
+                            android:id="@+id/btnMoreRecent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/more"
+                            android:textAllCaps="false"
+                            android:textColor="@color/tertiary"
+                            android:textSize="@dimen/textNormal" />
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginEnd="16dp"
+                            android:scaleType="center"
+                            android:src="@drawable/icon_into" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="horizontal">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvRecentList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutRecentNoData"
+                            android:layout_width="62dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/btnAddRecent"
+                                android:layout_width="62dp"
+                                android:layout_height="62dp"
+                                android:background="@drawable/shape_dotted_border"
+                                android:text="+"
+                                android:textColor="@color/hintColor"
+                                android:textSize="@dimen/textBig" />
+
+                            <TextView
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="@string/no_data"
+                                android:textAlignment="center"
+                                android:textColor="@color/hintColor"
+                                android:textSize="@dimen/textNormal" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 推荐专栏 -->
+                <LinearLayout
+                    android:id="@+id/layoutRecommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutRecentUse"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_card_background"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="14dp"
+                            android:background="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvRecommendTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="12dp"
+                            android:text="@string/recommend_this_week"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/textBig" />
+
+                        <Button
+                            android:id="@+id/btnMoreRecommend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/more"
+                            android:textAllCaps="false"
+                            android:textColor="@color/tertiary"
+                            android:textSize="@dimen/textNormal" />
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginEnd="16dp"
+                            android:scaleType="center"
+                            android:src="@drawable/icon_into" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvRecommendSkeletonList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvRecommendList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp" />
+                </LinearLayout>
+
+                <!-- 排行榜 -->
+                <LinearLayout
+                    android:id="@+id/layoutRanking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutRecommend"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_card_background"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="14dp"
+                            android:background="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvRankingTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="12dp"
+                            android:text="@string/rank_list"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/textBig" />
+
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/btnChoosePlatform"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:textColor="@color/tertiary"-->
+                        <!--                            android:minHeight="0dp"-->
+                        <!--                            android:minWidth="0dp"-->
+                        <!--                            android:textSize="@dimen/textNormal"-->
+                        <!--                            android:text="更多"-->
+                        <!--                            android:background="@color/transparent">-->
+                        <Button
+                            android:id="@+id/btnMoreRanking"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/more"
+                            android:textAllCaps="false"
+                            android:textColor="@color/tertiary"
+                            android:textSize="@dimen/textNormal" />
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginEnd="16dp"
+                            android:scaleType="center"
+                            android:src="@drawable/icon_into" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvRankingSkeletonList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvRankingList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
+
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/btnMoreRanking"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="36dp"-->
+                    <!--                        android:minWidth="0dp"-->
+                    <!--                        android:layout_marginStart="16dp"-->
+                    <!--                        android:layout_marginEnd="16dp"-->
+                    <!--                        android:layout_marginTop="12dp"-->
+                    <!--                        android:background="@drawable/shape_gray_button_background"-->
+                    <!--                        android:textColor="@color/secondary"-->
+                    <!--                        android:textSize="@dimen/textNormal"-->
+                    <!--                        style="?android:attr/borderlessButtonStyle"-->
+                    <!--                        android:text="更多"-->
+                    <!--                        android:layout_marginBottom="6dp"-->
+                    <!--                        android:textAlignment="center">-->
+                    <!--                    </Button>-->
+                </LinearLayout>
+
+                <!-- 专栏列表 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopicList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutRanking" />
+
+                <LinearLayout
+                    android:id="@+id/layoutLoadMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rvTopicList"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="10dp">
+
+                    <ProgressBar
+                        style="@android:style/Widget.Holo.Light.ProgressBar.Small.Inverse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/loading"
+                        android:textColor="@color/tertiary"
+                        android:textSize="@dimen/textNormal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutPoweredBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rvTopicList"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Powered by "
+                        android:textColor="@color/tertiary"
+                        android:textSize="@dimen/textNormal" />
+
+                    <TextView
+                        android:id="@+id/tvWebsite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="dapponline.io"
+                        android:textColor="@color/tertiary"
+                        android:textSize="@dimen/textNormal" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

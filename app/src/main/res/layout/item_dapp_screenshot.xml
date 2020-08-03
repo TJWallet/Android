@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- author:jason -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.tianji.tjwallet.component.RoundImageView
+        android:id="@+id/ivScreenshot"
+        android:layout_width="230dp"
+        android:layout_height="154dp"
+        android:src="@drawable/img_screenshot_default"
+        android:scaleType="centerCrop"
+        app:border_radius="4"
+        android:layout_marginEnd="16dp">
+    </com.tianji.tjwallet.component.RoundImageView>
+</LinearLayout>

@@ -1,0 +1,541 @@
+<resources>
+    <string name="app_name">TJWallet</string>
+    <string name="app_name_show">TJ Wallet</string>
+
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="company_name">深圳天玑数据有限公司</string>
+
+    <!--MainActivity-->
+    <string name="wallet">钱包</string>
+    <string name="main">我的</string>
+    <string name="find">发现</string>
+    <string name="article">资讯</string>
+
+    <!--WalletFragment-->
+    <string name="my_assets">我的资产</string>
+    <string name="transfer">转账</string>
+    <string name="collect">收款</string>
+    <string name="assets_details">资产明细</string>
+    <string name="no_back_up">您还没有对钱包进行备份，可能会影响资产安全</string>
+    <!--    <string name="no_back_up">ⓘ 您还没有对钱包进行备份，可能会影响资产安全</string>-->
+    <string name="goto_back_up">前往备份</string>
+
+    <!--CollectActivity-->
+    <string name="set_amount">点击设置收款金额</string>
+    <string name="copy_address">复制地址</string>
+    <string name="copy_success">复制成功</string>
+
+    <!--DialogWalletManager-->
+    <string name="software_wallet">软件钱包</string>
+    <string name="hardware_wallet">硬件钱包</string>
+    <string name="add_wallet">添加钱包</string>
+
+    <!--AssetsDetailsActivity-->
+    <string name="all">全部</string>
+    <string name="transfer_into">转入</string>
+    <string name="transfer_out">转出</string>
+
+    <!--TransferDetailsActivity-->
+    <string name="transfer_details">交易详情</string>
+    <string name="transfer_success">交易成功</string>
+    <string name="miner_fee">矿工费用</string>
+    <string name="pay_address">付款地址</string>
+    <string name="collect_address">收款地址</string>
+    <string name="transfer_time">交易时间</string>
+    <string name="remarks">备注信息</string>
+    <string name="transfer_number">交易哈希</string>
+    <string name="block">区块高度</string>
+
+    <!--HomeActivity-->
+    <string name="create_import_wallet">创建/导入钱包</string>
+    <string name="create_import_wallet_desc">创建或通过助记词/私钥/keystore导入钱包</string>
+    <string name="bind_hardware_wallet">配对硬件钱包</string>
+    <string name="bind_hardware_wallet_desc">连接并配对 W1 硬件钱包</string>
+    <string name="create_wallet">创建钱包</string>
+    <string name="import_wallet">导入钱包</string>
+
+    <!--SelectWalletTypeActivity-->
+    <string name="eth">ETH</string>
+    <string name="eth_details">ETH及所有ERC20代币</string>
+    <string name="file_coin">FileCoin</string>
+    <string name="file_coin_details">去中心化的存储网络</string>
+    <string name="btc">BTC</string>
+    <string name="btc_details">比特币</string>
+    <string name="open_wait">即将开放</string>
+    <string name="acl">ACL</string>
+    <string name="acl_details">“物联网+区块链”价值物联网生态系统</string>
+
+    <!--CreateWalletActivity-->
+    <string name="wallet_info">钱包信息</string>
+    <string name="save_path">存储地址</string>
+    <string name="save_local">本地存储</string>
+    <string name="save_hardware">硬件存储</string>
+    <string name="hint_wallet_name">钱包名称（备注）</string>
+    <string name="hint_wallet_password">钱包密码</string>
+    <string name="hint_wallet_password_again">再次输入密码</string>
+    <string name="hint_password_info">密码提示信息（选填）</string>
+    <!--CreateWalletSuccessActivity-->
+    <string name="back_up_mnemonic">备份助记词</string>
+    <string name="wallet_success_tips_1">钱包创建成功，</string>
+    <string name="wallet_success_tips_2">现在立即备份你的钱包！</string>
+    <string name="wallet_success_tips_3">• 请勿将助记词透露给任何人，也不能保存在网络上</string>
+    <string name="wallet_success_tips_4">• TJWallet是去中心化钱包，不会存储您的私钥和助记词</string>
+    <string name="wallet_success_tips_5">• 在收款或卸载TJWallet前，务必完成助记词备份</string>
+    <string name="wallet_success_tips_6">恭喜，您的钱包已经创建成功！【助记词】是恢复钱包资产的唯一途径，一旦丢失，资产将无法找回。为了您的钱包资产安全，建议立刻使用纸和笔备份下面【助记词】。</string>
+    <string name="next_tap">下一步</string>
+    <string name="remember">切记：</string>
+    <string name="jump_back_up_later">稍后备份（不建议）</string>
+    <string name="improt_my_walley">导入已有钱包</string>
+
+    <!--BackUpMnemonicActivity-->
+    <string name="write_mnemonic">备份助记词</string>
+    <string name="write_mnemonic_tips1">抄写下面钱包助记词</string>
+    <string name="write_mnemonic_tips2">任何人获得了助记词就意味着获得了资产所有权，为了安全请不要拍照/截屏保存！建议将它抄写到纸上，并存放在安全的地方。</string>
+    <string name="write_mnemonic_tips3">请将它准确抄写到纸上，并存放在安全的地方。</string>
+    <string name="back_up_ed">已备份，去验证</string>
+
+    <!--VerificationMnemonicActivity-->
+    <string name="verification_mnemonic">验证助记词</string>
+    <string name="verification_mnemonic_tips1">确认你的钱包助记词</string>
+    <string name="verification_mnemonic_tips2">请按顺序点击助记词，以确认你的助记词备份无误。</string>
+    <string name="verification">验证</string>
+
+    <!--password_dialog-->
+    <string name="enter_password">请输入钱包密码</string>
+    <string name="submit">提交</string>
+
+    <!--MainFragment-->
+    <string name="wallet_manager">钱包管理</string>
+    <string name="address_book">地址簿</string>
+    <string name="setting">系统设置</string>
+    <string name="help_center">帮助中心</string>
+    <string name="about_as">关于我们</string>
+
+    <!--WalletDetailsActivity-->
+    <string name="password_tips">密码提示信息</string>
+    <string name="edit_password">修改密码</string>
+    <string name="export_mnemonics">导出助记词</string>
+    <string name="export_keystore">导出Keystore</string>
+    <string name="export_private_key">导出私钥</string>
+    <string name="delete_wallet">删除钱包</string>
+    <string name="delete_explanation">钱包删除后只能通过助记词或私钥恢复，请先进行备份</string>
+    <string name="export_private_key_explanation">私钥未经加密，导出有风险，请妥善保存</string>
+    <string name="close">关闭</string>
+    <string name="tips">提示</string>
+    <string name="goto_backup">去备份</string>
+    <string name="no_tips">提示信息为空</string>
+
+    <!--ExportKeystoreActivity-->
+    <string name="export_keystore_warning">请勿拍照或截图，Keystore泄露将导致您的资产不再安全，请妥善保管好您的Keystore文件。</string>
+    <string name="show_qrcode">显示二维码</string>
+    <string name="copy">复制</string>
+
+    <!--EditPasswordActivity-->
+    <string name="hint_current_password">当前密码</string>
+    <string name="hint_new_password">新密码</string>
+    <string name="hint_new_password_again">再次输入密码</string>
+
+    <!--ImportWalletActivity-->
+    <string name="mnemonics">助记词</string>
+    <string name="private_key">私钥</string>
+    <string name="keystore">Keystore</string>
+    <string name="import_by_mnemonics_hint">请输入助记词，用空格隔开</string>
+    <string name="import_by_private_key_hint">请输入私钥内容</string>
+    <string name="import_by_keystore_hint">请复制粘贴以太坊钱包Keystore文件至此处，或通过扫描Keystore二维码录入。</string>
+    <string name="keystore_password_hint">Keystore密码</string>
+
+    <!--CompleteInfoActivity-->
+    <string name="complete_info">设置安全信息</string>
+    <!--WelcomeActivity-->
+    <string name="slogan">专业可信赖的数字资产管理工具</string>
+
+    <!--TransferActivity-->
+    <string name="payment_address">收款地址</string>
+    <string name="transfer_amount">转账金额</string>
+    <string name="transfer_tips">转账备注</string>
+    <string name="miners_fee">矿工费用</string>
+    <string name="slow">慢</string>
+    <string name="fast">快</string>
+
+    <!--TransferDetailsDialog-->
+    <string name="pay_details">支付详情</string>
+    <string name="transfer_into_address">转入地址</string>
+    <string name="transfer_out_address">付款地址</string>
+    <string name="transfer_type">交易类型</string>
+
+    <!--EditAddressActivity-->
+    <string name="edit_address">编辑地址</string>
+    <string name="edit_address_hint">请输入有效的钱包地址</string>
+    <string name="address_name_hint">地址名称</string>
+    <string name="address_tips_hint">描述信息(选填）</string>
+    <string name="save">保存</string>
+    <string name="delete_address">删除地址</string>
+    <string name="new_address">新建地址</string>
+    <string name="address_details">地址详情</string>
+    <string name="address_tips">描述信息</string>
+
+    <!--AddAssetsActivity-->
+    <string name="add_coin">添加币种</string>
+    <string name="search_coin_hint">搜索添加数字货币</string>
+    <string name="search">搜索</string>
+
+    <!--HardwareWalletGuideActivity-->
+    <string name="hardware_guide_title">请将 W1 硬件钱包连接到手机</string>
+    <string name="hardware_guide_tips1">1 打开手机【设置】-【系统】-【OTG数据】,设为开启;</string>
+    <string name="hardware_guide_tips2">2 将 W1 硬件钱包通过充电口接入手机；</string>
+    <string name="hardware_guide_tips3">3 重新打开 TJWallet 客户端，确认硬件包连接成功。</string>
+    <string name="hardware_guide_tips4">温馨提示：若一直显示未连接，请确认OTG功能是否正常开启，硬件钱包与手机是否接触不良。</string>
+    <string name="use_tutorial">使用教程</string>
+    <string name="hardware_init_title">初始化提示</string>
+    <string name="hardware_init_content">检测到您当前的 W1 钱包尚未初始化，是否现在初始化并创建新的钱包地址?</string>
+    <string name="hardware_init_btn_ok">初始化</string>
+    <string name="hardware_has_wallet_title">检测到硬件接入</string>
+    <string name="hardware_has_wallet_content">是否切换到 W1 硬件钱包资产界面？</string>
+    <string name="hardware_has_wallet_btn_ok">切换</string>
+    <string name="hardware_disconnect_title">断开连接</string>
+    <string name="hardware_disconnect_content">检测到硬件钱包已断开，若需要继续进行查看/交易操作，请重新连接</string>
+
+
+    <!--AboutUsActivity-->
+    <string name="feedback">意见反馈</string>
+    <string name="service_agreement">服务协议</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="check_for_updates">检查更新</string>
+    <string name="has_new_version">新版本</string>
+
+    <!--SelectAssetsActivity-->
+    <string name="choose_coin">选择币种</string>
+
+
+    <!--HelpCenterActivity-->
+    <string name="your_problem">您遇到的问题？</string>
+    <string name="search_help_content">搜索帮助内容</string>
+    <string name="more">更多</string>
+
+    <!--InformationListActivity-->
+    <string name="information">消息</string>
+    <string name="information_details">消息详情</string>
+
+
+    <!--自升级-->
+    <string name="update_now">立即升级</string>
+    <string name="update_wait">暂不升级</string>
+
+
+    <string name="select_wallet_chain">选择钱包体系</string>
+
+    <!--初始化钱包-->
+    <string name="init_wallet">初始化钱包</string>
+    <string name="set_pin">设置安全PIN码</string>
+    <string name="set_pin_again">再次输入PIN码</string>
+    <string name="pin_desc">每次使用 W1 硬件钱包进行交易转账时，都需要验证PIN码</string>
+
+    <!--新硬件流程-->
+    <string name="management">管理</string>
+    <string name="create_wallet_success">备份助记词</string>
+    <string name="wallet_verification_success">钱包备份成功</string>
+    <string name="verification_success_tips1">注意，出于安全起见，TJWallet不会保存您钱包的密码、私钥和助记词，也无法帮您找回它们，所以请务必妥善保管您的【助记词】。</string>
+    <string name="verification_success_tips2">A. 如果助记词丢失，用户记得钱包密码且未曾卸载钱包，可通过个人中心—钱包管理—查看钱包详情—导出助记词重新进行备份，再进行钱包恢复，并根据实际需要转移资产。</string>
+    <string name="verification_success_tips3">B. 如果助记词丢失并且忘记钱包密码，只能努力找回密码或找回助记词，如不能记起，钱包资产将无法找回。</string>
+
+
+    <!--硬件相关提示-->
+    <string name="no_connect">USB 未连接 ...</string>
+    <string name="dis_connect">USB 已断开 ...</string>
+
+    <!--新的创建钱包流程-->
+    <string name="agreed_comply">我已阅读并同意遵守</string>
+    <string name="service_agree">TJWallet服务协议</string>
+    <string name="select_chain_type_desc">请选择你要使用的钱包体系，添加一个新的钱包。</string>
+    <string name="select_add_wallet_type">选择添加 %1$s 方式</string>
+    <string name="select_add_wallet_type_desc">你可以通过备份的助记词、私钥和Keystore导入已有的钱包,也可以创建一个新的钱包地址。</string>
+    <string name="add_for_import_mnemonic">通过助记词导入</string>
+    <string name="add_for_import_private_key">通过私钥导入</string>
+    <string name="add_for_import_keystore">通过Keystore和密码导入</string>
+    <string name="add_for_create_new_wallet">创建一个新钱包</string>
+    <string name="set_wallet_name">设置钱包名称</string>
+    <string name="set_wallet_name_desc">钱包名称可以帮助您区分不同的钱包账户</string>
+    <string name="set_wallet_name_hint">1-10个中英文字符</string>
+    <string name="step_3_1">步骤1/3</string>
+    <string name="step_3_2">步骤2/3</string>
+    <string name="step_3_3">步骤3/3</string>
+    <string name="step_4_1">步骤1/4</string>
+    <string name="step_4_2">步骤2/4</string>
+    <string name="step_4_3">步骤3/4</string>
+    <string name="step_4_4">步骤4/4</string>
+    <string name="step_2_1">步骤1/2</string>
+    <string name="step_2_2">步骤2/2</string>
+    <string name="step_2_set_wallet_password">设置钱包密码</string>
+    <string name="step_2_set_wallet_password_desc1">· 密码用于加密保护私钥、转账，所以强度非常重要</string>
+    <string name="step_2_set_wallet_password_desc2">· TJWallet不存储密码，也无法帮您找回，请务必牢记</string>
+    <string name="step_2_set_wallet_password_hint">请输入钱包密码</string>
+    <string name="step_2_set_wallet_password_factor_title">您的密码应符合以下条件：</string>
+    <string name="step_2_set_wallet_password_factor_1">至少1个大写字母</string>
+    <string name="step_2_set_wallet_password_factor_2">至少1个小写字母</string>
+    <string name="step_2_set_wallet_password_factor_3">至少1个数字</string>
+    <string name="step_2_set_wallet_password_factor_4">至少8个字符</string>
+    <string name="step_3_set_wallet_password">再次输入密码</string>
+    <string name="step_3_set_wallet_password_hint">再次输入密码</string>
+    <string name="import_by_mnemonic_step_1_title_1">输入助记词</string>
+    <string name="import_by_mnemonic_step_1_desc">支持12位助记词导入。</string>
+    <string name="import_by_mnemonic_step_1_hint">输入前4个字母就会出现完整的单词</string>
+    <string name="import_by_mnemonic_step_1_title_2">已输入的助记词(点击可修改)</string>
+    <string name="import_by_private_key_step_1_title">输入私钥</string>
+    <string name="import_by_private_key_step_1_desc">直接在下方输入私钥内容，或扫描二维码导入。</string>
+    <string name="import_by_keystore_step_1_title_1">输入Keystore</string>
+    <string name="import_by_keystore_step_1_desc">请复制黏贴Keystore内容到输入框，或扫描二维码导入</string>
+    <string name="import_by_keystore_step_1_title_2">输入Keystore密码</string>
+
+    <!--转账界面重做-->
+    <string name="change_wallet">切换付款钱包</string>
+    <string name="change_coin">切换币种</string>
+
+    <!--设备管理界面-->
+    <string name="hardware_type">设备类型</string>
+    <string name="hardware_id">设备ID</string>
+    <string name="clear_hardware">恢复出厂设置</string>
+    <string name="hardware_info">设备详情</string>
+    <string name="delete_hardware">解除设备绑定</string>
+    <string name="usb_init_time">设备创建时间</string>
+
+
+    <!--一些弹窗异常流-->
+    <string name="verify_pwd">验证密码</string>
+    <string name="delete_hardware_cookie">解除设备绑定不会影响您硬件钱包中的资产安全，但下次使用需要重新绑定。</string>
+    <string name="hardware_not_connect">硬件钱包未连接</string>
+    <string name="hardware_not_connect_commdesc">检测到 W1 硬件钱包已断开，请重新连接</string>
+    <string name="hardware_not_connect_desc">检测到 W1 硬件钱包已断开，若需要进行交易转账，请重新连接</string>
+    <string name="password_wrong">密码错误</string>
+    <string name="WALLET_FILE_KEYSTORE_PWD_ERROR">Keystore密码不正确</string>
+    <string name="WALLET_FILE_ADDRESS_EXISTS">钱包地址已经存在</string>
+    <string name="WALLET_FILE_ENCRYPT_FAIL">钱包文件加密失败</string>
+    <string name="WALLET_FILE_PASSWORD_ERROR">密码有误,请重新输入</string>
+    <string name="WALLET_FILE_CONTENT_ERROR">钱包文件内容错误</string>
+    <string name="WALLET_FILE_NOT_EXISTS">本地已存在相同的钱包地址，无法继续添加</string>
+    <string name="import_failed">导入失败了~</string>
+    <string name="KEYSTORE_NOT_SUPPORT">不支持当前的Keystore类型</string>
+    <string name="password_has_error">密码格式不正确，只支持~`!@#%<![CDATA[&]]>*.?、,_等特殊字符。</string>
+    <string name="password_not_same">两次输入的密码不一致</string>
+    <string name="create_wallet_failed">创建钱包失败</string>
+
+    <string name="dialog_password_1">验证密码</string>
+    <string name="dialog_password_2">验证PIN码</string>
+
+    <string name="mnemonic_wrong">助记词不匹配</string>
+    <string name="get_wallet_list_failed">获取钱包列表失败</string>
+    <string name="get_hardware_mac_failed">获取设备序列号失败</string>
+
+    <string name="transfer_failed">交易失败</string>
+    <string name="to_address_isempty">请输入收款地址</string>
+    <string name="value_isempty">请输入转账金额</string>
+    <string name="money_not_enough">%1$s 余额不足</string>
+    <string name="fee_not_enough">ETH余额不足以支付矿工费用</string>
+
+    <string name="delete_wallet_fail">删除钱包失败</string>
+    <string name="edit_wallet_name_fail">修改名称失败</string>
+    <string name="edit_wallet_name_isempty">请输入钱包名称</string>
+    <string name="export_keystore_failed">导出Keystore失败</string>
+    <string name="export_mnemonics_failed">导出助记词失败</string>
+    <string name="has_not_mnemonics">不是通过助记词创建，无法导出助记词</string>
+    <string name="password_isempty">密码不允许为空</string>
+    <string name="edit_password_failed">修改密码失败</string>
+    <string name="no_data">暂无数据</string>
+    <string name="no_hardware">暂无硬件</string>
+    <string name="no_backup">您还没有对钱包进行备份，可能会影响资产安全，请先进行备份。</string>
+
+    <string name="delete_err">恢复出厂设置出现异常</string>
+    <string name="btc_cant_import_by_keystore">BTC无法使用keyStore导入钱包</string>
+    <string name="WALLET_FILE_NAME_EXISTS">钱包名称已经存在</string>
+    <string name="nothing_err">未知错误</string>
+    <string name="no_backup1">未备份</string>
+    <string name="keystore_password_isempty">keyStore或密码不能为空</string>
+
+    <!--跳过助记词弹窗-->
+    <string name="jump_backup">助记词非常重要，一旦丢失就无法找回，是否现在跳过备份？</string>
+    <string name="close_update">隐藏窗口</string>
+    <string name="already_new_version">当前已是最新版本</string>
+
+    <string name="eth_wallet">ETH钱包</string>
+    <string name="all_wallet">全部钱包</string>
+    <string name="acl_wallet">ACL钱包</string>
+    <string name="btc_wallet">BTC钱包</string>
+    <string name="filecoin_wallet">FileCoin钱包</string>
+
+    <!--TransferDetailsActivity-->
+    <string name="transfer_fail">交易失败</string>
+    <string name="transfer_wait">交易处理中</string>
+
+    <string name="start_backup">开始备份</string>
+
+    <!--交易详情弹窗-->
+    <string name="input_address">转出地址</string>
+    <string name="ouput_address">接收地址</string>
+    <string name="check_info">查看详情</string>
+
+
+    <!--编辑弹窗-->
+    <string name="edit_wallet_name">修改钱包名称</string>
+    <string name="edit_wallet_name_hint">钱包名称</string>
+    <string name="edit_hardware_name">修改硬件名称</string>
+    <string name="edit_hardware_name_hint">硬件名称</string>
+
+    <!--交易详情页-->
+    <string name="to_check_eth">到 Etherscan 查询更详细信息</string>
+    <string name="to_check_btc">到 BTC 查询更详细信息</string>
+    <string name="to_check_acl">到 ACL 查询更详细信息</string>
+
+    <!-- 扫码Activity -->
+    <string name="scan_qrcode_tips">扫描二维码/收款码/钱包地址/Keystore码</string>
+
+    <!--验证地址合法性-->
+    <string name="not_ETH_address">地址格式不符合ETH规范</string>
+    <string name="not_ACL_address">地址格式不符合ACL规范</string>
+    <string name="not_BTC_address">地址格式不符合BTC规范</string>
+
+    <!--地址簿编辑页面-->
+    <string name="address_entity_create_success">地址存储成功</string>
+    <string name="address_entity_edit_success">地址编辑成功</string>
+    <string name="address_addressname_isempty">地址和地址名称不能为空</string>
+    <string name="mnemonic_format_error">助记词格式不对</string>
+
+
+    <string name="show_keystore_password">Keystore密码: %1$s</string>
+    <string name="observer_wallet">观察钱包</string>
+
+
+    <string name="off_website">官方网站</string>
+    <string name="wechat_public_account">微信公众号</string>
+    <string name="wechat_public_account_content">您可以通过微信公众号“TJWallet”与我们联系，我们会在第一时间帮您解决问题</string>
+    <string name="off_email">客服邮箱</string>
+    <string name="off_website_content">https://tjwallet.net</string>
+    <string name="off_email_content">contact@tjwallet.net</string>
+    <string name="save_img">保存图片</string>
+    <string name="keystore_qrcoed_title">Keystore二维码</string>
+    <string name="keystore_qrcoed_desc">二维码仅供直接扫描，请在安全的环境下使用，禁止截图、拍照，以免造成不可挽回的资金损失。</string>
+    <string name="save_img_success">保存图片成功</string>
+
+    <string name="get_usb_info_fail">获取硬件信息失败，请重新拔插usb</string>
+    <string name="no_network_title">请检查网络连接</string>
+    <string name="no_network_desc">未联网的状态下，钱包资产信息无法进行更新并且无法交易。</string>
+
+    <string name="wallet_create_time">钱包创建时间</string>
+    <string name="all_readed">全部已读</string>
+
+    <string name="wallet_name_isempty">钱包名称不能为空</string>
+    <string name="wallet_name_not_format">钱包名称格式不正确,只支持~`!@#%<![CDATA[&]]>*.?、,_等特殊字符。</string>
+    <string name="delete_usb_tips_desc">恢复出厂设置会删除您硬件设备中的钱包，并重新生成新的钱包地址，请先确认您的钱包资产和备份状态，以免造成损失。</string>
+
+    <!--dapp 资产咨询部分-->
+    <string name="select_share_type">选择分享平台</string>
+    <string name="update_article_toast">更新了%1$s条快讯</string>
+    <string name="get_recommend_fail_try_again">获取推荐列表失败，下拉再次获取</string>
+    <string name="get_rank_fail_try_again">获取排行榜失败，下拉再次获取</string>
+    <string name="recently_used">最近使用</string>
+    <string name="recommend_this_week">本周推荐</string>
+    <string name="rank_list">排行榜</string>
+    <string name="search_dapp">搜索DApp</string>
+    <string name="loading">正在加载，请稍后...</string>
+    <string name="bulletin">快讯</string>
+    <string name="share">分享</string>
+    <string name="count_zan">次赞</string>
+    <string name="score">个评分</string>
+    <string name="introduction">简介</string>
+    <string name="social">社交</string>
+    <string name="assets_info">资产信息</string>
+    <string name="user_24h">24H用户</string>
+    <string name="turnover_24h">24H成交额</string>
+    <string name="turnover_7d">7D成交额</string>
+    <string name="volume_24h">24H成交量</string>
+    <string name="volume_7d">7D成交量</string>
+    <string name="statistics">数据统计</string>
+    <string name="hour_24">24小时</string>
+    <string name="day_7">7天</string>
+    <string name="web_snapshot">网页快照</string>
+    <string name="contract_address">合约地址</string>
+    <string name="related_news">相关动态</string>
+    <string name="recommend_dapp">推荐DApp</string>
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thersday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期日</string>
+    <string name="is_bottom">已经到底了</string>
+    <string name="open">打开</string>
+
+    <!--ipfs-->
+    <string name="ipfs_address">IPFS地址：%1$s</string>
+    <string name="ipfs_address_info">地址详情</string>
+    <string name="ipfs_hash_address">IPFS 哈希地址</string>
+    <string name="public_node">公共节点</string>
+    <string name="ipfs_dialog_bottom_desc">本文内容已上传IPFS「星际文件存储系统」.</string>
+    <string name="ipfs_help">IPFS</string>
+    <string name="ipfs_help_desc">所有在 TJWallet 上的DApp资讯和文章内容，都会上传到 IPFS（星际文件系统）的多个公共节点上进行分布式存储，实现数据的永久可访问。</string>
+
+    <string name="operate">操作</string>
+
+    <!--交易可能遇到问题-->
+    <string name="transfer_maybe_has_error">交易可能遇到问题</string>
+    <string name="transfer_maybe_has_error_desc1">1、您的交易长时间未被区块链网络确认，导致问题的原因，可能是网络节点堵塞、也可能是同时发起多笔交易导致的双花，请耐心等待最终的交易结果。</string>
+    <string name="transfer_maybe_has_error_desc2">2、未确认的交易无法在区块链网络上查到。</string>
+    <string name="transfer_maybe_has_error_desc3">3、您可以直接删除本地的交易记录缓存，此操作不会影响您在区块链网络上的实际交易。当交易被确认后，您可以在交易明细中重新看到该笔交易订单。</string>
+    <string name="transfer_maybe_has_error_desc4">4、最终结果以区块浏览器上的数据为准。</string>
+    <string name="transfer_maybe_has_error_desc5">1、您的交易长时间未被区块链网络确认，导致问题的原因，可能是网络节点堵塞、也可能是同时发起多笔交易导致的双花，请耐心等待最终的交易结果。\n2、未确认的交易无法在区块链网络上查到。\n3、您可以直接删除本地的交易记录缓存，此操作不会影响您在区块链网络上的实际交易。当交易被确认后，您可以在交易明细中重新看到该笔交易订单。\n4、最终结果以区块浏览器上的数据为准。</string>
+    <string name="delete_transfer_record_title">删除记录</string>
+    <string name="delete_transfer_record_desc">您可以直接删除本地的交易记录缓存，此操作不会影响您在区块链网络上的实际交易。当交易被确认后，您可以在交易明细中重新看到该笔交易订单。</string>
+
+    <!--ACL交易双花问题-->
+    <string name="acl_single_transfer">您当前还有正在处理中的交易，请等待交易完成后再进行操作。</string>
+
+    <!--setting-->
+    <string name="language">语言</string>
+    <string name="currency_unit">货币单位</string>
+    <string name="chinese">中文</string>
+    <string name="english">English</string>
+    <string name="rmb">人民币</string>
+    <string name="usd">美元</string>
+    <string name="select_language">选择语言</string>
+
+    <!--激活流程-->
+    <string name="serial_illegal">非法的硬件序列号</string>
+    <string name="serial_activated">该硬件已经激活</string>
+    <string name="serial_illegal_title">非法设备</string>
+    <string name="serial_illegal_desc">此设备尚未经过认证，无法正常使用。如有疑问请联系客服 contact@tjwallet.net</string>
+    <string name="serial_illegal_content">设备ID：%1$s</string>
+    <string name="init_no_network_desc">设备需要联网进行认证。</string>
+    <string name="serial_activated_desc">此设备ID已经被激活过。如有疑问请联系客服 contact@tjwallet.net</string>
+
+    <!--开发者-->
+    <string name="open_developer">打开开发者模式</string>
+    <string name="close_developer">关闭开发者模式</string>
+    <string name="developer">开发者模式</string>
+    <string name="go_home">回到首页</string>
+    <string name="switch_test_environment">切换到ACL测试服</string>
+    <string name="switch_formal_environment">切换到ACL正式服</string>
+
+
+    <!--收款-->
+    <string name="scan_qrcord_collect">扫二维码转入</string>
+
+    <!--发现页面-->
+    <string name="web_site_link">网站链接</string>
+    <string name="web_site">网站</string>
+
+    <!--地址簿-->
+    <string name="delete_success">删除成功</string>
+    <string name="address">地址</string>
+
+    <!--部分弹窗描述-->
+    <string name="understand_risk">我知晓风险并已备份钱包</string>
+    <string name="jump">跳过</string>
+    <string name="backup_goon">继续备份</string>
+    <string name="understand_risk_toast">请勾选并同意风险声明。</string>
+
+    <!--UUID显示-->
+    <string name="uuid_title">设备UUID</string>
+
+    <!--软件钱包删除二次确认-->
+    <string name="software_wallet_delete_desc">删除钱包不会影响您钱包地址中的资产，您仍可以通过助记词等方式再次导入钱包。</string>
+</resources>

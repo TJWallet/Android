@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/basic_marginLR"
+                    android:layout_marginRight="@dimen/basic_marginLR"
+                    android:layout_marginBottom="60dp">
+
+                    <ImageView
+                        android:id="@+id/img_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="141dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/verification_success_bg" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/img_bg"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/radius_bg_bottom_white"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/basic_paddingLR"
+                        android:paddingRight="@dimen/basic_paddingLR">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/wallet_verification_success"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:text="@string/verification_success_tips1"
+                            android:textColor="@color/warning_red"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="@string/verification_success_tips2"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textNormal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="@string/verification_success_tips3"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textNormal" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/basic_marginLR"
+                    android:layout_marginRight="@dimen/basic_marginLR"
+                    android:background="@drawable/radius_btn_noenabled"
+                    android:gravity="center"
+                    android:text="@string/ok"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textNormal" />
+
+            </RelativeLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

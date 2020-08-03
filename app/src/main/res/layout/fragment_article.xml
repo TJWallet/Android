@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!-- author:jason -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <RelativeLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primary">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/bulletin"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textBig"></TextView>
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layoutHeader">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.tianji.tjwallet.component.pinnedheader.PinnedHeaderRecyclerView
+                android:id="@+id/rvArticleList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"></com.tianji.tjwallet.component.pinnedheader.PinnedHeaderRecyclerView>
+
+            <com.tianji.tjwallet.component.pinnedheader.PinnedHeaderRecyclerView
+                android:id="@+id/rvArticleSkeletonList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"></com.tianji.tjwallet.component.pinnedheader.PinnedHeaderRecyclerView>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

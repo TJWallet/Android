@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="files_root"
+        path="Android/data/com.tianji.tjwallet/" />
+       
+    <external-path
+        name="external_storage_root"
+        path="/data/user/0/com.tianji.tjwallet/files" />
+
+    <external-path
+        name="external_path"
+        path="." />
+</paths>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingTop="16dp"
+        android:paddingRight="@dimen/basic_paddingLR"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/ll_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal">
+
+            <!--助记词-->
+            <TextView
+                android:id="@+id/tv_mnemonics"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26d6d9f4"
+                android:gravity="center"
+                android:text="@string/mnemonics"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+            <!--私钥-->
+            <TextView
+                android:id="@+id/tv_private_key"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26d6d9f4"
+                android:gravity="center"
+                android:text="@string/private_key"
+                android:textColor="@color/tertiary"
+                android:textSize="@dimen/textNormal" />
+            <!--keystore-->
+            <TextView
+                android:id="@+id/tv_keystore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#26d6d9f4"
+                android:gravity="center"
+                android:text="@string/keystore"
+                android:textColor="@color/tertiary"
+                android:textSize="@dimen/textNormal" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_navigation"
+            android:layout_marginTop="10dp"
+            android:background="#26d6d9f4"
+            android:minHeight="190dp"
+            android:padding="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/import_by_mnemonics_hint"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/tertiary"
+                android:textSize="@dimen/textNormal" />
+
+
+        </RelativeLayout>
+
+
+        <!--keystore密码-->
+        <LinearLayout
+            android:id="@+id/ll_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/rl_edt"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/radius_btn_minor"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="7"
+                android:background="@null"
+                android:hint="@string/keystore_password_hint"
+                android:singleLine="true"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/tertiary"
+                android:textSize="@dimen/textNormal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_pwd_eye"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_pwd_eye"
+                    android:layout_width="18dp"
+                    android:layout_height="12dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/cantsee_dark" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:textAllCaps="false"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_btn_noenabled"
+        android:text="@string/next_tap"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+</RelativeLayout>

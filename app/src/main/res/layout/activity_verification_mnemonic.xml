@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:scrollbars="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="77dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:layout_marginBottom="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/ll_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radius_bg_white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/btn_normal" />
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="14dp"
+                            android:text="@string/verification_mnemonic_tips1"
+                            android:textColor="@color/textMajor"
+                            android:textSize="@dimen/textBig" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ll_title"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:text="@string/verification_mnemonic_tips2"
+                        android:textColor="@color/secondary"
+                        android:textSize="@dimen/textNormal" />
+
+                    <GridView
+                        android:id="@+id/gv_mnemonic_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_below="@+id/tv_desc"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:horizontalSpacing="10dp"
+                        android:nestedScrollingEnabled="false"
+                        android:numColumns="3"
+                        android:scrollbars="none"
+                        android:verticalSpacing="10dp" />
+
+                    <GridView
+                        android:id="@+id/gv_mnemonic_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_below="@+id/gv_mnemonic_one"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:horizontalSpacing="10dp"
+                        android:nestedScrollingEnabled="false"
+                        android:numColumns="3"
+                        android:scrollbars="none"
+                        android:verticalSpacing="10dp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/ll_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/radius_btn_noenabled"
+                    android:gravity="center"
+                    android:text="@string/verification"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textNormal" />
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+

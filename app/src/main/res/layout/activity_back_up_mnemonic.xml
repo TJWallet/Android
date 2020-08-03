@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/ll_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="77dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_bg_white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/btn_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/write_mnemonic_tips1"
+                    android:textColor="@color/textMajor"
+                    android:textSize="@dimen/textBig" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/write_mnemonic_tips2"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/textNormal" />
+
+            <!--        <TextView-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="2dp"-->
+            <!--            android:gravity="center_horizontal"-->
+            <!--            android:text="@string/write_mnemonic_tips3"-->
+            <!--            android:textColor="@color/textMajor"-->
+            <!--            android:textSize="@dimen/textNormal" />-->
+
+            <GridView
+                android:id="@+id/gv_mnemonic"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:layout_marginBottom="22dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="10dp">
+
+            </GridView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_grid"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="16dp"
+                android:text="@string/remember"
+                android:textColor="@color/warning_red"
+                android:textSize="@dimen/textNormal" />
+
+
+            <TextView
+                android:id="@+id/tv_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:text="@string/wallet_success_tips_3"
+                android:textColor="@color/warning_red"
+                android:textSize="@dimen/textSmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:text="@string/wallet_success_tips_4"
+                android:textColor="@color/warning_red"
+                android:textSize="@dimen/textSmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/basic_marginLR"
+                android:layout_marginBottom="20dp"
+                android:text="@string/wallet_success_tips_5"
+                android:textColor="@color/warning_red"
+                android:textSize="@dimen/textSmall" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/btn_collect_copy"
+            android:gravity="center"
+            android:text="@string/back_up_ed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textNormal" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/developer"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textNormal" />
+
+            <Switch
+                android:id="@+id/sw_developer"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:showText="false"
+                android:thumb="@drawable/switch_custom_thumb_selector"
+                android:track="@drawable/switch_custom_track_selector" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#59a4a4e9" />
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--回到首页-->
+            <RelativeLayout
+                android:id="@+id/rl_go_home"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/img_language_icon"
+                    android:text="@string/go_home"
+                    android:textColor="@color/textMajor"
+                    android:textSize="@dimen/textNormal" />
+
+
+            </RelativeLayout>
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1px"-->
+<!--                android:background="#59a4a4e9" />-->
+
+            <!--            &lt;!&ndash;切换ACL测试环境&ndash;&gt;-->
+            <!--            <RelativeLayout-->
+            <!--                android:id="@+id/rl_acl_environment"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="68dp"-->
+            <!--                android:foreground="?android:attr/selectableItemBackground">-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tv_acl_environment"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_centerVertical="true"-->
+            <!--                    android:layout_toRightOf="@+id/img_language_icon"-->
+            <!--                    android:text="@string/switch_test_environment"-->
+            <!--                    android:textColor="@color/textMajor"-->
+            <!--                    android:textSize="@dimen/textNormal" />-->
+
+
+            <!--                <Switch-->
+            <!--                    android:id="@+id/sw_acl"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="24dp"-->
+            <!--                    android:layout_alignParentRight="true"-->
+            <!--                    android:layout_centerVertical="true"-->
+            <!--                    android:showText="false"-->
+            <!--                    android:thumb="@drawable/switch_custom_thumb_selector"-->
+            <!--                    android:track="@drawable/switch_custom_track_selector" />-->
+
+            <!--            </RelativeLayout>-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

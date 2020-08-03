@@ -1,0 +1,540 @@
+<resources>
+    <string name="app_name">TJWallet</string>
+    <string name="app_name_show">TJ Wallet</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="company_name">Shenzhen Tianji Data Co., Ltd.</string>
+
+    <!--MainActivity-->
+    <string name="wallet">Wallet</string>
+    <string name="main">Me</string>
+    <string name="find">Discovery</string>
+    <string name="article">News</string>
+
+    <!--WalletFragment-->
+    <string name="my_assets">Total Assets</string>
+    <string name="transfer">Transfer</string>
+    <string name="collect">Receive</string>
+    <string name="assets_details">Asset Details</string>
+    <string name="no_back_up">Please backup your wallet for safety</string>
+    <string name="goto_back_up">Backup</string>
+
+    <!--CollectActivity-->
+    <string name="set_amount">Set the Payment Amount</string>
+    <string name="copy_address">Copy</string>
+    <string name="copy_success">Success</string>
+
+    <!--DialogWalletManager-->
+    <string name="software_wallet">Software</string>
+    <string name="hardware_wallet">Hardware</string>
+    <string name="add_wallet">Create Wallet</string>
+
+    <!--AssetsDetailsActivity-->
+    <string name="all">All</string>
+    <string name="transfer_into">In</string>
+    <string name="transfer_out">Out</string>
+
+    <!--TransferDetailsActivity-->
+    <string name="transfer_details">Transaction Details</string>
+    <string name="transfer_success">Successful Transaction</string>
+    <string name="miner_fee">GasFee</string>
+    <string name="pay_address">From</string>
+    <string name="collect_address">To</string>
+    <string name="transfer_time">Time</string>
+    <string name="remarks">Memo</string>
+    <string name="transfer_number">TxHash</string>
+    <string name="block">Block</string>
+
+    <!--HomeActivity-->
+    <string name="create_import_wallet">Create/Import Wallet</string>
+    <string name="create_import_wallet_desc">Create or Import wallet via mnemonics / private key / keystore</string>
+    <string name="bind_hardware_wallet">Pairing Hardware</string>
+    <string name="bind_hardware_wallet_desc">Pair W1 Hardware Wallet</string>
+    <string name="create_wallet">Create Wallet</string>
+    <string name="import_wallet">Import Wallet</string>
+
+    <!--SelectWalletTypeActivity-->
+    <string name="eth">ETH</string>
+    <string name="eth_details">ERC20 token</string>
+    <string name="file_coin">FileCoin</string>
+    <string name="file_coin_details">Decentralized Storage Network</string>
+    <string name="btc">BTC</string>
+    <string name="btc_details">Bitcoin</string>
+    <string name="open_wait">Coming soon</string>
+    <string name="acl">ACL</string>
+    <string name="acl_details">Value IoT Ecosystem</string>
+
+    <!--CreateWalletActivity-->
+    <string name="wallet_info">Wallet Details</string>
+    <string name="save_path">Storage Address</string>
+    <string name="save_local">Local Storage</string>
+    <string name="save_hardware">Hardware Storage</string>
+    <string name="hint_wallet_name">Wallet Name (Notes)</string>
+    <string name="hint_wallet_password">Wallet Password</string>
+    <string name="hint_wallet_password_again">Confirm Password</string>
+    <string name="hint_password_info">Comment (Optional)</string>
+    <!--CreateWalletSuccessActivity-->
+    <string name="back_up_mnemonic">Backup Mnemonics</string>
+    <string name="wallet_success_tips_1">Success，</string>
+    <string name="wallet_success_tips_2">Backup your wallet please!</string>
+    <string name="wallet_success_tips_3">• Don\'t tell others the mnemonic phrase, and don\'t save it on the Internet</string>
+    <string name="wallet_success_tips_4">• TJWallet is a decentralized wallet that won\'t store your private keys and mnemonics</string>
+    <string name="wallet_success_tips_5">• Before receiving payment and uninstalling TJWallet, be sure to complete the mnemonics backup</string>
+    <string name="wallet_success_tips_6">Congratulations, the wallet was created successfully!
+[Mnemonics phrase] is the only way to restore wallet assets. Assets cannot be retrieved after loss. Copy it to paper for backup please.</string>
+    <string name="next_tap">Next</string>
+    <string name="remember">Notice:</string>
+    <string name="jump_back_up_later">Backup Later</string>
+    <string name="improt_my_walley">Import Wallet</string>
+
+    <!--BackUpMnemonicActivity-->
+    <string name="write_mnemonic">Copy Mnemonics</string>
+    <string name="write_mnemonic_tips1">Copy the Wallet Mnemonics</string>
+    <string name="write_mnemonic_tips2">For safety, please don\'t take photos/screenshots. It is recommended to copy it to paper and store them in a safe place.</string>
+    <string name="write_mnemonic_tips3">Please copy it on paper and store it safely.</string>
+    <string name="back_up_ed">I have backed up,verify now</string>
+
+    <!--VerificationMnemonicActivity-->
+    <string name="verification_mnemonic">Verify the Mnemonics</string>
+    <string name="verification_mnemonic_tips1">Confirm Mnemonics</string>
+    <string name="verification_mnemonic_tips2">Click the mnemonic phrase in order to confirm the backup is correct.</string>
+    <string name="verification">Verify</string>
+
+    <!--password_dialog-->
+    <string name="enter_password">Enter Password</string>
+    <string name="submit">Ok</string>
+
+    <!--MainFragment-->
+    <string name="wallet_manager">Manage Wallet</string>
+    <string name="address_book">Address Book</string>
+    <string name="setting">Settings</string>
+    <string name="help_center">Supports</string>
+    <string name="about_as">About Us</string>
+
+    <!--WalletDetailsActivity-->
+    <string name="password_tips">Password Tips</string>
+    <string name="edit_password">Change Password</string>
+    <string name="export_mnemonics">Export Mnemonics</string>
+    <string name="export_keystore">Export Keystore</string>
+    <string name="export_private_key">Export Private Key</string>
+    <string name="delete_wallet">Delete Wallet</string>
+    <string name="delete_explanation">After deletion, it can only be restored by mnemonics or private key, please make a backup</string>
+    <string name="export_private_key_explanation">The private key is not encrypted, pay attention to safety</string>
+    <string name="close">Close</string>
+    <string name="tips">Tips</string>
+    <string name="goto_backup">Backup Now</string>
+    <string name="no_tips">No Message</string>
+
+    <!--ExportKeystoreActivity-->
+    <string name="export_keystore_warning">Don\'t take photos or screenshots. Leaking Keystore will endanger asset security.</string>
+    <string name="show_qrcode">QR Code</string>
+    <string name="copy">Copy</string>
+
+    <!--EditPasswordActivity-->
+    <string name="hint_current_password">Password in Use</string>
+    <string name="hint_new_password">New Password</string>
+    <string name="hint_new_password_again">Confirm Password</string>
+
+    <!--ImportWalletActivity-->
+    <string name="mnemonics">Mnemonics</string>
+    <string name="private_key">Private Key</string>
+    <string name="keystore">Keystore</string>
+    <string name="import_by_mnemonics_hint">Enter the mnemonics words, Separated by spaces</string>
+    <string name="import_by_private_key_hint">Enter Private Key</string>
+    <string name="import_by_keystore_hint">Please copy and paste the wallet Keystore or scan the Keystore QR code.</string>
+    <string name="keystore_password_hint">Keystore Password</string>
+
+    <!--CompleteInfoActivity-->
+    <string name="complete_info">Security Information</string>
+    <!--WelcomeActivity-->
+    <string name="slogan">Professional and Reliable Digital Asset Management Tool</string>
+
+    <!--TransferActivity-->
+    <string name="payment_address">To</string>
+    <string name="transfer_amount">Amount</string>
+    <string name="transfer_tips">Memo</string>
+    <string name="miners_fee">GasFee</string>
+    <string name="slow">Low</string>
+    <string name="fast">High</string>
+
+    <!--TransferDetailsDialog-->
+    <string name="pay_details">Payment Details</string>
+    <string name="transfer_into_address">To</string>
+    <string name="transfer_out_address">From</string>
+    <string name="transfer_type">TxType</string>
+
+    <!--EditAddressActivity-->
+    <string name="edit_address">Edit Address</string>
+    <string name="edit_address_hint">Wallet Address</string>
+    <string name="address_name_hint">Address Name</string>
+    <string name="address_tips_hint">Comment (Optional)</string>
+    <string name="save">Save</string>
+    <string name="delete_address">Delete Address</string>
+    <string name="new_address">New Address</string>
+    <string name="address_details">Address Details</string>
+    <string name="address_tips">Description</string>
+
+    <!--AddAssetsActivity-->
+    <string name="add_coin">Add Assets</string>
+    <string name="search_coin_hint">Search to add digital assets</string>
+    <string name="search">Search</string>
+
+    <!--HardwareWalletGuideActivity-->
+    <string name="hardware_guide_title">Please connect to W1 hardware wallet</string>
+    <string name="hardware_guide_tips1">1 Open the mobile phone [Settings]-[System]-[OTG Data], set to enable;</string>
+    <string name="hardware_guide_tips2">2 Connect W1 hardware wallet to mobile phone via USB；</string>
+    <string name="hardware_guide_tips3">3 Reopen TJWallet to confirm connection.</string>
+    <string name="hardware_guide_tips4">Tips: If you cannot connect to the W1 hardware wallet, please make sure that the OTG function of your phone is turned on.</string>
+    <string name="use_tutorial">Help</string>
+    <string name="hardware_init_title">Initialization</string>
+    <string name="hardware_init_content"> It is detected that the W1 wallet is not initialized, whether to initialize and create a new wallet？</string>
+    <string name="hardware_init_btn_ok">Initialization</string>
+    <string name="hardware_has_wallet_title">Hardware Wallet Access</string>
+    <string name="hardware_has_wallet_content">Switch to hardware wallet?</string>
+    <string name="hardware_has_wallet_btn_ok">Yes</string>
+    <string name="hardware_disconnect_title">Disconnect</string>
+    <string name="hardware_disconnect_content">The hardware wallet is disconnected, whether to reconnect to view/transaction operations</string>
+
+
+    <!--AboutUsActivity-->
+    <string name="feedback">Feedback</string>
+    <string name="service_agreement">Agreement</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="check_for_updates">Software Update</string>
+    <string name="has_new_version">New Version</string>
+
+    <!--SelectAssetsActivity-->
+    <string name="choose_coin">Choose Assets</string>
+
+
+    <!--HelpCenterActivity-->
+    <string name="your_problem">What\'s your question?</string>
+    <string name="search_help_content">Search Help Content</string>
+    <string name="more">More</string>
+
+    <!--InformationListActivity-->
+    <string name="information">Information</string>
+    <string name="information_details">Information Details</string>
+
+
+    <!--Upgrade-->
+    <string name="update_now">Upgrade Now</string>
+    <string name="update_wait">Upgrade Later</string>
+
+
+    <string name="select_wallet_chain">Choose a Blockchain Wallet</string>
+
+    <!--Initialization-->
+    <string name="init_wallet">Initialize</string>
+    <string name="set_pin">Set PIN</string>
+    <string name="set_pin_again">Confirm PIN</string>
+    <string name="pin_desc">Need to verify PIN when using W1 hardware wallet for transactions</string>
+
+    <!--New hardware-->
+    <string name="management">Manage</string>
+    <string name="create_wallet_success">Backup Mnemonics</string>
+    <string name="wallet_verification_success">Backup Succeeded</string>
+    <string name="verification_success_tips1">TJWallet won\'t save the password, private key and mnemonic of your wallet and cannot retrieve it for you, so keep it properly please.</string>
+    <string name="verification_success_tips2">A. If the mnemonic phrase is lost, remember the password of the wallet and have not uninstalled the wallet, you can use the personal center-wallet management-view wallet details-export the mnemonic phrase.</string>
+    <string name="verification_success_tips3">B. If the mnemonic phrase is lost, if you forget your wallet password, you can only retrieve the password or retrieve the mnemonic phrase. If you forget it completely, your assets will be lost</string>
+
+
+    <!--Hardware tips-->
+    <string name="no_connect">USB not Connected...</string>
+    <string name="dis_connect">USB Disconnected...</string>
+
+    <!--New wallet creation process-->
+    <string name="agreed_comply">I have read and agree to comply</string>
+    <string name="service_agree">TJWallet Service Agreement</string>
+    <string name="select_chain_type_desc">Please select the blockchain wallet you want to use.</string>
+    <string name="select_add_wallet_type">How to add %1$s Wallet</string>
+    <string name="select_add_wallet_type_desc">You can import an existing wallet through the Backup Mnemonic, Private Key and Keystore, or you can create a New Wallet.</string>
+    <string name="add_for_import_mnemonic">Mnemonic Import</string>
+    <string name="add_for_import_private_key">Private Key Import</string>
+    <string name="add_for_import_keystore">Keystore and Password Import</string>
+    <string name="add_for_create_new_wallet">Create a New wallet</string>
+    <string name="set_wallet_name">Set Wallet Name</string>
+    <string name="set_wallet_name_desc">Wallet name helps you distinguish between different accounts</string>
+    <string name="set_wallet_name_hint">1-10 Characters</string>
+    <string name="step_3_1">Step 1/3</string>
+    <string name="step_3_2">Step 2/3</string>
+    <string name="step_3_3">Step 3/3</string>
+    <string name="step_4_1">Step 1/4</string>
+    <string name="step_4_2">Step 2/4</string>
+    <string name="step_4_3">Step 3/4</string>
+    <string name="step_4_4">Step 4/4</string>
+    <string name="step_2_1">Step 1/2</string>
+    <string name="step_2_2">Step 2/2</string>
+    <string name="step_2_set_wallet_password">Set Wallet Password</string>
+    <string name="step_2_set_wallet_password_desc1">· Password is used to encrypt private keys and transactions, so security is very important</string>
+    <string name="step_2_set_wallet_password_desc2">· TJWallet does not store the password, nor can it retrieve it for you</string>
+    <string name="step_2_set_wallet_password_hint"> Password</string>
+    <string name="step_2_set_wallet_password_factor_title">The password should：</string>
+    <string name="step_2_set_wallet_password_factor_1">At least 1 uppercase letter</string>
+    <string name="step_2_set_wallet_password_factor_2">At least 1 lowercase letter</string>
+    <string name="step_2_set_wallet_password_factor_3">At least 1 number</string>
+    <string name="step_2_set_wallet_password_factor_4">At least 8 characters</string>
+    <string name="step_3_set_wallet_password">Confirm Password</string>
+    <string name="step_3_set_wallet_password_hint">Confirm Password</string>
+    <string name="import_by_mnemonic_step_1_title_1">Import Mnemonics</string>
+    <string name="import_by_mnemonic_step_1_desc">Support 12 mnemonic words import.</string>
+    <string name="import_by_mnemonic_step_1_hint">Import the first 4 letters of the mnemonic</string>
+    <string name="import_by_mnemonic_step_1_title_2">The entered mnemonics (click to modify)</string>
+    <string name="import_by_private_key_step_1_title">Import Private Key</string>
+    <string name="import_by_private_key_step_1_desc">Import the private key directly or scan the QR code to import</string>
+    <string name="import_by_keystore_step_1_title_1">Import Keystore</string>
+    <string name="import_by_keystore_step_1_desc">Please copy and paste Keystore or scan the QR code to import</string>
+    <string name="import_by_keystore_step_1_title_2">Enter Keystore Password</string>
+
+    <!--Reworked transfer interface-->
+    <string name="change_wallet">Switch Wallet</string>
+    <string name="change_coin">Switch Assets</string>
+
+    <!--Device management-->
+    <string name="hardware_type">Device Type</string>
+    <string name="hardware_id">Device ID</string>
+    <string name="clear_hardware">Device Reset</string>
+    <string name="hardware_info">Device Details</string>
+    <string name="delete_hardware">Unbind Device</string>
+    <string name="usb_init_time">Creation Time</string>
+
+
+    <!--Abnormal popup-->
+    <string name="verify_pwd">Verify Password</string>
+    <string name="delete_hardware_cookie">Unbinding will not affect the assets in the hardware wallet, and you need to re-bind next time.</string>
+    <string name="hardware_not_connect">Yes</string>
+    <string name="hardware_not_connect_commdesc">Hardware wallet is disconnected, please reconnect.</string>
+    <string name="hardware_not_connect_desc">Hardware wallet is disconnected, please reconnect if you need to trade.</string>
+    <string name="password_wrong">Wrong Password</string>
+    <string name="WALLET_FILE_KEYSTORE_PWD_ERROR">Incorrect Keystore Password</string>
+    <string name="WALLET_FILE_ADDRESS_EXISTS">Wallet address already axists</string>
+    <string name="WALLET_FILE_ENCRYPT_FAIL">Wallet file encryption failed</string>
+    <string name="WALLET_FILE_PASSWORD_ERROR">The password is wrong, please re-enter</string>
+    <string name="WALLET_FILE_CONTENT_ERROR">Incorrect wallet file content</string>
+    <string name="WALLET_FILE_NOT_EXISTS">The same wallet address already exists locally and cannot be added</string>
+    <string name="import_failed">Import Failed</string>
+    <string name="KEYSTORE_NOT_SUPPORT">Unsupported Keystore</string>
+    <string name="password_has_error">The password format is incorrect, only supports~`!@#%<![CDATA[&]]>*.?、,_</string>
+    <string name="password_not_same">The two passwords are inconsistent</string>
+    <string name="create_wallet_failed">Failed to create wallet</string>
+
+    <string name="dialog_password_1">Verify Password</string>
+    <string name="dialog_password_2">Verify PIN</string>
+
+    <string name="mnemonic_wrong">Mnemonics Mismatch</string>
+    <string name="get_wallet_list_failed">Failed to get wallet list</string>
+    <string name="get_hardware_mac_failed">Failed to get device serial number</string>
+
+    <string name="transfer_failed">Transfer Failed</string>
+    <string name="to_address_isempty">Enter the payment address</string>
+    <string name="value_isempty">Enter the transfer amount</string>
+    <string name="money_not_enough">%1$s Insufficient balance</string>
+    <string name="fee_not_enough">The ETH balance is not enough to pay for Gas</string>
+
+    <string name="delete_wallet_fail">Failed to delete wallet</string>
+    <string name="edit_wallet_name_fail">Failed to modify name</string>
+    <string name="edit_wallet_name_isempty">Please enter the wallet name</string>
+    <string name="export_keystore_failed">Failed to export Keystore</string>
+    <string name="export_mnemonics_failed">Failed to export mnemonics</string>
+    <string name="has_not_mnemonics">Instead of using the mnemonics created, can not be exported Mnemonics</string>
+    <string name="password_isempty">Password must not be empty</string>
+    <string name="edit_password_failed">Password Change Failed</string>
+    <string name="no_data">No Data</string>
+    <string name="no_hardware">No Device</string>
+    <string name="no_backup">You have not backed up the wallet.</string>
+
+    <string name="delete_err">An exception occurs when restoring factory settings</string>
+    <string name="btc_cant_import_by_keystore">BTC cannot be imported into wallet using keyStore</string>
+    <string name="WALLET_FILE_NAME_EXISTS">Wallet name already exists</string>
+    <string name="nothing_err">Unknown Error</string>
+    <string name="no_backup1">No Backup</string>
+    <string name="keystore_password_isempty">keyStore or password cannot be empty</string>
+
+    <!--Skip the mnemonics-->
+    <string name="jump_backup">The mnemonics is important, and the lost cannot be recovered. Do you skip the backup?</string>
+    <string name="close_update">Close</string>
+    <string name="already_new_version">It is already the latest version, no need to update.</string>
+
+    <string name="eth_wallet">ETH Wallet</string>
+    <string name="all_wallet">All Wallet</string>
+    <string name="acl_wallet">ACL Wallet</string>
+    <string name="btc_wallet">BTC Wallet</string>
+    <string name="filecoin_wallet">FileCoin Wallet</string>
+
+    <!--TransferDetailsActivity-->
+    <string name="transfer_fail">Transfer Failed</string>
+    <string name="transfer_wait">In Progress</string>
+
+    <string name="start_backup">Backup Now</string>
+
+    <!--Transaction details popup-->
+    <string name="input_address">Transfer Address</string>
+    <string name="ouput_address">Receiving address</string>
+    <string name="check_info">More</string>
+
+
+    <!--Edit popup-->
+    <string name="edit_wallet_name">Modify Wallet Name</string>
+    <string name="edit_wallet_name_hint">Wallet Name</string>
+    <string name="edit_hardware_name">Modify Hardware Name</string>
+    <string name="edit_hardware_name_hint">Hardware Name</string>
+
+    <!--Transfer details page-->
+    <string name="to_check_eth">Go to Eth Browser for Details</string>
+    <string name="to_check_btc">Go to BTC Browser for Details</string>
+    <string name="to_check_acl">Go to ACL Browser for Details</string>
+
+    <!-- Scan code Activity -->
+    <string name="scan_qrcode_tips">Scan QR code/receiving code/wallet address/Keystore code</string>
+
+    <!--Verify address legitimacy-->
+    <string name="not_ETH_address">Address doesn\'t meet specifications</string>
+    <string name="not_ACL_address">Address doesn\'t meet specifications</string>
+    <string name="not_BTC_address">Address doesn\'t meet specifications</string>
+
+    <!--Address book edit page-->
+    <string name="address_entity_create_success">Success</string>
+    <string name="address_entity_edit_success">Success</string>
+    <string name="address_addressname_isempty">Information cannot be empty</string>
+    <string name="mnemonic_format_error">Wrong Format</string>
+
+
+    <string name="show_keystore_password">Keystore Password: %1$s</string>
+    <string name="observer_wallet">Observe</string>
+
+
+    <string name="off_website">Official Website</string>
+    <string name="wechat_public_account">Official Account</string>
+    <string name="wechat_public_account_content">Get the solution through the WeChat public account "TJWallet"</string>
+    <string name="off_email">Official Email</string>
+    <string name="off_website_content">https://tjwallet.net</string>
+    <string name="off_email_content">contact@tjwallet.net</string>
+    <string name="save_img">Save Picture</string>
+    <string name="keystore_qrcoed_title">Keystore QR Code</string>
+    <string name="keystore_qrcoed_desc">Scanning the QR code directly, screenshots and photos are prohibited.</string>
+    <string name="save_img_success">Picture Saved Successfully</string>
+
+    <string name="get_usb_info_fail">Failed to obtain hardware, please re-plug usb</string>
+    <string name="no_network_title">Please Check the Network</string>
+    <string name="no_network_desc">Without network, wallet assets cannot be updated and cannot be traded.</string>
+
+    <string name="wallet_create_time">Creation Time</string>
+    <string name="all_readed">All Read</string>
+
+    <string name="wallet_name_isempty">Can not leave empty in name</string>
+    <string name="wallet_name_not_format">The wallet name format is wrong, only supports~`!@#%<![CDATA[&]]>*.?、,_</string>
+    <string name="delete_usb_tips_desc">Factory reset will delete the wallet in your device and regenerate the wallet address. Confirm the wallet assets and backup status to avoid losses.</string>
+
+    <!--dapp Asset Advisory Section-->
+    <string name="select_share_type">Choose to Share</string>
+    <string name="update_article_toast">%1$s News Updated</string>
+    <string name="get_recommend_fail_try_again">Failed to get content, pull down and try again</string>
+    <string name="get_rank_fail_try_again">Failed to get content, pull down and try again</string>
+    <string name="recently_used">Recently</string>
+    <string name="recommend_this_week">Featured this Week</string>
+    <string name="rank_list">Ranking</string>
+    <string name="search_dapp">Search DApp</string>
+    <string name="loading">Loading...</string>
+    <string name="bulletin">News</string>
+    <string name="share">Share</string>
+    <string name="count_zan">Like</string>
+    <string name="score">Appraisal</string>
+    <string name="introduction">Short Introduction</string>
+    <string name="social">Social</string>
+    <string name="assets_info">Asset Information</string>
+    <string name="user_24h">24H User</string>
+    <string name="turnover_24h">24H Turnover</string>
+    <string name="turnover_7d">7D Turnover</string>
+    <string name="volume_24h">24H Volume</string>
+    <string name="volume_7d">7D Volume</string>
+    <string name="statistics">Statistics</string>
+    <string name="hour_24">24 Hours</string>
+    <string name="day_7">7 Days</string>
+    <string name="web_snapshot">Screenshot</string>
+    <string name="contract_address">Contract Address</string>
+    <string name="related_news">Related News</string>
+    <string name="recommend_dapp">Recommended DApp</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thersday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="is_bottom">No More yet</string>
+    <string name="open">Open</string>
+
+    <!--ipfs-->
+    <string name="ipfs_address">IPFS Address：%1$s</string>
+    <string name="ipfs_address_info">Details</string>
+    <string name="ipfs_hash_address">IPFS Hash</string>
+    <string name="public_node">Public Node</string>
+    <string name="ipfs_dialog_bottom_desc">The content is shared to IPFS.</string>
+    <string name="ipfs_help">IPFS</string>
+    <string name="ipfs_help_desc">All TJWallet DApps and articles will be uploaded to multiple public nodes of IPFS for distributed storage, and the data will be permanently accessible.</string>
+
+    <string name="operate">Operating</string>
+
+    <!--May Encounter Problems-->
+    <string name="transfer_maybe_has_error">May Encounter Problems</string>
+    <string name="transfer_maybe_has_error_desc1">1. The transaction has not been confirmed by the blockchain, wait patiently please</string>
+    <string name="transfer_maybe_has_error_desc2">2. Unconfirmed transactions cannot be found on the blockchain network.</string>
+    <string name="transfer_maybe_has_error_desc3">3. You can directly delete the local record cache without affecting your actual transactions on the blockchain. After the transaction is confirmed, you can see the order in the details.</string>
+    <string name="transfer_maybe_has_error_desc4">4. The final result is subject to the data on the block browser.</string>
+    <string name="transfer_maybe_has_error_desc5">1. Your transaction has not been confirmed by the blockchain, wait patiently please .\n2. Unconfirmed transactions cannot be found on the blockchain network.\n3. You can directly delete the local record cache without affecting your actual transactions on the blockchain. After the transaction is confirmed, you can see the order in the details.\n4. The final result is subject to the data on the block browser.</string>
+    <string name="delete_transfer_record_title">Delete Record</string>
+    <string name="delete_transfer_record_desc">You can directly delete the local record cache without affecting your actual transactions on the blockchain. After the transaction is confirmed, you can see the order in the details.</string>
+
+    <!--ACL Transaction double spend problem-->
+    <string name="acl_single_transfer">You have an ongoing transaction, please try it later.</string>
+
+    <!--setting-->
+    <string name="language">Language</string>
+    <string name="currency_unit">Currency Unit</string>
+    <string name="chinese">中文</string>
+    <string name="english">English</string>
+    <string name="rmb">CNY</string>
+    <string name="usd">USD</string>
+    <string name="select_language">Change Language</string>
+
+
+    <!--激活流程-->
+    <string name="serial_illegal">The hardware is not authorized</string>
+    <string name="serial_activated">The hardware has been activated</string>
+    <string name="serial_illegal_title">Illegal Device</string>
+    <string name="serial_illegal_desc">Hardware unavailable,Contact customer service for help.Email:contact@tjwallet.net</string>
+    <string name="serial_illegal_content">Device ID：%1$s</string>
+    <string name="init_no_network_desc">Network authentication is required to initialize the device</string>
+    <string name="serial_activated_desc">Device ID is activated.Contact customer service for help.Email:contact@tjwallet.net</string>
+
+    <!--开发者-->
+    <string name="open_developer">Open Developer Mode</string>
+    <string name="close_developer">Close Developer Mode</string>
+    <string name="developer">Developer Mode</string>
+    <string name="go_home">Go Home</string>
+    <string name="switch_test_environment">Switch ACL Test Environment</string>
+    <string name="switch_formal_environment">Switch ACL Formal Environment</string>
+
+    <!--收款-->
+    <string name="scan_qrcord_collect">Scan QR code and transfer to</string>
+
+    <!--发现页面-->
+    <string name="web_site_link">Link</string>
+    <string name="web_site">Website</string>
+
+    <!--地址簿-->
+    <string name="delete_success">Success</string>
+    <string name="address">Address</string>
+
+    <!--部分弹窗描述-->
+    <string name="understand_risk">I agree with the above</string>
+    <string name="jump">Skip</string>
+    <string name="backup_goon">Continue</string>
+    <string name="understand_risk_toast">Please confirm the risk statement</string>
+
+    <!--UUID显示-->
+    <string name="uuid_title">UUID</string>
+
+    <string name="software_wallet_delete_desc">Deleting wallet don\'t affect the assets in your wallet address.You can still import the wallet again through the mnemonic.</string>
+</resources>

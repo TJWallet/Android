@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--软件钱包-->
+        <RelativeLayout
+            android:id="@+id/rl_software"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_top_setting"
+            android:layout_marginTop="61dp"
+            android:visibility="visible">
+
+
+            <!--币种选择左边的导航栏-->
+            <LinearLayout
+                android:id="@+id/ll_coin_selected"
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:background="@color/wallet_list_bg"
+                android:orientation="vertical">
+
+                <!--全部钱包-->
+                <RelativeLayout
+                    android:id="@+id/rl_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:id="@+id/img_all_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/all_icon_selected" />
+
+                    <View
+                        android:id="@+id/line_all"
+                        android:layout_width="2dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="#384AEF" />
+
+                </RelativeLayout>
+
+                <!--FILECOIN-->
+                <RelativeLayout
+                    android:id="@+id/rl_file_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="1dp">
+
+                    <ImageView
+                        android:id="@+id/img_file_coin"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/file_coin_normal" />
+
+
+                    <View
+                        android:id="@+id/line_file_coin"
+                        android:layout_width="2dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="#384AEF"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <!--币种钱包详情列表-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/ll_coin_selected"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/basic_paddingLR"
+                android:paddingRight="@dimen/basic_paddingLR">
+
+                <RelativeLayout
+                    android:id="@+id/rl_coin_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:id="@+id/tv_coin_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/all_wallet"
+                        android:textColor="@color/textMajor"
+                        android:textSize="@dimen/textBig" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_coin_name" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+

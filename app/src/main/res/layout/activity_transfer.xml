@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginTop="@dimen/actionBarHeight"
+            android:background="@color/colorPrimary" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_chain_info"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_below="@+id/rl_top_bg"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="-32dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_bg_white"
+            android:paddingLeft="@dimen/basic_paddingLR"
+            android:paddingRight="@dimen/basic_paddingLR">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_chain_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_icon"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tv_chain_type"
+                android:scaleType="fitXY"
+                android:src="@drawable/arrow_down_dark" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/textMajor"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_chain_info"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_bg_white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/basic_paddingLR"
+                android:paddingTop="20dp"
+                android:paddingRight="@dimen/basic_paddingLR"
+                android:paddingBottom="20dp">
+
+                <!--收款地址-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/radius_btn_minor"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/basic_paddingLR"
+                    android:paddingRight="@dimen/basic_paddingLR">
+
+                    <EditText
+                        android:id="@+id/edt_payment_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="7"
+                        android:inputType=""
+                        android:background="@null"
+                        android:hint="@string/payment_address"
+                        android:textColor="@color/textMajor"
+                        android:textColorHint="@color/textHint"
+                        android:textSize="@dimen/textNormal" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_address_book"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/address" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_scan"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/scan_dark" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!--转账金额-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/radius_btn_minor"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/basic_paddingLR"
+                    android:paddingRight="@dimen/basic_paddingLR">
+
+                    <EditText
+                        android:id="@+id/edt_transfer_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/transfer_amount"
+                        android:inputType="number|numberDecimal"
+                        android:singleLine="true"
+                        android:textColor="@color/textMajor"
+                        android:textColorHint="@color/textHint"
+                        android:textSize="@dimen/textNormal" />
+
+                </LinearLayout>
+
+                <!--转账备注-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/radius_btn_minor"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/basic_paddingLR"
+                    android:paddingRight="@dimen/basic_paddingLR">
+
+                    <EditText
+                        android:id="@+id/edt_transfer_tips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/transfer_tips"
+                        android:textColor="@color/textMajor"
+                        android:textColorHint="@color/textHint"
+                        android:textSize="@dimen/textNormal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--进度条显示区域-->
+            <TextView
+                android:id="@+id/tv_mining_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="@string/miners_fee"
+                android:textColor="@color/textMajor" />
+
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:max="100"
+                android:maxHeight="4dp"
+                android:progressDrawable="@drawable/seekbar_bg"
+                android:thumbTint="@color/colorPrimaryDark" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/slow"
+                    android:textColor="@color/textMajor" />
+
+                <TextView
+                    android:id="@+id/tv_mining_fee_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/textMajor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/fast"
+                    android:textColor="@color/textMajor" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:textAllCaps="false"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_collect_copy"
+            android:text="@string/next_tap"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textNormal" />
+
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

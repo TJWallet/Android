@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--基础-->
+    <dimen name="basic_paddingLR">16dp</dimen>
+    <dimen name="basic_marginLR">16dp</dimen>
+    <dimen name="basic_radius">10dp</dimen>
+    <dimen name="actionBarHeight">61dp</dimen>
+    <dimen name="basic_btn_radius">20dp</dimen>
+    <dimen name="basic_pin_radius">8dp</dimen>
+
+    <!--基础字体大小-->
+    <dimen name="textNormal">14sp</dimen>
+    <dimen name="textBig">16sp</dimen>
+    <dimen name="textSmall">12sp</dimen>
+    <!--dialog-->
+    <dimen name="dialog_padding">20dp</dimen>
+    <dimen name="dialog_margin">20dp</dimen>
+    <dimen name="dialog_text_title">18sp</dimen>
+    <dimen name="dialog_title_block_height">64dp</dimen>
+
+
+    <!--MainActivity-->
+    <dimen name="tabbar_item_marginLR">35dp</dimen>
+    <dimen name="tabbar_item_marginTop">8dp</dimen>
+    <dimen name="tabbar_item_belowImg">4dp</dimen>
+
+    <dimen name="tabbar_text_size">12sp</dimen>
+    <!--
+    Because the window insets on round devices are larger than 15dp, this padding only applies
+    to square screens.
+    -->
+    <dimen name="box_inset_layout_padding">0dp</dimen>
+
+    <!--
+    This padding applies to both square and round screens. The total padding between the buttons
+    and the window insets is box_inset_layout_padding (above variable) on square screens and
+    inner_frame_layout_padding (below variable) on round screens.
+    -->
+    <dimen name="inner_frame_layout_padding">5dp</dimen>
+
+
+</resources>

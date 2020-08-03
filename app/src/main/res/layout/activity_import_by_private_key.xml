@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/radius_dialog_wallet_manager">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                android:background="@color/btn_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/basic_marginLR"
+                android:text="@string/import_by_private_key_step_1_title"
+                android:textColor="@color/wallet_fg_text"
+                android:textSize="@dimen/textBig" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:text="@string/import_by_private_key_step_1_desc"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/textNormal" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/basic_marginLR"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="@dimen/basic_marginLR"
+            android:background="@drawable/radius_bg_collect_edt"
+            android:minHeight="130dp"
+            android:padding="@dimen/basic_paddingLR">
+
+            <EditText
+                android:id="@+id/edt_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="left|top"
+                android:maxLines="20"
+                android:minHeight="130dp"
+                android:textColor="@color/textMajor"
+                android:textColorHint="@color/tertiary"
+                android:textSize="@dimen/textNormal" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_btn_noenabled"
+        android:gravity="center"
+        android:text="@string/next_tap"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textNormal" />
+
+    <TextView
+        android:id="@+id/tv_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="@string/step_4_1"
+        android:textColor="@color/secondary"
+        android:textSize="@dimen/textNormal" />
+
+</RelativeLayout>

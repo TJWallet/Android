@@ -1,2 +1,2 @@
-rootProject.name='TJWalletLite'
-include ':app'
+include ':app', ':walletSdk'
+rootProject.name='TJWallet'

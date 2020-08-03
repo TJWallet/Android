@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/layoutIconWrapper"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/shape_round_background">
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:layout_width="12dp"
+            android:layout_height="12dp">
+        </ImageView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvPlatformName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/textNormal"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/ivChecked"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/icon_checked"></ImageView>
+</LinearLayout>

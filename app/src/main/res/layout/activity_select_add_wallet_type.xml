@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/select_add_wallet_type_desc"
+        android:textColor="@color/secondary"
+        android:textSize="@dimen/textNormal" />
+
+    <LinearLayout
+        android:id="@+id/ll_import"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_desc"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <!--导入助记词-->
+        <RelativeLayout
+            android:id="@+id/rl_import_mnemonic"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/add_for_import_mnemonic"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#59a4a4e9" />
+
+
+        <!--导入助记词-->
+        <RelativeLayout
+            android:id="@+id/rl_import_private_key"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/add_for_import_private_key"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#59a4a4e9" />
+
+
+        <!--导入助记词-->
+        <RelativeLayout
+            android:id="@+id/rl_import_keystore"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/add_for_import_keystore"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_import"
+        android:layout_marginLeft="@dimen/basic_marginLR"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/basic_marginLR"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/basic_paddingLR"
+        android:paddingRight="@dimen/basic_paddingLR">
+
+        <!--导入助记词-->
+        <RelativeLayout
+            android:id="@+id/rl_create_new_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/add_for_create_new_wallet"
+                android:textColor="@color/textMajor"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@drawable/enter" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="61dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/your_problem"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textBig" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_search_block"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tv_title"
+                    android:background="@color/colorPrimary">
+
+                    <!--搜索-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/basic_marginLR"
+                        android:layout_marginRight="@dimen/basic_marginLR"
+                        android:background="@drawable/radius_bg_white"
+                        android:minHeight="32dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/basic_paddingLR"
+                        android:paddingRight="@dimen/basic_paddingLR">
+
+                        <EditText
+                            android:id="@+id/edt_question"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="7"
+                            android:background="@null"
+                            android:hint="@string/search_help_content"
+                            android:textColor="@color/textMajor"
+                            android:textColorHint="@color/textHint"
+                            android:textSize="@dimen/textNormal" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_search"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/img_search"
+                                android:layout_width="12dp"
+                                android:layout_height="14dp"
+                                android:layout_centerInParent="true"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/search" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rl_search_block"
+                    android:paddingLeft="@dimen/basic_paddingLR"
+                    android:paddingRight="@dimen/basic_paddingLR" />
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+    f
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
