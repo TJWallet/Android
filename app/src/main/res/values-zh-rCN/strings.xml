@@ -61,6 +61,7 @@
     <string name="file_coin">FileCoin</string>
     <string name="file_coin_details">去中心化的存储网络</string>
     <string name="btc">BTC</string>
+    <string name="filecoin">FIL</string>
     <string name="btc_details">比特币</string>
     <string name="open_wait">即将开放</string>
     <string name="acl">ACL</string>
@@ -384,6 +385,7 @@
     <string name="to_check_eth">到 Etherscan 查询更详细信息</string>
     <string name="to_check_btc">到 BTC 查询更详细信息</string>
     <string name="to_check_acl">到 ACL 查询更详细信息</string>
+    <string name="to_check_filecoin">到 FILECOIN 查询更详细信息</string>
 
     <!-- 扫码Activity -->
     <string name="scan_qrcode_tips">扫描二维码/收款码/钱包地址/Keystore码</string>
@@ -538,4 +540,7 @@
 
     <!--软件钱包删除二次确认-->
     <string name="software_wallet_delete_desc">删除钱包不会影响您钱包地址中的资产，您仍可以通过助记词等方式再次导入钱包。</string>
+
+    <!--filecoin-->
+    <string name="filecoin_no_keystore">FileCoin 钱包暂不支持Keystore导入</string>
 </resources>

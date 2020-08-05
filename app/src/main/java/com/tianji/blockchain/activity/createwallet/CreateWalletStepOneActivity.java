@@ -81,7 +81,6 @@ public class CreateWalletStepOneActivity extends BasicConnectShowActivity {
             ViewCommonUtils.createDefaultActionBar(mActionBar, this, R.string.create_wallet);
         } else {
             ViewCommonUtils.createDefaultActionBar(mActionBar, this, R.string.import_wallet);
-
         }
 
         switch (addSource) {
@@ -131,29 +130,23 @@ public class CreateWalletStepOneActivity extends BasicConnectShowActivity {
                 walletName = ViewCommonUtils.getEdtString(edt_wallet_name);
                 if (!walletName.equals("")) {
                     if (RegexUtils.checkWalletName(walletName)) {
-                        if (addSource == Constant.AddWalletSource.ADD_WALLET_BY_IMPORT_KEY_STORE) {
-                            if (!createLock) return;
-                            createLock = false;
-                            importWalletByKeystore(pwd);
-                        } else {
-                            if (!WalletManager.getInstance().walletNameExists(CreateWalletStepOneActivity.this, walletName)) {
-                                LogUtils.log("当前输入的名字是=" + walletName);
-                                Intent createIntent = new Intent(CreateWalletStepOneActivity.this, CreateWalletStepTwoActivity.class);
-                                createIntent.putExtra("_walletName", walletName);
-                                createIntent.putExtra("_addSource", addSource);
-                                switch (addSource) {
-                                    case Constant.AddWalletSource.ADD_WALLET_BY_IMPORT_MNEMONIC:
-                                        createIntent.putExtra("_mnemonic", mnemonic);
-                                        break;
-                                    case Constant.AddWalletSource.ADD_WALLET_BY_IMPORT_PRIVATE_KEY:
-                                        createIntent.putExtra("_privatekey", privateKey);
-                                        break;
-                                }
-                                startActivity(createIntent);
-                            } else {
-                                showToast(R.string.WALLET_FILE_NAME_EXISTS);
-                                createLock = true;
+                        if (!WalletManager.getInstance().walletNameExists(CreateWalletStepOneActivity.this, walletName)) {
+                            LogUtils.log("当前输入的名字是=" + walletName);
+                            Intent createIntent = new Intent(CreateWalletStepOneActivity.this, CreateWalletStepTwoActivity.class);
+                            createIntent.putExtra("_walletName", walletName);
+                            createIntent.putExtra("_addSource", addSource);
+                            switch (addSource) {
+                                case Constant.AddWalletSource.ADD_WALLET_BY_IMPORT_MNEMONIC:
+                                    createIntent.putExtra("_mnemonic", mnemonic);
+                                    break;
+                                case Constant.AddWalletSource.ADD_WALLET_BY_IMPORT_PRIVATE_KEY:
+                                    createIntent.putExtra("_privatekey", privateKey);
+                                    break;
                             }
+                            startActivity(createIntent);
+                        } else {
+                            showToast(R.string.WALLET_FILE_NAME_EXISTS);
+                            createLock = true;
                         }
                     } else {
                         showToast(R.string.wallet_name_not_format);
@@ -165,69 +158,5 @@ public class CreateWalletStepOneActivity extends BasicConnectShowActivity {
                 }
             }
         });
-    }
-
-    /***
-     * 通过keystore导入钱包接口
-     */
-    public void importWalletByKeystore(String pwd) {
-        WalletManager.getInstance().createWallet(this,
-                WalletCreatedType.IMPORTED_KEYSTORE,
-                StorageSaveType.LOCAL,
-                chainType,
-                0,
-                hdWalletAddressPath,
-                keyStore,
-                walletName,
-                pwd,
-                "",
-                new IRequestListener<WalletInfo>() {
-                    @Override
-                    public void onResult(ResultCode resultCode, WalletInfo result) {
-                        switch (resultCode) {
-                            case SUCCESS:
-                                LogUtils.log(className + " -- 通过keyStore导入钱包成功");
-                                Intent intent = new Intent(CreateWalletStepOneActivity.this, MainActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                intent.putExtra("_walletInfo", result);
-                                intent.putExtra("_source", source);
-                                startActivity(intent);
-                                WalletApplication.setCurrentWallet(result);
-                                CurrentWalletSharedPreferences.getInstance(CreateWalletStepOneActivity.this).changeCurrentWallet(result);
-                                //添加默认资产
-                                SharePreferencesHelper.addDefaultAssets(CreateWalletStepOneActivity.this, result.getAddress(), chainType);
-                                break;
-                            case FAIL:
-                                showToast(R.string.import_failed);
-                                createLock = true;
-                                break;
-                            case WALLET_FILE_KEYSTORE_PWD_ERROR:
-                                showToast(R.string.WALLET_FILE_KEYSTORE_PWD_ERROR);
-                                createLock = true;
-                                break;
-                            case WALLET_FILE_ADDRESS_EXISTS:
-                                showToast(R.string.WALLET_FILE_ADDRESS_EXISTS);
-                                createLock = true;
-                                break;
-                            case WALLET_FILE_PASSWORD_ERROR:
-                                showToast(R.string.WALLET_FILE_PASSWORD_ERROR);
-                                createLock = true;
-                                break;
-                            case KEYSTORE_NOT_SUPPORT:
-                                showToast(R.string.KEYSTORE_NOT_SUPPORT);
-                                createLock = true;
-                                break;
-                            case WALLET_FILE_NAME_EXISTS:
-                                showToast(R.string.WALLET_FILE_NAME_EXISTS);
-                                createLock = true;
-                                break;
-                            default:
-                                showToast(R.string.nothing_err);
-                                createLock = true;
-                                break;
-
-                        }
-                    }
-                });
     }
 }

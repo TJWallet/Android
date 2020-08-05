@@ -8,10 +8,8 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 
-import com.tianji.blockchainwallet.constant.enums.Chain;
 import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
-import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
 import com.tianji.blockchain.activity.importwallet.ImportWalletByKeyStoreActivity;
 import com.tianji.blockchain.activity.importwallet.ImportWalletByMnemonicActivity;
@@ -76,8 +74,9 @@ public class SelectAddWalletTypeActivity extends BasicConnectShowActivity implem
                 startActivity(privateKeyIntent);
                 break;
             case R.id.rl_import_keystore:
-                Intent keyStoreIntent = new Intent(this, ImportWalletByKeyStoreActivity.class);
-                startActivity(keyStoreIntent);
+                showToast(R.string.filecoin_no_keystore);
+//                Intent keyStoreIntent = new Intent(this, ImportWalletByKeyStoreActivity.class);
+//                startActivity(keyStoreIntent);
                 break;
             case R.id.rl_create_new_wallet:
                 LogUtils.log(className + " -- 点击创建钱包 rl_create_new_wallet");

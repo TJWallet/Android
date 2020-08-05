@@ -57,11 +57,9 @@ public class RVAdapterTransferDetails extends BasicItemClickRecyclerViewAdapter<
             }
 
             transferDetailsViewHolder.tv_address.setText(data.get(position).getFrom());
-            if (chain == Chain.BTC) {
-                transferDetailsViewHolder.tv_amount.setText("+" + MathUtils.doubleKeep8(new BigDecimal(data.get(position).getValue()).doubleValue()));
-            } else {
-                transferDetailsViewHolder.tv_amount.setText("+" + new BigDecimal(data.get(position).getValue()).divide(new BigDecimal(Math.pow(10, decimal)), 4, RoundingMode.DOWN).toString());
-            }
+
+            transferDetailsViewHolder.tv_amount.setText("+" + new BigDecimal(data.get(position).getValue()).divide(new BigDecimal(Math.pow(10, decimal)), 4, RoundingMode.DOWN).toString());
+
         } else {
             if (data.get(position).isWait()) {
                 if (data.get(position).getTransferType() == 3) {
@@ -73,11 +71,9 @@ public class RVAdapterTransferDetails extends BasicItemClickRecyclerViewAdapter<
                 transferDetailsViewHolder.img_icon.setImageResource(R.drawable.transfer_icon);
             }
             transferDetailsViewHolder.tv_address.setText(data.get(position).getTo());
-            if (chain == Chain.BTC) {
-                transferDetailsViewHolder.tv_amount.setText("-" + MathUtils.doubleKeep8(new BigDecimal(data.get(position).getValue()).doubleValue()));
-            } else {
-                transferDetailsViewHolder.tv_amount.setText("-" + new BigDecimal(data.get(position).getValue()).divide(new BigDecimal(Math.pow(10, decimal)), 4, RoundingMode.DOWN).toString());
-            }
+
+            transferDetailsViewHolder.tv_amount.setText("-" + new BigDecimal(data.get(position).getValue()).divide(new BigDecimal(Math.pow(10, decimal)), 4, RoundingMode.DOWN).toString());
+
         }
         if (data.get(position).isWait()) {
             if (data.get(position).getTransferType() == 3) {

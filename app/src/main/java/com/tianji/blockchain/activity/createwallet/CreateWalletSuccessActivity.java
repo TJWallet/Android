@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -15,13 +14,16 @@ import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
 import com.tianji.blockchain.activity.MainActivity;
 import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
-import com.tianji.blockchain.activity.home.HomeActivity;
 import com.tianji.blockchain.dialog.TipsDialog;
 import com.tianji.blockchain.entity.DialogEntity;
 import com.tianji.blockchain.sharepreferences.CurrentWalletSharedPreferences;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.NetUtils;
 import com.tianji.blockchain.utils.ViewCommonUtils;
+import com.tianji.blockchainwallet.WalletManager;
+import com.tianji.blockchainwallet.constant.enums.ResultCode;
+import com.tianji.blockchainwallet.entity.WalletInfo;
+import com.tianji.blockchainwallet.wallet.IRequestListener;
 
 
 public class CreateWalletSuccessActivity extends BasicActionBarActivity implements View.OnClickListener {
@@ -36,6 +38,7 @@ public class CreateWalletSuccessActivity extends BasicActionBarActivity implemen
     private TipsDialog backDialog;
 
     private boolean createLock = true;
+    private WalletInfo walletInfo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -133,6 +136,7 @@ public class CreateWalletSuccessActivity extends BasicActionBarActivity implemen
                                 if (!mnemonic.equals("") && mnemonic != null) {
                                     Intent intent = new Intent(CreateWalletSuccessActivity.this, BackUpMnemonicActivity.class);
                                     intent.putExtra("_mnemonic", mnemonic);
+                                    intent.putExtra("_pageType", Constant.StartPageType.TYPE_CREATE);
                                     intent.putExtra("_walletInfo", walletInfo);
                                     startActivity(intent);
                                     CreateWalletSuccessActivity.this.finish();

@@ -54,11 +54,11 @@
 # For using GSON @Expose annotation
 -keepattributes *Annotation*
 
--keep class com.tianji.tjwallet.entity.**{ *; }
+-keep class com.tianji.blockchain.entity.**{ *; }
 -keep class com.tianji.blockchainwallet.entity.**{ *; }
--keep class com.tianji.tjwallet.restful.**{ *; }
--keep class com.tianji.tjwallet.utils.HttpVolley{ *; }
--keep class com.tianji.tjwallet.sharepreferences.**{ *; }
+-keep class com.tianji.blockchain.restful.**{ *; }
+-keep class com.tianji.blockchain.utils.HttpVolley{ *; }
+-keep class com.tianji.blockchain.sharepreferences.**{ *; }
 # Application classes that will be serialized/deserialized over Gson
 -keep class com.google.gson.examples.android.model.** { *; }
 # Gson specific classes
@@ -74,10 +74,10 @@
 -keep class java.net.HttpURLConnection {*;}
 
 -keepclassmembers enum * { *; }
--keepclassmembers enum com.tianji.tjwallet.entity.** { *; }
--keepclassmembers enum com.tianji.tjwallet.sharepreferences.**{ *; }
--keepclassmembers enum com.tianji.tjwallet.utils.HttpVolley{ *; }
--keepclassmembers enum com.tianji.tjwallet.restful.**{ *; }
+-keepclassmembers enum com.tianji.blockchain.entity.** { *; }
+-keepclassmembers enum com.tianji.blockchain.sharepreferences.**{ *; }
+-keepclassmembers enum com.tianji.blockchain.utils.HttpVolley{ *; }
+-keepclassmembers enum com.tianji.blockchain.restful.**{ *; }
 
 
 -keep public class org.web3j.crypto.**{*;}

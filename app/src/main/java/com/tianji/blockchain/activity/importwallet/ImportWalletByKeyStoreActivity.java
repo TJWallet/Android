@@ -44,7 +44,6 @@ public class ImportWalletByKeyStoreActivity extends BasicConnectShowActivity imp
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setRightImgPosition(2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_import_by_key_store);
     }

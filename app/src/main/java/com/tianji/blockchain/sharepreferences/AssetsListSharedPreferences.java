@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchain.entity.AllObWalletEntity;
 import com.tianji.blockchain.entity.AssetsDetailsItemEntity;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.WalletListHelper;
@@ -161,18 +160,6 @@ public class AssetsListSharedPreferences {
             for (int j = 0; j < assetsDetailsItemEntityList.size(); j++) {
                 //资产重新缓存
                 addAssetes(key, assetsDetailsItemEntityList.get(j));
-            }
-        }
-        List<AllObWalletEntity> allObWalletEntityList = ObserverWalletListSharedPreferences.getInstance(context).getAllObWalletList();
-        for (int i = 0; i < allObWalletEntityList.size(); i++) {
-            for (int j = 0; j < allObWalletEntityList.get(i).getWalletInfoList().size(); j++) {
-                String key = allObWalletEntityList.get(i).getWalletInfoList().get(j).getAddress() + allObWalletEntityList.get(i).getWalletInfoList().get(j).getChain();
-                List<AssetsDetailsItemEntity> assetsDetailsItemEntityList = getAssetsList(key);
-                mSharedPreferncesEditor.remove(key).commit();
-                for (int k = 0; k < assetsDetailsItemEntityList.size(); k++) {
-                    //资产重新缓存
-                    addAssetes(key, assetsDetailsItemEntityList.get(k));
-                }
             }
         }
     }

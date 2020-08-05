@@ -13,6 +13,7 @@ import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
 import com.tianji.blockchain.utils.ViewCommonUtils;
+import com.tianji.blockchainwallet.constant.enums.Chain;
 
 public class ServiceAgreementActivity extends BasicConnectShowActivity implements View.OnClickListener {
     private WebView webView;
@@ -42,7 +43,6 @@ public class ServiceAgreementActivity extends BasicConnectShowActivity implement
 
     @Override
     protected void initView() {
-        source = getIntent().getIntExtra("_source", -1);
         chainType = getIntent().getIntExtra("_chainType", -1);
         mActionBar.setVisibility(View.VISIBLE);
         mActionBar.setActionTitle(getResources().getString(R.string.service_agree));
@@ -69,16 +69,8 @@ public class ServiceAgreementActivity extends BasicConnectShowActivity implement
                     Intent createIntentSelect = new Intent(ServiceAgreementActivity.this, SelectWalletTypeActivity.class);
                     startActivity(createIntentSelect);
                     break;
-                case 1:
-                    createIntent.putExtra("_chainType", Chain.ETH);
-                    startActivity(createIntent);
-                    break;
-                case 2:
-                    createIntent.putExtra("_chainType", Chain.BTC);
-                    startActivity(createIntent);
-                    break;
-                case 3:
-                    createIntent.putExtra("_chainType", Chain.ACL);
+                case 4:
+                    createIntent.putExtra("_chainType", Chain.FIL);
                     startActivity(createIntent);
                     break;
             }

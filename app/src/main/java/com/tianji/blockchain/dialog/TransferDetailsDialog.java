@@ -43,18 +43,14 @@ public class TransferDetailsDialog extends Dialog {
     private WalletInfo walletInfo;
     private TextView tv_miners_fee_value;
     private TextView tv_amount_value;
-    private double coinValue;
-    private double feeValue;
 
-    public TransferDetailsDialog(@NonNull Context context, int themeResId, String transferCoinName, TransferRecode entity, WalletInfo walletInfo, double coinValue, double feeValue, View.OnClickListener listener) {
+    public TransferDetailsDialog(@NonNull Context context, int themeResId, String transferCoinName, TransferRecode entity, WalletInfo walletInfo, View.OnClickListener listener) {
         super(context, themeResId);
         this.entity = entity;
         this.listener = listener;
         this.transferCoinName = transferCoinName;
         this.walletInfo = walletInfo;
         this.context = context;
-        this.coinValue = coinValue;
-        this.feeValue = feeValue;
     }
 
     @Override
@@ -75,13 +71,9 @@ public class TransferDetailsDialog extends Dialog {
         tv_miners_fee_value = findViewById(R.id.tv_miners_fee_value);
         tv_amount_value = findViewById(R.id.tv_amount_value);
         btn_ok = findViewById(R.id.btn_ok);
+        tv_amount_value.setVisibility(View.GONE);
+        tv_miners_fee_value.setVisibility(View.GONE);
 
-        if (coinValue == -1) {
-            tv_amount_value.setVisibility(View.GONE);
-        }
-        if (feeValue == -1) {
-            tv_miners_fee_value.setVisibility(View.GONE);
-        }
         Window dialogWindow = this.getWindow();
         dialogWindow.setGravity(Gravity.BOTTOM);
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
@@ -99,34 +91,9 @@ public class TransferDetailsDialog extends Dialog {
 
         tv_chain_type.setText(transferCoinName);
         tv_transfer_type.setText(transferCoinName + " " + context.getResources().getString(R.string.transfer));
-        String gasPrice = entity.getGasPrice();
-        switch (walletInfo.getChain()) {
-            case ETH:
-                tv_miners_fee.setText(MathUtils.doubleKeep10(new BigDecimal(Double.parseDouble(entity.getCumulativeGasUsed())).divide(new BigDecimal(Math.pow(10, 9))).setScale(10, RoundingMode.HALF_UP).doubleValue()) + "ETH");
-                tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(entity.getValue()).divide(new BigDecimal(Math.pow(10, Integer.parseInt(entity.getTokenDecimal())))).doubleValue()));
-                String ethAmountValue = MathUtils.doubleKeep2(Double.parseDouble(tv_amount.getText().toString().trim()) * coinValue);
-                CommonUtils.setCurrency(tv_amount_value, ethAmountValue, false);
-                String ethFeeValue = MathUtils.doubleKeep2((new BigDecimal(Double.parseDouble(entity.getCumulativeGasUsed())).divide(new BigDecimal(Math.pow(10, 9))).setScale(10, RoundingMode.HALF_UP).doubleValue()) * feeValue);
-                CommonUtils.setCurrency(tv_miners_fee_value, ethFeeValue, true);
-                break;
-            case ACL:
-                tv_miners_fee.setText(MathUtils.getACLMinersFee(new BigDecimal(gasPrice), entity.getSpeed()) + "ACL");
-                tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(entity.getValue()).divide(new BigDecimal(Math.pow(10, 18))).doubleValue()));
-                String aclAmountValue = MathUtils.doubleKeep2(Double.parseDouble(tv_amount.getText().toString().trim()) * coinValue);
-                CommonUtils.setCurrency(tv_amount_value, aclAmountValue, false);
-                String aclFeeValue = MathUtils.doubleKeep2((Double.parseDouble(MathUtils.getACLMinersFee(new BigDecimal(gasPrice), entity.getSpeed()))) * feeValue);
-                CommonUtils.setCurrency(tv_miners_fee_value, aclFeeValue, true);
-                break;
-            case BTC:
-                tv_miners_fee.setText(new BigDecimal(entity.getBtcFee()).divide(new BigDecimal(Math.pow(10, 8))) + context.getResources().getString(R.string.btc));
-                tv_amount.setText(MathUtils.doubleKeep8(new BigDecimal(entity.getValue()).doubleValue()));
-                String btcAmountValue = MathUtils.doubleKeep2(Double.parseDouble(tv_amount.getText().toString().trim()) * coinValue);
-                CommonUtils.setCurrency(tv_amount_value, btcAmountValue, false);
-                String btcFeeValue = MathUtils.doubleKeep2((new BigDecimal(entity.getValue()).doubleValue()) * feeValue);
-                CommonUtils.setCurrency(tv_miners_fee_value, btcFeeValue, true);
-                break;
 
-        }
+        tv_miners_fee.setText(MathUtils.doubleKeep10(new BigDecimal(Double.parseDouble(entity.getCumulativeGasUsed())).divide(new BigDecimal(Math.pow(10, 9))).setScale(10, RoundingMode.HALF_UP).doubleValue()) + " FIL");
+        tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(entity.getValue()).divide(new BigDecimal(Math.pow(10, Integer.parseInt(entity.getTokenDecimal())))).doubleValue()));
 
         tv_transfer_into_address.setText(entity.getTo());
         tv_transfer_out_address.setText(entity.getFrom());

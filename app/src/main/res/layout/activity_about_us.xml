@@ -156,58 +156,6 @@
             </RelativeLayout>
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="#59a4a4e9" />
-            <!--检测更新-->
-            <RelativeLayout
-                android:id="@+id/rl_updates"
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <ImageView
-                    android:id="@+id/img_updates_icon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_centerVertical="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/update" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@+id/img_updates_icon"
-                    android:text="@string/check_for_updates"
-                    android:textColor="@color/textMajor"
-                    android:textSize="@dimen/textNormal" />
-
-                <TextView
-                    android:id="@+id/tv_check_update"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/img_arrow_right"
-                    android:text="@string/has_new_version"
-                    android:textColor="@color/warning_red"
-                    android:textSize="@dimen/textNormal"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/img_arrow_right"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:scaleType="center"
-                    android:src="@drawable/enter" />
-
-
-            </RelativeLayout>
-
         </LinearLayout>
 
         <LinearLayout

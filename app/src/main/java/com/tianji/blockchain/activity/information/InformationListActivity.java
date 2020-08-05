@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tianji.blockchain.R;
-import com.tianji.blockchain.activity.aboutus.HelpDetailsActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
-import com.tianji.blockchain.activity.hardware.HardwareWalletGuideActivity;
 import com.tianji.blockchain.adapter.basic.OnItemClickListener;
 import com.tianji.blockchain.adapter.recyclerView.RVAdapterInformationList;
 import com.tianji.blockchain.entity.InformationEntity;
@@ -38,7 +36,6 @@ public class InformationListActivity extends BasicConnectShowActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        hasTextAction = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_list);
     }
@@ -81,7 +78,6 @@ public class InformationListActivity extends BasicConnectShowActivity {
 
             }
         });
-        mActionBar.addViewToRightHasText(allReaded, connectImageView);
         recyclerView = findViewById(R.id.recyclerView);
         rl_no_assets = findViewById(R.id.rl_no_assets);
     }

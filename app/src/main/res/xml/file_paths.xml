@@ -2,11 +2,11 @@
 <paths>
     <external-path
         name="files_root"
-        path="Android/data/com.tianji.tjwallet/" />
+        path="Android/data/com.tianji.blockchain/" />
        
     <external-path
         name="external_storage_root"
-        path="/data/user/0/com.tianji.tjwallet/files" />
+        path="/data/user/0/com.tianji.blockchain/files" />
 
     <external-path
         name="external_path"

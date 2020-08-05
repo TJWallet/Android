@@ -69,25 +69,6 @@
 
                     </LinearLayout>
 
-                    <!--                <ImageView-->
-                    <!--                    android:id="@+id/img_enter"-->
-                    <!--                    android:layout_width="20dp"-->
-                    <!--                    android:layout_height="20dp"-->
-                    <!--                    android:layout_alignParentRight="true"-->
-                    <!--                    android:layout_centerVertical="true"-->
-                    <!--                    android:scaleType="center"-->
-                    <!--                    android:src="@drawable/enter" />-->
-
-                    <!--                <TextView-->
-                    <!--                    android:layout_width="wrap_content"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:layout_centerVertical="true"-->
-                    <!--                    android:layout_marginRight="5dp"-->
-                    <!--                    android:layout_toLeftOf="@+id/img_enter"-->
-                    <!--                    android:text="@string/change_wallet"-->
-                    <!--                    android:textColor="@color/tertiary"-->
-                    <!--                    android:textSize="@dimen/textSmall" />-->
-
                 </RelativeLayout>
 
                 <View
@@ -135,26 +116,6 @@
                             android:textSize="@dimen/textSmall" />
 
                     </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/img_enter_coin"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:scaleType="center"
-                        android:src="@drawable/enter" />
-
-                    <TextView
-                        android:id="@+id/tv_enter_coin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_toLeftOf="@+id/img_enter_coin"
-                        android:text="@string/change_coin"
-                        android:textColor="@color/tertiary"
-                        android:textSize="@dimen/textSmall" />
 
 
                 </RelativeLayout>
@@ -268,41 +229,6 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_amount_value"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/basic_marginLR"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/hintColor"
-                    android:textSize="@dimen/textNormal" />
-
-
-                <!--                &lt;!&ndash;转账备注&ndash;&gt;-->
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="0dp"-->
-                <!--                    android:layout_marginTop="5dp"-->
-                <!--                    android:layout_weight="1"-->
-                <!--                    android:background="@drawable/radius_btn_minor"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    android:paddingLeft="@dimen/basic_paddingLR"-->
-                <!--                    android:paddingRight="@dimen/basic_paddingLR">-->
-
-                <!--                    <EditText-->
-                <!--                        android:id="@+id/edt_transfer_tips"-->
-                <!--                        android:layout_width="match_parent"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_gravity="center_vertical"-->
-                <!--                        android:background="@null"-->
-                <!--                        android:hint="@string/transfer_tips"-->
-                <!--                        android:textColor="@color/textMajor"-->
-                <!--                        android:textColorHint="@color/textHint"-->
-                <!--                        android:textSize="@dimen/textNormal" />-->
-
-                <!--                </LinearLayout>-->
-
             </LinearLayout>
 
 
@@ -359,14 +285,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/textMajor"
-                            android:textSize="@dimen/textSmall" />
-
-                        <TextView
-                            android:id="@+id/tv_fee_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/hintColor"
                             android:textSize="@dimen/textSmall" />
 
                     </LinearLayout>

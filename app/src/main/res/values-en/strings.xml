@@ -60,6 +60,7 @@
     <string name="file_coin">FileCoin</string>
     <string name="file_coin_details">Decentralized Storage Network</string>
     <string name="btc">BTC</string>
+    <string name="filecoin">FIL</string>
     <string name="btc_details">Bitcoin</string>
     <string name="open_wait">Coming soon</string>
     <string name="acl">ACL</string>
@@ -384,6 +385,7 @@
     <string name="to_check_eth">Go to Eth Browser for Details</string>
     <string name="to_check_btc">Go to BTC Browser for Details</string>
     <string name="to_check_acl">Go to ACL Browser for Details</string>
+    <string name="to_check_filecoin">Go to FILECOIN Browser for Details</string>
 
     <!-- Scan code Activity -->
     <string name="scan_qrcode_tips">Scan QR code/receiving code/wallet address/Keystore code</string>
@@ -537,4 +539,7 @@
     <string name="uuid_title">UUID</string>
 
     <string name="software_wallet_delete_desc">Deleting wallet don\'t affect the assets in your wallet address.You can still import the wallet again through the mnemonic.</string>
+
+    <!--filecoin-->
+    <string name="filecoin_no_keystore">FileCoin cannot be imported into wallet using keyStore</string>
 </resources>

@@ -52,17 +52,9 @@ public class AddressDetailsActivity extends BasicConnectShowActivity implements 
         btn_edit_address.setOnClickListener(this);
 
         switch (entity.getChainType()) {
-            case Constant.ChainType.CHAIN_TYPE_ETH:
-                img_icon.setImageResource(R.drawable.eth_icon_selected);
-                tv_chain_type.setText(getResources().getString(R.string.eth));
-                break;
-            case Constant.ChainType.CHAIN_TYPE_ACL:
-                img_icon.setImageResource(R.drawable.acl_icon_select);
-                tv_chain_type.setText(getResources().getString(R.string.acl));
-                break;
-            case Constant.ChainType.CHAIN_TYPE_BTC:
-                img_icon.setImageResource(R.drawable.btc);
-                tv_chain_type.setText(getResources().getString(R.string.btc));
+            case Constant.ChainType.CHAIN_TYPE_FIL:
+                img_icon.setImageResource(R.drawable.file_coin_select);
+                tv_chain_type.setText(getResources().getString(R.string.file_coin));
                 break;
         }
         tv_address.setText(entity.getAddress());

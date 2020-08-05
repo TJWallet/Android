@@ -107,19 +107,8 @@ public class CollectActivity extends BasicConnectShowActivity implements View.On
         }
 
         if (assetsDetails != null) {
-            if (assetsDetails.getAssetsName().equals("ETH")) {
-                tv_collect_title.setText(getResources().getString(R.string.scan_qrcord_collect) + " ETH");
-                img_icon.setImageResource(R.drawable.eth_icon_selected);
-            } else if (assetsDetails.getAssetsName().equals("BTC")) {
-                tv_collect_title.setText(getResources().getString(R.string.scan_qrcord_collect) + " BTC");
-                img_icon.setImageResource(R.drawable.btc);
-            } else if (assetsDetails.getAssetsName().equals("ACL")) {
-                tv_collect_title.setText(getResources().getString(R.string.scan_qrcord_collect) + " ACL");
-                img_icon.setImageResource(R.drawable.acl_icon_select);
-            } else {
-                tv_collect_title.setText(getResources().getString(R.string.scan_qrcord_collect) + " " + assetsDetails.getAssetsName());
-                ImageLoaderHelper.getInstance().loadImage(this, img_icon, assetsDetails.getIconUrl());
-            }
+            tv_collect_title.setText(getResources().getString(R.string.scan_qrcord_collect) + " FIL");
+            img_icon.setImageResource(R.drawable.file_coin_select);
         }
 
         tv_address.setText(walletInfo.getAddress());

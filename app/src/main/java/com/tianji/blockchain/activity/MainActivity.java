@@ -22,7 +22,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.IntentFilterConstant;
@@ -30,19 +29,13 @@ import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
 import com.tianji.blockchain.activity.basic.BasicNetCheckActivity;
 import com.tianji.blockchain.activity.sacn.MipcaActivityCapture;
-import com.tianji.blockchain.dialog.ShowContentDialog;
-import com.tianji.blockchain.dialog.TipsDialog;
-import com.tianji.blockchain.dialog.UpDateDialog;
-import com.tianji.blockchain.entity.UpdateEntity;
 import com.tianji.blockchain.fragment.article.ArticleFragment;
 import com.tianji.blockchain.fragment.find.FindFragment;
 import com.tianji.blockchain.fragment.main.MainFragment;
 import com.tianji.blockchain.fragment.wallet.WalletFragment;
-import com.tianji.blockchain.utils.CommonUtils;
-import com.tianji.blockchain.utils.DialogUtils;
-import com.tianji.blockchain.utils.HttpVolley;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.NetUtils;
+import com.tianji.blockchainwallet.entity.WalletInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,21 +61,9 @@ public class MainActivity extends BasicNetCheckActivity implements View.OnClickL
     private Fragment walletFragment, findFragment, mainFragment, articleFragment;
 
 
-    private Gson gson;
-
-    private UpDateDialog dateDialog;
-
-
-    /***激活流程相关提示***/
-    private ShowContentDialog illegalSerialDialog;
-    private String serialNumberRecord;
-    private TipsDialog initNoNetWorkDialog;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWritePermission();
         setContentView(R.layout.activity_main);
     }
@@ -90,7 +71,6 @@ public class MainActivity extends BasicNetCheckActivity implements View.OnClickL
 
     @Override
     protected void setData() {
-        if (presenter == null) presenter = new MainPresenter(this, this);
     }
 
     @Override
@@ -169,7 +149,6 @@ public class MainActivity extends BasicNetCheckActivity implements View.OnClickL
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setEnabled(false);
 
-        gson = new Gson();
 
         if (walletFragment == null) {
             walletFragment = new WalletFragment();
@@ -200,58 +179,6 @@ public class MainActivity extends BasicNetCheckActivity implements View.OnClickL
 
         tv_tabbar_wallet.setTextColor(getResources().getColor(R.color.text_selected));
 
-        initNoNetWorkDialog = DialogUtils.buildHardwareNoNetworkDialog(this, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (initNoNetWorkDialog.isShowing()) {
-                    initNoNetWorkDialog.dismiss();
-                }
-            }
-        });
-        //首页检测自更新，只检测一次
-        if (!WalletApplication.isCheckUpdata()) {
-            if (WalletApplication.getApp().isDeveloperVersion()) {
-                HttpVolley.getInstance(this).HttpVolleyGet(Constant.HttpUrl.updateUrl + "?flag=1", new HttpVolley.VolleyCallBack() {
-                    @Override
-                    public void onSuccess(String data) {
-                        LogUtils.log(className + " -- 灰度测试版更新请求数据 =" + data);
-                        UpdateEntity entity = gson.fromJson(data, UpdateEntity.class);
-                        WalletApplication.setCheckUpdata(true);
-
-                        long code = CommonUtils.getAppVersionCode(MainActivity.this);
-                        if (code < entity.getVersionCode()) {
-                            dateDialog = new UpDateDialog(MainActivity.this, entity);
-                            dateDialog.show();
-                        }
-                    }
-
-                    @Override
-                    public void onFail(VolleyError error) {
-
-                    }
-                });
-            } else {
-                HttpVolley.getInstance(this).HttpVolleyGet(Constant.HttpUrl.updateUrl, new HttpVolley.VolleyCallBack() {
-                    @Override
-                    public void onSuccess(String data) {
-                        UpdateEntity entity = gson.fromJson(data, UpdateEntity.class);
-                        WalletApplication.setCheckUpdata(true);
-
-                        long code = CommonUtils.getAppVersionCode(MainActivity.this);
-                        if (code < entity.getVersionCode()) {
-                            dateDialog = new UpDateDialog(MainActivity.this, entity);
-                            dateDialog.show();
-                        }
-                    }
-
-                    @Override
-                    public void onFail(VolleyError error) {
-
-                    }
-                });
-            }
-
-        }
     }
 
     @Override

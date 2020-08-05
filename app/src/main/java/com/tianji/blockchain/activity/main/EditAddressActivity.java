@@ -3,7 +3,6 @@ package com.tianji.blockchain.activity.main;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,28 +13,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.tianji.blockchainwallet.constant.enums.Chain;
 import com.tianji.blockchainwallet.entity.WalletInfo;
 import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
-import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
 import com.tianji.blockchain.activity.sacn.MipcaActivityCapture;
-import com.tianji.blockchain.adapter.basic.OnItemClickListener;
-import com.tianji.blockchain.dialog.SelectDialog;
 import com.tianji.blockchain.entity.AddressEntity;
 import com.tianji.blockchain.sharepreferences.AddressSharedPreferences;
-import com.tianji.blockchain.utils.AddressUtils;
 import com.tianji.blockchain.utils.CommonUtils;
-import com.tianji.blockchain.utils.EditTextFilterUtils;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.ViewCommonUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EditAddressActivity extends BasicConnectShowActivity implements View.OnClickListener {
-    private RelativeLayout rl_choose_chain_type;
     private ImageView img_icon;
     private TextView tv_chain_type;
     private EditText edt_address;
@@ -50,7 +41,6 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
     private AddressEntity addressEntity;
     private int addressBooksPosition;
 
-    private SelectDialog selectDialog;
     private int addressChainType;
     private WalletInfo walletInfo;
     private String saveAddress;
@@ -72,7 +62,6 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
                 addressEntity = AddressSharedPreferences.getInstance(this).getAddressList().get(addressBooksPosition);
             }
         }
-        rl_choose_chain_type = findViewById(R.id.rl_choose_chain_type);
         img_icon = findViewById(R.id.img_icon);
         tv_chain_type = findViewById(R.id.tv_chain_type);
         edt_address = findViewById(R.id.edt_address);
@@ -86,27 +75,17 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
         if (type == Constant.AddressType.TYPE_ADDRESS_CREATE) {
             mActionBar.setActionTitle(getResources().getString(R.string.new_address));
             btn_delete_address.setVisibility(View.GONE);
-            img_icon.setImageResource(R.drawable.eth_icon_selected);
-            tv_chain_type.setText(getResources().getString(R.string.eth));
-            addressChainType = Constant.ChainType.CHAIN_TYPE_ETH;
+            img_icon.setImageResource(R.drawable.file_coin_select);
+            tv_chain_type.setText(getResources().getString(R.string.file_coin));
+            addressChainType = Constant.ChainType.CHAIN_TYPE_FIL;
         } else if (type == Constant.AddressType.TYPE_ADDRESS_EDIT) {
             mActionBar.setActionTitle(getResources().getString(R.string.edit_address));
             btn_delete_address.setVisibility(View.VISIBLE);
             switch (addressEntity.getChainType()) {
-                case Constant.ChainType.CHAIN_TYPE_ETH:
-                    img_icon.setImageResource(R.drawable.eth_icon_selected);
-                    tv_chain_type.setText(getResources().getString(R.string.eth));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_ETH;
-                    break;
-                case Constant.ChainType.CHAIN_TYPE_ACL:
-                    img_icon.setImageResource(R.drawable.acl_icon_select);
-                    tv_chain_type.setText(getResources().getString(R.string.acl));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_ACL;
-                    break;
-                case Constant.ChainType.CHAIN_TYPE_BTC:
-                    img_icon.setImageResource(R.drawable.btc);
-                    tv_chain_type.setText(getResources().getString(R.string.btc));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_BTC;
+                case Constant.ChainType.CHAIN_TYPE_FIL:
+                    img_icon.setImageResource(R.drawable.file_coin_select);
+                    tv_chain_type.setText(getResources().getString(R.string.file_coin));
+                    addressChainType = Constant.ChainType.CHAIN_TYPE_FIL;
                     break;
             }
             edt_address.setText(addressEntity.getAddress());
@@ -116,20 +95,10 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
             mActionBar.setActionTitle(getResources().getString(R.string.new_address));
             btn_delete_address.setVisibility(View.GONE);
             switch (walletInfo.getChain()) {
-                case ETH:
-                    img_icon.setImageResource(R.drawable.eth_icon_selected);
-                    tv_chain_type.setText(getResources().getString(R.string.eth));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_ETH;
-                    break;
-                case BTC:
-                    img_icon.setImageResource(R.drawable.btc);
-                    tv_chain_type.setText(getResources().getString(R.string.btc));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_BTC;
-                    break;
-                case ACL:
-                    img_icon.setImageResource(R.drawable.acl_icon_select);
-                    tv_chain_type.setText(getResources().getString(R.string.acl));
-                    addressChainType = Constant.ChainType.CHAIN_TYPE_ACL;
+                case FIL:
+                    img_icon.setImageResource(R.drawable.file_coin_select);
+                    tv_chain_type.setText(getResources().getString(R.string.file_coin));
+                    addressChainType = Constant.ChainType.CHAIN_TYPE_FIL;
                     break;
             }
             edt_address.setText(saveAddress);
@@ -137,36 +106,6 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
         ViewCommonUtils.buildBackImageView(this, mActionBar);
 
 
-        String[] coinList = getResources().getStringArray(R.array.select_coin);
-
-        selectDialog = new SelectDialog(this, R.style.Wallet_Manager_Dialog, coinList, getResources().getString(R.string.choose_coin), new OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position, Object obj) {
-                switch (position) {
-                    case 0:
-                        img_icon.setImageResource(R.drawable.btc);
-                        tv_chain_type.setText(getResources().getString(R.string.btc));
-                        addressChainType = Constant.ChainType.CHAIN_TYPE_BTC;
-                        selectDialog.dismiss();
-                        break;
-                    case 1:
-                        img_icon.setImageResource(R.drawable.eth_icon_selected);
-                        tv_chain_type.setText(getResources().getString(R.string.eth));
-                        addressChainType = Constant.ChainType.CHAIN_TYPE_ETH;
-                        selectDialog.dismiss();
-                        break;
-                    case 2:
-                        img_icon.setImageResource(R.drawable.acl_icon_select);
-                        tv_chain_type.setText(getResources().getString(R.string.acl));
-                        addressChainType = Constant.ChainType.CHAIN_TYPE_ACL;
-                        selectDialog.dismiss();
-                        break;
-                }
-            }
-        });
-
-
-        rl_choose_chain_type.setOnClickListener(this);
         rl_scan.setOnClickListener(this);
         btn_delete_address.setOnClickListener(this);
         btn_save.setOnClickListener(this);
@@ -175,9 +114,6 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rl_choose_chain_type:
-                selectDialog.show();
-                break;
             case R.id.rl_scan:
                 CommonUtils.openScan(this);
                 break;
@@ -195,26 +131,8 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
                 if (type == Constant.AddressType.TYPE_ADDRESS_CREATE || type == Constant.AddressType.TYPE_ADDRESS_OPERATE) {
                     if (!addressName.equals("") && !address.equals("")) {
                         switch (addressChainType) {
-                            case Constant.ChainType.CHAIN_TYPE_BTC:
-                                if (AddressUtils.isBTCValidAddress(address)) {
-                                    setAddressSuccess(0, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_BTC_address);
-                                }
-                                break;
-                            case Constant.ChainType.CHAIN_TYPE_ETH:
-                                if (AddressUtils.isETHValidAddress(address)) {
-                                    setAddressSuccess(0, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_ETH_address);
-                                }
-                                break;
-                            case Constant.ChainType.CHAIN_TYPE_ACL:
-                                if (AddressUtils.isETHValidAddress(address)) {
-                                    setAddressSuccess(0, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_ACL_address);
-                                }
+                            case Constant.ChainType.CHAIN_TYPE_FIL:
+                                setAddressSuccess(0, address, addressName, addressTips);
                                 break;
                         }
                     } else {
@@ -227,26 +145,8 @@ public class EditAddressActivity extends BasicConnectShowActivity implements Vie
                         AddressSharedPreferences.getInstance(this).removeAddress(list);
 
                         switch (addressChainType) {
-                            case Constant.ChainType.CHAIN_TYPE_BTC:
-                                if (AddressUtils.isBTCValidAddress(address)) {
-                                    setAddressSuccess(1, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_BTC_address);
-                                }
-                                break;
-                            case Constant.ChainType.CHAIN_TYPE_ETH:
-                                if (AddressUtils.isETHValidAddress(address)) {
-                                    setAddressSuccess(1, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_ETH_address);
-                                }
-                                break;
-                            case Constant.ChainType.CHAIN_TYPE_ACL:
-                                if (AddressUtils.isETHValidAddress(address)) {
-                                    setAddressSuccess(1, address, addressName, addressTips);
-                                } else {
-                                    showToast(R.string.not_ACL_address);
-                                }
+                            case Constant.ChainType.CHAIN_TYPE_FIL:
+                                setAddressSuccess(1, address, addressName, addressTips);
                                 break;
                         }
                     } else {

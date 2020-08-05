@@ -125,34 +125,16 @@ public class AssetsDetailsActivity extends BasicConnectShowActivity implements V
             }
         });
 
-        if (assetsDetails.getAssetsName().equals("ETH")) {
-            img_icon.setImageResource(R.drawable.eth_icon_selected);
-            tv_amount.setText(MathUtils.doubleKeep4(assetsDetails.getBalance()));
-        } else if (assetsDetails.getAssetsName().equals("BTC")) {
-            img_icon.setImageResource(R.drawable.btc);
-            tv_amount.setText(MathUtils.doubleKeep8(assetsDetails.getBalance()));
-        } else if (assetsDetails.getAssetsName().equals("ACL")) {
-            img_icon.setImageResource(R.drawable.acl_icon_select);
-            tv_amount.setText(MathUtils.doubleKeep4(assetsDetails.getBalance()));
-        } else {
-            ImageLoaderHelper.getInstance().loadImage(this, img_icon, assetsDetails.getIconUrl());
-            tv_amount.setText(MathUtils.doubleKeep4(assetsDetails.getBalance()));
-        }
-
+        img_icon.setImageResource(R.drawable.file_coin_select);
+        tv_amount.setText(MathUtils.doubleKeep4(assetsDetails.getBalance()));
 
         CommonUtils.setCurrency(tv_value, MathUtils.doubleKeep2(assetsDetails.getTotalPrice()), false);
         tv_icon_name.setText(assetsDetails.getAssetsName());
 
 
         switch (walletInfo.getChain()) {
-            case ETH:
-                rl_chain_info.setBackgroundResource(R.drawable.eth_white);
-                break;
-            case ACL:
-                rl_chain_info.setBackgroundResource(R.drawable.acl_white);
-                break;
-            case BTC:
-                rl_chain_info.setBackgroundResource(R.drawable.btc_white);
+            case FIL:
+                rl_chain_info.setBackgroundResource(R.drawable.filecoin_white);
                 break;
             default:
                 break;
@@ -307,34 +289,9 @@ public class AssetsDetailsActivity extends BasicConnectShowActivity implements V
         if (presenter == null) {
             presenter = new AssetsDetailsPresenter(this, this);
         }
-        if (assetsDetails.getAssetsName().equals("ETH")) {
-            Map<String, String> ethParams = new HashMap<>();
-            ethParams.put("address", walletInfo.getAddress());
-            ethParams.put("pageNo", "0");
-            ethParams.put("pageSize", "100");
-            presenter.getData(ethParams);
-
-            presenter.checkETHBlance(walletInfo.getAddress());
-        } else if (assetsDetails.getAssetsName().equals("BTC")) {
-            presenter.checkBTCBalance(walletInfo.getAddress());
-            presenter.getBTCTransferRecode(walletInfo.getAddress());
-        } else if (assetsDetails.getAssetsName().equals("ACL")) {
-            Map<String, String> aclParams = new HashMap<>();
-            aclParams.put("addressHash", walletInfo.getAddress());
-            aclParams.put("current", "1");
-            aclParams.put("size", "100");
-            presenter.getAclTransferRecode(aclParams);
-            presenter.checkACLBalance(walletInfo.getAddress());
-        } else {
-            Map<String, String> erc20Params = new HashMap<>();
-            erc20Params.put("address", walletInfo.getAddress());
-            erc20Params.put("contractAddress", assetsDetails.getContractAddress());
-            erc20Params.put("pageNo", "0");
-            erc20Params.put("pageSize", "100");
-            presenter.getERCtransferRecode(erc20Params);
-
-            presenter.checkERC20Blance(walletInfo.getAddress(), assetsDetails.getContractAddress());
-        }
+        presenter.checkTransferRecord(walletInfo.getAddress());
+        presenter.checkFilecoinBalance(walletInfo.getAddress());
+        presenter.checkFILValue();
     }
 
     @Override
@@ -438,7 +395,7 @@ public class AssetsDetailsActivity extends BasicConnectShowActivity implements V
     @Override
     public void getDataSuccess(Object object, int type) {
         switch (type) {
-            case AssetsDetailsPresenter.TYPE_GET_ETH_TRANSFER_RECODE:
+            case AssetsDetailsPresenter.CHECK_TRANSFER_RECORD:
                 List<TransferRecode> list = (List<TransferRecode>) object;
                 if (list.size() > 0) {
                     rl_no_assets.setVisibility(View.GONE);
@@ -484,137 +441,21 @@ public class AssetsDetailsActivity extends BasicConnectShowActivity implements V
                     swipeRefreshLayout.setRefreshing(false);
                 }
                 break;
-            case AssetsDetailsPresenter.TYPE_GET_VALUE:
-                String data = (String) object;
-                double dataDouble = Double.parseDouble(data);
-                double result = dataDouble * now_amount;
-                CommonUtils.setCurrency(tv_value, MathUtils.doubleKeep2(result), false);
-                break;
-            case AssetsDetailsPresenter.TYPE_GET_ERC20_BLANCE:
-                String erc20Blance = (String) object;
-                now_amount = Double.parseDouble(erc20Blance);
+            case AssetsDetailsPresenter.CHECK_FILECOIN_BALANCE:
+                String balance = (String) object;
+                now_amount = Double.parseDouble(balance);
                 tv_amount.setText(MathUtils.doubleKeep4(now_amount));
-                presenter.checkCoinValue(assetsDetails.getContractAddress());
                 break;
-            case AssetsDetailsPresenter.TYPE_GET_ETH_BLANCE:
-                String ethBlance = (String) object;
-                now_amount = Double.parseDouble(ethBlance);
-                tv_amount.setText(MathUtils.doubleKeep4(now_amount));
-                presenter.checkCoinValue("");
-                break;
-            case AssetsDetailsPresenter.TYPE_CHECK_ACL_BALANCE:
-                String aclBlance = (String) object;
-                now_amount = Double.parseDouble(aclBlance);
-                tv_amount.setText(MathUtils.doubleKeep4(now_amount));
-                presenter.checkACLCoinValue();
-                break;
-            case AssetsDetailsPresenter.TYPE_GET_ACL_TRANSFER_RECODE:
-                List<TransferRecode> aclList = new ArrayList<>();
-                try {
-                    List<TransferRecode> objectList = (List<TransferRecode>) object;
-                    aclList.addAll(objectList);
-                } catch (ClassCastException e) {
+            case AssetsDetailsPresenter.CHECK_FILECOIN_VALUE:
+                if (now_amount != 0) {
+                    String filValue = (String) object;
+                    double filValueDouble = Double.parseDouble(filValue);
+                    double filValueResult = filValueDouble * now_amount;
+                    CommonUtils.setCurrency(tv_value, MathUtils.doubleKeep2(filValueResult), false);
                 }
-
-                LogUtils.log(className + " -- 请求ACL交易记录成功 =" + aclList.toString());
-                if (aclList.size() > 0) {
-                    rl_no_assets.setVisibility(View.GONE);
-
-                    for (int i = 0; i < aclList.size(); i++) {
-                        if (aclList.get(i).getFrom().equals(walletInfo.getAddress())) {
-                            aclList.get(i).setTransferInTo(false);
-                        } else {
-                            aclList.get(i).setTransferInTo(true);
-                        }
-                    }
-                    CoinTransferRecode coinTransferRecode = new CoinTransferRecode();
-                    coinTransferRecode.setCoinName(assetsDetails.getAssetsName());
-                    coinTransferRecode.setTransferRecodeList(aclList);
-                    //添加缓存
-                    AssetsDetailsSharedPreferences.getInstance(this).removeRecord(walletInfo.getAddress(), assetsDetails.getAssetsName());
-                    AssetsDetailsSharedPreferences.getInstance(this).addAssetsDetails(walletInfo.getAddress(), coinTransferRecode);
-
-                    transferDetailsInfoList.clear();
-                    compareTransferHash(transferWaitList, aclList);
-                    transferDetailsInfoList.addAll(aclList);
-                    switch (cuurentType) {
-                        case TYPE_ALL:
-                            changeType(TYPE_ALL);
-                            break;
-                        case TYPE_TRANSFER_INTO:
-                            changeType(TYPE_TRANSFER_INTO);
-                            break;
-                        case TYPE_TRANSFER_OUT:
-                            changeType(TYPE_TRANSFER_OUT);
-                            break;
-                    }
-                } else {
-                    AssetsDetailsSharedPreferences.getInstance(this).removeRecord(walletInfo.getAddress(), assetsDetails.getAssetsName());
-                    rl_no_assets.setVisibility(View.VISIBLE);
-                    recyclerView.setVisibility(View.GONE);
-                }
-
-                if (swipeRefreshLayout.isRefreshing()) {
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-                break;
-            case AssetsDetailsPresenter.TYPE_GET_BTC_TRANSFER_RECODE:
-                List<TransferRecode> btcList = (List<TransferRecode>) object;
-                LogUtils.log(className + " -- 请求BTC交易记录成功 =" + btcList.toString());
-                if (btcList.size() > 0) {
-                    rl_no_assets.setVisibility(View.GONE);
-
-
-                    CoinTransferRecode coinTransferRecode = new CoinTransferRecode();
-                    coinTransferRecode.setCoinName(assetsDetails.getAssetsName());
-                    coinTransferRecode.setTransferRecodeList(btcList);
-                    //添加缓存
-                    AssetsDetailsSharedPreferences.getInstance(this).removeRecord(walletInfo.getAddress(), assetsDetails.getAssetsName());
-                    AssetsDetailsSharedPreferences.getInstance(this).addAssetsDetails(walletInfo.getAddress(), coinTransferRecode);
-
-                    transferDetailsInfoList.clear();
-                    compareTransferHash(transferWaitList, btcList);
-                    transferDetailsInfoList.addAll(btcList);
-
-                    switch (cuurentType) {
-                        case TYPE_ALL:
-                            changeType(TYPE_ALL);
-                            break;
-                        case TYPE_TRANSFER_INTO:
-                            changeType(TYPE_TRANSFER_INTO);
-                            break;
-                        case TYPE_TRANSFER_OUT:
-                            changeType(TYPE_TRANSFER_OUT);
-                            break;
-                    }
-                } else {
-                    AssetsDetailsSharedPreferences.getInstance(this).removeRecord(walletInfo.getAddress(), assetsDetails.getAssetsName());
-                    rl_no_assets.setVisibility(View.VISIBLE);
-                    recyclerView.setVisibility(View.GONE);
-                }
-
-                if (swipeRefreshLayout.isRefreshing()) {
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-                break;
-            case AssetsDetailsPresenter.TYPE_CHECK_BTC_BALANCE:
-                now_amount = (double) object;
-                tv_amount.setText(MathUtils.doubleKeep8(now_amount));
-                presenter.checkBTCCoinValue();
-                break;
-            case AssetsDetailsPresenter.TYPE_GET_ACL_VALUE:
-                String aclValue = (String) object;
-                double aclValueDouble = Double.parseDouble(aclValue);
-                double aclValueResult = aclValueDouble * now_amount;
-                CommonUtils.setCurrency(tv_value, MathUtils.doubleKeep2(aclValueResult), false);
-                break;
-            case AssetsDetailsPresenter.TYPE_GET_BTC_VALUE:
-                String btcValue = (String) object;
-                double btcValueDouble = Double.parseDouble(btcValue);
-                double btcValueResult = btcValueDouble * now_amount;
-                CommonUtils.setCurrency(tv_value, MathUtils.doubleKeep2(btcValueResult), false);
                 break;
         }
+
     }
 
     @Override

@@ -32,7 +32,6 @@ import com.tianji.blockchain.dialog.TipsDialog;
 import com.tianji.blockchain.entity.DialogEntity;
 import com.tianji.blockchain.sharepreferences.CurrentWalletSharedPreferences;
 import com.tianji.blockchain.sharepreferences.MnemonicSharedPreferences;
-import com.tianji.blockchain.sharepreferences.ObserverWalletListSharedPreferences;
 import com.tianji.blockchain.utils.CommonUtils;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.TimeUtils;
@@ -125,15 +124,9 @@ public class WalletDetailsActivity extends BasicConnectShowActivity implements V
                     CurrentWalletSharedPreferences.getInstance(this).changeCurrentWallet(WalletListHelper.getInstance(this).getSoftwareWalletInfoListAll().get(0));
                     WalletDetailsActivity.this.finish();
                 } else {
-                    if (ObserverWalletListSharedPreferences.getInstance(WalletDetailsActivity.this).getAllObWalletList().size() > 0) {
-                        WalletApplication.setCurrentWallet(ObserverWalletListSharedPreferences.getInstance(WalletDetailsActivity.this).getAllObWalletList().get(0).getWalletInfoList().get(0));
-                        CurrentWalletSharedPreferences.getInstance(this).changeCurrentWallet(ObserverWalletListSharedPreferences.getInstance(WalletDetailsActivity.this).getAllObWalletList().get(0).getWalletInfoList().get(0));
-                        WalletDetailsActivity.this.finish();
-                    } else {
-                        Intent intent = new Intent(WalletDetailsActivity.this, HomeActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(WalletDetailsActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
                 break;
             case TYPE_ERROR:
@@ -172,14 +165,8 @@ public class WalletDetailsActivity extends BasicConnectShowActivity implements V
         tv_wallet_create_time_content = findViewById(R.id.tv_wallet_create_time_content);
 
         switch (walletInfo.getChain()) {
-            case ACL:
-                img_chain_icon.setImageResource(R.drawable.acl_icon_select);
-                break;
-            case BTC:
-                img_chain_icon.setImageResource(R.drawable.btc);
-                break;
-            case ETH:
-                img_chain_icon.setImageResource(R.drawable.eth_icon_selected);
+            case FIL:
+                img_chain_icon.setImageResource(R.drawable.file_coin_select);
                 break;
         }
         tv_wallet_name.setText(walletInfo.getWalletName());

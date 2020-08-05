@@ -12,14 +12,16 @@ import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
 import com.tianji.blockchain.activity.MainActivity;
 import com.tianji.blockchain.activity.basic.BasicDataActivity;
-import com.tianji.blockchain.activity.basic.UsbCallbackListener;
-import com.tianji.blockchain.sharepreferences.AssetsListSharedPreferences;
 import com.tianji.blockchain.sharepreferences.CurrentWalletSharedPreferences;
-import com.tianji.blockchain.sharepreferences.ObserverWalletListSharedPreferences;
-import com.tianji.blockchain.utils.LogUtils;
+import com.tianji.blockchain.utils.WalletListHelper;
+import com.tianji.blockchainwallet.entity.WalletInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class WelcomeActivity extends BasicDataActivity {
+    private List<WalletInfo> walletInfoList = new ArrayList<>();
     private static final int START_MAINACTIVITY = 0;
     private TextView tv_desc;
 
@@ -72,10 +74,8 @@ public class WelcomeActivity extends BasicDataActivity {
         walletInfoList.clear();
         walletInfoList.addAll(WalletListHelper.getInstance(this).getSoftwareWalletInfoListAll());
 
-        if (walletInfoList.size() > 0) {
-            //有filecoin钱包
-            mHandler.sendEmptyMessageDelayed(START_MAINACTIVITY, 2000);
-        }
+        //有filecoin钱包
+        mHandler.sendEmptyMessageDelayed(START_MAINACTIVITY, 2000);
     }
 
 

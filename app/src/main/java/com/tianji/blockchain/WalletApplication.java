@@ -3,10 +3,7 @@ package com.tianji.blockchain;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.view.Display;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -14,21 +11,13 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
-import com.tianji.blockchainwallet.WalletManager;
-import com.tianji.blockchainwallet.constant.enums.ResultCode;
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchainwallet.usb.IUsbAttachListener;
-import com.tianji.blockchainwallet.wallet.IRequestListener;
-import com.tianji.blockchain.activity.aboutus.SettingActivity;
-import com.tianji.blockchain.activity.basic.UsbCallbackListener;
 import com.tianji.blockchain.restful.Api;
 import com.tianji.blockchain.sharepreferences.CommonSharedPreferences;
 import com.tianji.blockchain.sharepreferences.LanguageCheckSharedPreferences;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.PreferencesUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class WalletApplication extends Application {

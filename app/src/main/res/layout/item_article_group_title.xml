@@ -46,7 +46,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:scaleType="center"
-            android:src="@mipmap/help_gray" />
+            android:src="@drawable/help_gray" />
 
     </LinearLayout>
 </RelativeLayout>

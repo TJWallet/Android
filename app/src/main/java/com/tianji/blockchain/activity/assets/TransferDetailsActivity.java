@@ -14,20 +14,15 @@ import androidx.annotation.Nullable;
 import android.widget.*;
 
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
-import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
-import com.tianji.blockchain.adapter.basic.OnItemClickListener;
 import com.tianji.blockchain.basic.BasicMvpInterface;
 import com.tianji.blockchain.dialog.SelectDialog;
 import com.tianji.blockchain.dialog.TipsDialog;
-import com.tianji.blockchain.dialog.TransferInfoAddressListDialog;
 import com.tianji.blockchain.entity.AddressEntity;
 import com.tianji.blockchain.entity.DialogEntity;
 import com.tianji.blockchain.entity.TransferRecode;
-import com.tianji.blockchain.entity.TransferResuletInfoEntity;
 import com.tianji.blockchain.entity.TransferWaitEntity;
 import com.tianji.blockchain.sharepreferences.AddressSharedPreferences;
 import com.tianji.blockchain.sharepreferences.TransferWaitSharedPreferences;
@@ -44,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TransferDetailsActivity extends BasicConnectShowActivity implements View.OnClickListener, BasicMvpInterface {
+public class TransferDetailsActivity extends BasicConnectShowActivity implements View.OnClickListener {
     private TransferRecode transferRecode;
     private String transferCoinName;
     private int transferType;
@@ -70,13 +65,11 @@ public class TransferDetailsActivity extends BasicConnectShowActivity implements
     private WalletInfo walletInfo;
     private int decimal = 18;
 
-    private TransferInfoAddressListDialog dialog;
 
     private SelectDialog selectDialog;
     private TipsDialog transferErrorTDialog;
     private TipsDialog deleteTransferRecordDialog;
 
-    private TransferDetailsPresenter presenter;
 
     private double coinView = -1;
 
@@ -89,20 +82,6 @@ public class TransferDetailsActivity extends BasicConnectShowActivity implements
 
     @Override
     protected void setData() {
-        if (presenter == null) {
-            presenter = new TransferDetailsPresenter(this, this);
-        }
-        switch (walletInfo.getChain()) {
-            case ACL:
-                presenter.checkACLCoinValue(this);
-                break;
-            case BTC:
-                presenter.checkBTCCoinValue(this);
-                break;
-            case ETH:
-                presenter.checkETHCoinValue(this, "");
-                break;
-        }
     }
 
     @Override
@@ -243,32 +222,11 @@ public class TransferDetailsActivity extends BasicConnectShowActivity implements
         if (transferRecode.getTokenDecimal() != null) {
             decimal = Integer.parseInt(transferRecode.getTokenDecimal());
         }
-        if (transferCoinName.equals("ACL")) {
-            tv_to_check.setVisibility(View.VISIBLE);
-            tv_to_check.setText(R.string.to_check_acl);
-            tv_miner_fee.setText(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), transferRecode.getGasUsed()) + " ACL");
-            tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(transferRecode.getValue()).divide(new BigDecimal(Math.pow(10, decimal))).doubleValue()));
-            tv_check_info.setVisibility(View.GONE);
-        } else if (transferCoinName.equals("BTC")) {
-            if (transferType != 3 && transferType != 4) {
-                tv_check_info.setVisibility(View.VISIBLE);
-                dialog = new TransferInfoAddressListDialog(this, R.style.Wallet_Manager_Dialog, transferRecode);
-            }
-            tv_amount.setText(MathUtils.doubleKeep8(new BigDecimal(transferRecode.getValue()).doubleValue()));
-            tv_miner_fee.setText(new BigDecimal(transferRecode.getBtcFee()).divide(new BigDecimal(Math.pow(10, 8))) + getResources().getString(R.string.btc));
-            tv_to_check.setVisibility(View.VISIBLE);
-            tv_to_check.setText(R.string.to_check_btc);
-        } else {
-            if (transferRecode.getGasUsed() == null) {
-                tv_miner_fee.setText(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), "60000") + " ETH");
-            } else {
-                tv_miner_fee.setText(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), transferRecode.getGasUsed()) + " ETH");
-            }
-            tv_to_check.setVisibility(View.VISIBLE);
-            tv_to_check.setText(R.string.to_check_eth);
-            tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(transferRecode.getValue()).divide(new BigDecimal(Math.pow(10, decimal))).doubleValue()));
-            tv_check_info.setVisibility(View.GONE);
-        }
+        tv_to_check.setVisibility(View.VISIBLE);
+        tv_to_check.setText(R.string.to_check_filecoin);
+        tv_miner_fee.setText(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), transferRecode.getGas()) + " FIL");
+        tv_amount.setText(MathUtils.doubleKeep4(new BigDecimal(transferRecode.getValue()).divide(new BigDecimal(Math.pow(10, decimal))).doubleValue()));
+        tv_check_info.setVisibility(View.GONE);
 
         /***设置付款地址***/
         if (walletInfo.getAddress().equals(transferRecode.getFrom())) {
@@ -349,75 +307,14 @@ public class TransferDetailsActivity extends BasicConnectShowActivity implements
                 CommonUtils.copyContent(this, hash);
                 break;
             case R.id.tv_to_check:
-                if (transferCoinName.equals("BTC")) {
-                    String btcHash = tv_transfer_hash.getText().toString().trim();
-                    String url = "https://btc.com/" + btcHash;
-                    Uri uri = Uri.parse(url);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                } else if (transferCoinName.equals("ACL")) {
-                    String aclHash = tv_transfer_hash.getText().toString().trim();
-                    String url = "https://explorer.aclchain.io/txnsinfo/" + aclHash;
-                    Uri uri = Uri.parse(url);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                } else {
-                    String ethHash = tv_transfer_hash.getText().toString().trim();
-                    String url = "https://cn.etherscan.com/tx/" + ethHash;
-                    Uri uri = Uri.parse(url);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-                break;
-            case R.id.tv_check_info:
-                dialog.show();
+                String filecoinHash = tv_transfer_hash.getText().toString().trim();
+                String url = "https://filscan.io/#/message/detail?cid=" + filecoinHash;
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 break;
         }
     }
 
-    @Override
-    public void getDataSuccess(Object object, int type) {
-        switch (type) {
-            case TransferDetailsPresenter.TYPE_CHECK_ETH_VALUE:
-                coinView = Double.parseDouble((String) object);
-                if (coinView == -1) return;
-                double ethFeeDouble = -1d;
-                if (transferRecode.getGasUsed() == null) {
-                    ethFeeDouble = Double.parseDouble(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), "60000"));
-                } else {
-                    ethFeeDouble = Double.parseDouble(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), transferRecode.getGasUsed()));
-                }
 
-                double ethFeeValue = ethFeeDouble * coinView;
-
-                CommonUtils.setCurrency(tv_miner_fee_value, MathUtils.doubleKeep2(ethFeeValue), true);
-                break;
-            case TransferDetailsPresenter.TYPE_CHECK_BTC_VALUE:
-                coinView = Double.parseDouble((String) object);
-                double btcFeeDouble = new BigDecimal(transferRecode.getBtcFee()).divide(new BigDecimal(Math.pow(10, 8))).doubleValue();
-                if (coinView == -1) return;
-                double btcFeeValue = btcFeeDouble * coinView;
-                CommonUtils.setCurrency(tv_miner_fee_value, MathUtils.doubleKeep2(btcFeeValue), true);
-
-                break;
-            case TransferDetailsPresenter.TYPE_CHECK_ACL_VALUE:
-                coinView = Double.parseDouble((String) object);
-                double aclFeeDouble = Double.parseDouble(MathUtils.getETHUsedFee(transferRecode.getGasPrice(), transferRecode.getGasUsed()));
-                if (coinView == -1) return;
-                double aclFeeValue = aclFeeDouble * coinView;
-
-                CommonUtils.setCurrency(tv_miner_fee_value, MathUtils.doubleKeep2(aclFeeValue), true);
-                break;
-        }
-    }
-
-    @Override
-    public void getDataFail(Object error, int type) {
-
-    }
-
-    @Override
-    public void getDataFail(int errCode, String errMsg, int type) {
-
-    }
 }

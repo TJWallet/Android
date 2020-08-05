@@ -17,13 +17,13 @@
 
         <!--        </RelativeLayout>-->
 
-        <com.tianji.tjwallet.view.NoAnimationViewPager
+        <com.tianji.blockchain.view.NoAnimationViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/main_tabbar">
 
-        </com.tianji.tjwallet.view.NoAnimationViewPager>
+        </com.tianji.blockchain.view.NoAnimationViewPager>
 
         <RelativeLayout
             android:id="@+id/main_tabbar"

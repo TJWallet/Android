@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
 import com.tianji.blockchain.utils.ViewCommonUtils;
+import com.tianji.blockchainwallet.constant.enums.Chain;
 
 public class SelectWalletTypeActivity extends BasicConnectShowActivity implements View.OnClickListener {
     private RelativeLayout rl_filecoin;
@@ -43,6 +44,7 @@ public class SelectWalletTypeActivity extends BasicConnectShowActivity implement
         mActionBar.setActionTitle(getResources().getString(R.string.select_wallet_chain));
         ViewCommonUtils.buildBackImageView(this, mActionBar);
         rl_filecoin = findViewById(R.id.rl_filecoin);
+        rl_filecoin.setOnClickListener(this);
     }
 
     @Override
@@ -50,7 +52,7 @@ public class SelectWalletTypeActivity extends BasicConnectShowActivity implement
         Intent createIntent = new Intent(this, SelectAddWalletTypeActivity.class);
         switch (v.getId()) {
             case R.id.rl_filecoin:
-                createIntent.putExtra("_chainType", Chain.FILECOIN);
+                createIntent.putExtra("_chainType", Chain.FIL);
                 startActivity(createIntent);
                 break;
         }

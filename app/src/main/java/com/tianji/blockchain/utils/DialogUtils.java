@@ -3,14 +3,9 @@ package com.tianji.blockchain.utils;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 
 import com.tianji.blockchain.R;
-import com.tianji.blockchain.activity.hardware.HardwareWalletGuideActivity;
-import com.tianji.blockchain.activity.pin.SetPinActivity;
-import com.tianji.blockchain.dialog.HardwareTipsDialog;
-import com.tianji.blockchain.dialog.ShowContentDialog;
 import com.tianji.blockchain.dialog.TipsDialog;
 import com.tianji.blockchain.entity.DialogEntity;
 
@@ -62,24 +57,6 @@ public class DialogUtils {
                 , context.getResources().getString(R.string.hardware_has_wallet_btn_ok),
                 listener);
         return new TipsDialog(context, checkHardwareEntity);
-    }
-
-    /***创建一个初始化硬件的弹窗***/
-    public static HardwareTipsDialog buildHardwareGifInitDialog(Context context, Activity activity, View.OnClickListener listener) {
-        DialogEntity initDialogEntity = new DialogEntity(context.getResources().getString(R.string.hardware_init_title)
-                , context.getResources().getString(R.string.hardware_init_content)
-                , context.getResources().getString(R.string.hardware_init_btn_ok),
-                listener);
-        return new HardwareTipsDialog(context, R.style.Wallet_Manager_Dialog, initDialogEntity, activity);
-    }
-
-    /***创建一个切换硬件的弹窗***/
-    public static HardwareTipsDialog buildHardwareGifCheckDialog(Context context, Activity activity, View.OnClickListener listener) {
-        DialogEntity checkHardwareEntity = new DialogEntity(context.getResources().getString(R.string.hardware_has_wallet_title)
-                , context.getResources().getString(R.string.hardware_has_wallet_content)
-                , context.getResources().getString(R.string.hardware_has_wallet_btn_ok),
-                listener);
-        return new HardwareTipsDialog(context, R.style.Wallet_Manager_Dialog, checkHardwareEntity, activity);
     }
 
     /***创建一个激活流程中没有网络的弹窗***/

@@ -14,12 +14,12 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
-        <com.tianji.tjwallet.component.RoundImageView
+        <com.tianji.blockchain.component.RoundImageView
             app:border_radius="12"
             android:src="@drawable/img_default"
             android:layout_width="50dp"
             android:layout_height="50dp">
-        </com.tianji.tjwallet.component.RoundImageView>
+        </com.tianji.blockchain.component.RoundImageView>
 
         <LinearLayout
             android:layout_width="0dp"

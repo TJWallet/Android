@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
+import com.tianji.blockchain.utils.MathUtils;
 import com.tianji.blockchainwallet.constant.enums.Chain;
 import com.tianji.blockchainwallet.entity.WalletInfo;
 import com.tianji.blockchain.Constant;
@@ -24,7 +25,6 @@ import com.tianji.blockchain.WalletApplication;
 import com.tianji.blockchain.activity.createwallet.ServiceAgreementActivity;
 import com.tianji.blockchain.adapter.basic.CustomRecyclerViewAdapter;
 import com.tianji.blockchain.adapter.basic.ITail;
-import com.tianji.blockchain.btcApi.BitcoinApi;
 import com.tianji.blockchain.dialog.SelectDialog;
 import com.tianji.blockchain.entity.AssetsDetailsItemEntity;
 import com.tianji.blockchain.sharepreferences.AssetsListSharedPreferences;
@@ -32,13 +32,8 @@ import com.tianji.blockchain.sharepreferences.MnemonicSharedPreferences;
 import com.tianji.blockchain.utils.CommonUtils;
 import com.tianji.blockchain.utils.HttpVolley;
 import com.tianji.blockchain.utils.LogUtils;
-import com.tianji.blockchain.utils.MathUtils;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class RVAdapterWalletList extends CustomRecyclerViewAdapter<WalletInfo> implements ITail {
@@ -78,17 +73,6 @@ public class RVAdapterWalletList extends CustomRecyclerViewAdapter<WalletInfo> i
         settail(this);
     }
 
-    public RVAdapterWalletList(Context context, Activity activity, List<WalletInfo> data, boolean isHardware, int type, Chain chain) {
-        this.activity = activity;
-        this.data = data;
-        this.isHardware = isHardware;
-        this.type = type;
-        this.context = context;
-        this.chain = chain;
-        String[] strArray = context.getResources().getStringArray(R.array.select_address);
-        selectDialog = new SelectDialog(context, R.style.Wallet_Manager_Dialog, strArray, context.getResources().getString(R.string.operate));
-        settail(this);
-    }
 
     @Override
     protected void onBindContentViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
@@ -121,165 +105,62 @@ public class RVAdapterWalletList extends CustomRecyclerViewAdapter<WalletInfo> i
                 }
             }
 
-            if (isHardware) {
-                switch (entity.getChain()) {
-                    case ACL:
-                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.acl_hardware_wallet_bg);
-                        break;
-                    case ETH:
-                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.eth_hardware_wallet_bg);
-                        break;
-                    case BTC:
-                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.btc_hardware_wallet_bg);
-                        break;
-                }
-            } else {
-                switch (entity.getChain()) {
-                    case ACL:
-                        if (position % 4 == 1) {
-                            //第二个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.acl_wallet_bg_03);
-                        } else if (position % 4 == 2) {
-                            //第三个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.acl_wallet_bg_02);
-                        } else if (position % 4 == 0) {
-                            //第一个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.acl_wallet_bg_04);
-                        } else if (position % 4 == 3) {
-                            //第四个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.acl_wallet_bg_01);
-                        }
-                        break;
-                    case ETH:
-                        if (position % 4 == 1) {
-                            //第二个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.eth_wallet_bg_03);
-                        } else if (position % 4 == 2) {
-                            //第三个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.eth_wallet_bg_02);
-                        } else if (position % 4 == 0) {
-                            //第一个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.eth_wallet_bg_04);
-                        } else if (position % 4 == 3) {
-                            //第四个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.eth_wallet_bg_01);
-                        }
-                        break;
-                    case BTC:
-                        if (position % 4 == 1) {
-                            //第二个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.btc_wallet_bg_03);
-                        } else if (position % 4 == 2) {
-                            //第三个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.btc_wallet_bg_02);
-                        } else if (position % 4 == 0) {
-                            //第一个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.btc_wallet_bg_04);
-                        } else if (position % 4 == 3) {
-                            //第四个
-                            walletListViewHolder.root_view.setBackgroundResource(R.drawable.btc_wallet_bg_01);
-                        }
-                        break;
-                }
-                boolean b = MnemonicSharedPreferences.getInstance(activity).isBackUpMnemonic(entity.getAddress());
-                if (b) {
-                    walletListViewHolder.tv_no_backup.setVisibility(View.GONE);
-                } else {
-                    walletListViewHolder.tv_no_backup.setVisibility(View.VISIBLE);
-                }
+
+            switch (entity.getChain()) {
+                case FIL:
+                    if (position % 4 == 1) {
+                        //第二个
+                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.filecoin_wallet_bg_03);
+                    } else if (position % 4 == 2) {
+                        //第三个
+                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.filecoin_wallet_bg_02);
+                    } else if (position % 4 == 0) {
+                        //第一个
+                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.filecoin_wallet_bg_04);
+                    } else if (position % 4 == 3) {
+                        //第四个
+                        walletListViewHolder.root_view.setBackgroundResource(R.drawable.filecoin_wallet_bg_01);
+                    }
+                    break;
             }
+            boolean b = MnemonicSharedPreferences.getInstance(activity).isBackUpMnemonic(entity.getAddress());
+            if (b) {
+                walletListViewHolder.tv_no_backup.setVisibility(View.GONE);
+            } else {
+                walletListViewHolder.tv_no_backup.setVisibility(View.VISIBLE);
+            }
+
             CommonUtils.setCurrency(walletListViewHolder.tv_amount, "0.00", false);
 
             switch (entity.getChain()) {
-                case ETH:
-                    LogUtils.log("请求ETH总资产");
+                case FIL:
                     //获取资产列表缓存
                     String key = entity.getAddress() + entity.getChain();
                     List<AssetsDetailsItemEntity> assetsDetailsItemEntityList = AssetsListSharedPreferences.getInstance(WalletApplication.getApp()).getAssetsList(key);
-                    checkAssetsList(activity, entity.getAddress(), assetsDetailsItemEntityList, new HttpVolley.VolleyCallBack() {
+                    checkFILBlance(activity, entity.getAddress(), new HttpVolley.VolleyCallBack() {
                         @Override
                         public void onSuccess(String data) {
-                            LogUtils.log("请求ETH总资产成功");
-                            try {
-                                JSONObject rootObj = new JSONObject(data);
-                                Iterator iterator = rootObj.keys();
-                                double totalPrice = 0;
-                                while (iterator.hasNext()) {
-                                    String key = (String) iterator.next();
-                                    JSONObject resultObj = rootObj.optJSONObject(key);
-                                    totalPrice += resultObj.optDouble("totalPrice");
-                                }
-
-                                CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(totalPrice), false);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        @Override
-                        public void onFail(VolleyError error) {
-                            LogUtils.logError("请求ETH总资产失败 = " + error);
-                        }
-                    });
-                    break;
-                case BTC:
-                    BitcoinApi.getAccountBalance(activity, entity.getAddress(), new BitcoinApi.GetAccountBalanceCallback() {
-                        @Override
-                        public void onGetBalanceSuccess(Double balance) {
-                            LogUtils.log("获取BTC余额成功 =" + balance);
-
-                            checkBTCCoinValue(activity, new HttpVolley.VolleyCallBack() {
+                            double filBlance = Double.parseDouble(data);
+                            checkFILCoinValue(new HttpVolley.VolleyCallBack() {
                                 @Override
                                 public void onSuccess(String data) {
-                                    LogUtils.log("请求BTC总资产成功 =" + data);
-                                    double btcValueDouble = Double.parseDouble(data);
-                                    double totalPrice = balance * btcValueDouble;
-                                    CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(totalPrice), false);
+                                    double filValueDouble = Double.parseDouble(data);
+                                    double result = filBlance * filValueDouble;
+                                    CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(result), false);
                                 }
 
                                 @Override
                                 public void onFail(VolleyError error) {
-                                    LogUtils.log("请求BTC总资产失败 =" + error);
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onGetBalanceFailed(Exception e) {
-                            LogUtils.logError("获取BTC余额失败 =" + e);
-                        }
-                    });
-                    break;
-                case ACL:
-                    checkACLBlance(activity, entity.getAddress(), new HttpVolley.VolleyCallBack() {
-                        @Override
-                        public void onSuccess(String data) {
-                            LogUtils.log("获取ACL余额成功 =" + data);
-                            double aclDouble = Double.parseDouble(data);
-
-                            checkACLCoinValue(activity, new HttpVolley.VolleyCallBack() {
-                                @Override
-                                public void onSuccess(String data) {
-                                    LogUtils.log("请求ACL估值成功 = " + data);
-                                    double aclValueDouble = Double.parseDouble(data);
-                                    double totalPrice = aclDouble * aclValueDouble;
-
-                                    CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(totalPrice), false);
-                                }
-
-                                @Override
-                                public void onFail(VolleyError error) {
-                                    LogUtils.logError("请求ACL估值失败 = " + error);
+                                    CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(assetsDetailsItemEntityList.get(0).getTotalPrice()), false);
                                 }
                             });
                         }
 
                         @Override
                         public void onFail(VolleyError error) {
-                            LogUtils.logError("获取ACL余额失败 =" + error);
+                            CommonUtils.setCurrency(walletListViewHolder.tv_amount, MathUtils.doubleKeep2(assetsDetailsItemEntityList.get(0).getTotalPrice()), false);
                         }
                     });
-                    break;
             }
 
             walletListViewHolder.root_view.setOnClickListener(new View.OnClickListener() {
@@ -328,14 +209,8 @@ public class RVAdapterWalletList extends CustomRecyclerViewAdapter<WalletInfo> i
             @Override
             public void onClick(View v) {
                 switch (chain) {
-                    case BTC:
-                        chainType = 2;
-                        break;
-                    case ACL:
-                        chainType = 3;
-                        break;
-                    case ETH:
-                        chainType = 1;
+                    case FIL:
+                        chainType = 4;
                         break;
                     case ALL:
                         chainType = 0;
@@ -397,89 +272,31 @@ public class RVAdapterWalletList extends CustomRecyclerViewAdapter<WalletInfo> i
         }
     }
 
-
     /**
-     * 查询ETH，ERC20资产列表
+     * 查询FIL货币估值
      *
-     * @param context
-     * @param walletAddress
-     * @param assetsDetailsItemEntityList
      * @param callBack
      */
-    public static void checkAssetsList(Context context, String walletAddress, List<AssetsDetailsItemEntity> assetsDetailsItemEntityList, HttpVolley.VolleyCallBack callBack) {
-        String contractAddress = "";
-        List<AssetsDetailsItemEntity> assetsList = new ArrayList<>();
-        assetsList.addAll(assetsDetailsItemEntityList);
-        for (int i = 1; i < assetsDetailsItemEntityList.size(); i++) {
-            if (i == assetsDetailsItemEntityList.size() - 1) {
-                contractAddress += assetsDetailsItemEntityList.get(i).getContractAddress();
-            } else {
-                contractAddress += assetsDetailsItemEntityList.get(i).getContractAddress() + ",";
-            }
-        }
-        LogUtils.log("请求首页资产列表的参数 == " + contractAddress);
+    private void checkFILCoinValue(HttpVolley.VolleyCallBack callBack) {
         String url = null;
         if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-            url = Constant.HttpUrl.ETH_GET_ASSETS_INFO_LIST + "address=" + walletAddress + "&contractAddresses=" + contractAddress + "&currencyType=0";
+            url = Constant.HttpUrl.CHECK_FILECOIN_VALUE + "?currencyType=0";
         } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-            url = Constant.HttpUrl.ETH_GET_ASSETS_INFO_LIST + "address=" + walletAddress + "&contractAddresses=" + contractAddress + "&currencyType=1";
+            url = Constant.HttpUrl.CHECK_FILECOIN_VALUE + "?currencyType=1";
         }
         HttpVolley.getInstance(context).HttpVolleyGet(url, callBack);
     }
 
     /**
-     * 查询ACL货币估值
-     *
-     * @param callBack
-     */
-    private void checkACLCoinValue(Context context, HttpVolley.VolleyCallBack callBack) {
-        String url = null;
-        if (WalletApplication.getApp().isAclTest()) {
-            if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-                url = Constant.HttpUrl.ACL_TEST_GET_COIN_VALUE + "?currencyType=0";
-            } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-                url = Constant.HttpUrl.ACL_TEST_GET_COIN_VALUE + "?currencyType=1";
-            }
-        } else {
-            if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-                url = Constant.HttpUrl.ACL_GET_COIN_VALUE + "?currencyType=0";
-            } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-                url = Constant.HttpUrl.ACL_GET_COIN_VALUE + "?currencyType=1";
-            }
-        }
-
-        HttpVolley.getInstance(context).HttpVolleyGet(url, callBack);
-    }
-
-    /**
-     * 查询ACL余额
+     * 查询FIL余额
      *
      * @param address
      * @param callBack
      */
-    private void checkACLBlance(Context context, String address, HttpVolley.VolleyCallBack callBack) {
-        String url = "";
-        if (WalletApplication.getApp().isAclTest()) {
-            url = Constant.HttpUrl.ACL_TEST_GET_BALANCE + "?address=" + address;
-        } else {
-            url = Constant.HttpUrl.ACL_GET_BALANCE + "?address=" + address;
-        }
+    private void checkFILBlance(Context context, String address, HttpVolley.VolleyCallBack callBack) {
+        String url = Constant.HttpUrl.CHECK_FILECOIN_BALANCE + address;
         HttpVolley.getInstance(context).HttpVolleyGet(url, callBack);
     }
 
-    /**
-     * 查询BTC货币估值
-     *
-     * @param callBack
-     */
-    private void checkBTCCoinValue(Context context, HttpVolley.VolleyCallBack callBack) {
-        String url = null;
-        if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-            url = Constant.HttpUrl.BTC_GET_COIN_VALUE + "?currencyType=0";
-        } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-            url = Constant.HttpUrl.BTC_GET_COIN_VALUE + "?currencyType=1";
-        }
-        HttpVolley.getInstance(context).HttpVolleyGet(url, callBack);
-    }
 
 }

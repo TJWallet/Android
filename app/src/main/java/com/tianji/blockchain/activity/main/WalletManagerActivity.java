@@ -16,51 +16,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.android.volley.VolleyError;
-import com.tianji.blockchainwallet.WalletManager;
 import com.tianji.blockchainwallet.constant.enums.Chain;
-import com.tianji.blockchainwallet.constant.enums.ResultCode;
-import com.tianji.blockchainwallet.constant.enums.StorageSaveType;
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchainwallet.wallet.IRequestListener;
-import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
-import com.tianji.blockchain.activity.MainActivity;
 import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
-import com.tianji.blockchain.activity.basic.UsbCallbackListener;
-import com.tianji.blockchain.activity.createwallet.ServiceAgreementActivity;
-import com.tianji.blockchain.activity.hardware.HardwareManagerActivity;
-import com.tianji.blockchain.activity.hardware.HardwareWalletGuideActivity;
 import com.tianji.blockchain.adapter.basic.OnItemClickListener;
-import com.tianji.blockchain.adapter.recyclerView.HardwareListAdapter;
 import com.tianji.blockchain.adapter.recyclerView.RVAdapterWalletList;
-import com.tianji.blockchain.basic.BasicMvpInterface;
-import com.tianji.blockchain.dialog.HardwareTipsDialog;
-import com.tianji.blockchain.dialog.PasswordDialog;
-import com.tianji.blockchain.dialog.PinDialog;
-import com.tianji.blockchain.dialog.ShowContentDialog;
-import com.tianji.blockchain.dialog.TipsDialog;
-import com.tianji.blockchain.entity.AllObWalletEntity;
-import com.tianji.blockchain.sharepreferences.CurrentWalletSharedPreferences;
-import com.tianji.blockchain.sharepreferences.ObserverWalletListSharedPreferences;
-import com.tianji.blockchain.usbInterfack.UsbDeleteCallbackListener;
-import com.tianji.blockchain.usbInterfack.UsbIsBackupCallbackListener;
-import com.tianji.blockchain.usbInterfack.UsbIsInitCallbackListener;
-import com.tianji.blockchain.utils.DialogUtils;
-import com.tianji.blockchain.utils.ListUtils;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.NetUtils;
-import com.tianji.blockchain.utils.SharePreferencesHelper;
-import com.tianji.blockchain.utils.ThreadManager;
 import com.tianji.blockchain.utils.ViewCommonUtils;
-import com.tianji.blockchain.utils.WalletHelper;
 import com.tianji.blockchain.utils.WalletListHelper;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 
 public class WalletManagerActivity extends BasicActionBarActivity implements View.OnClickListener {
@@ -71,11 +39,11 @@ public class WalletManagerActivity extends BasicActionBarActivity implements Vie
     private RelativeLayout rl_all;
     private TextView tv_coin_name;
     private RecyclerView recyclerView;
-    private ImageView img_all_icon;
+    private ImageView img_all_icon, img_file_coin;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
-    private View line_all;
+    private View line_all, line_file_coin;
     private RelativeLayout rl_file_coin;
 
 
@@ -113,7 +81,8 @@ public class WalletManagerActivity extends BasicActionBarActivity implements Vie
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         line_all = findViewById(R.id.line_all);
         rl_file_coin = findViewById(R.id.rl_file_coin);
-
+        img_file_coin = findViewById(R.id.img_file_coin);
+        line_file_coin = findViewById(R.id.line_file_coin);
 
         swipeRefreshLayout.setEnabled(false);
         rl_all.setOnClickListener(this);
@@ -144,7 +113,7 @@ public class WalletManagerActivity extends BasicActionBarActivity implements Vie
                 changeChainType(Chain.ALL);
                 break;
             case R.id.rl_file_coin:
-                showToast("Filecoin 即将开放，敬请期待");
+                changeChainType(Chain.FIL);
                 break;
 
 
@@ -161,27 +130,11 @@ public class WalletManagerActivity extends BasicActionBarActivity implements Vie
         LogUtils.d(className + " -- changeChainType");
         List<WalletInfo> typeList = null;
         switch (chain) {
-            case ETH:
-                LogUtils.log(className + "-- ETH钱包");
+            case FIL:
+                LogUtils.log(className + "-- FIL钱包");
                 setChainSelected(chain);
-                typeList = WalletListHelper.getInstance(this).getSoftwareWalletInfoListEth();
-                adapter = new RVAdapterWalletList(this, this, typeList, 2, Chain.ETH);
-                adapter.setItemClickListener(softwareListener);
-                recyclerView.setAdapter(adapter);
-                break;
-            case BTC:
-                LogUtils.log(className + "-- BTC钱包");
-                setChainSelected(chain);
-                typeList = WalletListHelper.getInstance(this).getSoftwareWalletInfoListBTC();
-                adapter = new RVAdapterWalletList(this, this, typeList, 2, Chain.BTC);
-                adapter.setItemClickListener(softwareListener);
-                recyclerView.setAdapter(adapter);
-                break;
-            case ACL:
-                LogUtils.log(className + "-- ACL钱包");
-                setChainSelected(chain);
-                typeList = WalletListHelper.getInstance(this).getSoftwareWalletInfoListACL();
-                adapter = new RVAdapterWalletList(this, this, typeList, 2, Chain.ACL);
+                typeList = WalletListHelper.getInstance(this).getSoftwareWalletInfoListFIL();
+                adapter = new RVAdapterWalletList(this, this, typeList, 2, Chain.FIL);
                 adapter.setItemClickListener(softwareListener);
                 recyclerView.setAdapter(adapter);
                 break;
@@ -199,14 +152,19 @@ public class WalletManagerActivity extends BasicActionBarActivity implements Vie
 
     private void setChainSelected(Chain chain) {
         line_all.setVisibility(View.GONE);
-
+        line_file_coin.setVisibility(View.GONE);
         img_all_icon.setImageResource(R.drawable.all_icon_normal);
-
+        img_file_coin.setImageResource(R.drawable.file_coin_normal);
         switch (chain) {
             case ALL:
                 img_all_icon.setImageResource(R.drawable.all_icon_selected);
                 line_all.setVisibility(View.VISIBLE);
                 tv_coin_name.setText(getResources().getString(R.string.all_wallet));
+                break;
+            case FIL:
+                img_file_coin.setImageResource(R.drawable.file_coin_select);
+                line_file_coin.setVisibility(View.VISIBLE);
+                tv_coin_name.setText(getResources().getString(R.string.filecoin_wallet));
                 break;
         }
 

@@ -26,7 +26,6 @@ import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.IntentFilterConstant;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
-import com.tianji.blockchain.activity.assets.AddAssetsActivity;
 import com.tianji.blockchain.activity.assets.AssetsDetailsActivity;
 import com.tianji.blockchain.activity.collect.CollectActivity;
 import com.tianji.blockchain.activity.createwallet.BackUpMnemonicActivity;
@@ -55,14 +54,19 @@ import com.tianji.blockchain.utils.CommonUtils;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.MathUtils;
 import com.tianji.blockchain.utils.ViewCommonUtils;
+import com.tianji.blockchain.utils.WalletListHelper;
+import com.tianji.blockchainwallet.WalletManager;
+import com.tianji.blockchainwallet.constant.enums.Chain;
+import com.tianji.blockchainwallet.constant.enums.ResultCode;
+import com.tianji.blockchainwallet.constant.enums.WalletCreatedType;
+import com.tianji.blockchainwallet.entity.WalletInfo;
+import com.tianji.blockchainwallet.wallet.IRequestListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
-public class WalletFragment extends BaseFragment implements View.OnClickListener, BasicMvpInterface {
+public class WalletFragment extends BaseFragment implements View.OnClickListener {
     private static final int LOAD_PAGE = 0;
 
     private RecyclerView recyclerView;
@@ -70,7 +74,7 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
 
     private RelativeLayout rl_wallet_name;
     private TextView tv_wallet_name;
-    private ImageView img_message, img_scan;
+    private ImageView img_scan;
     private ImageView img_eye;
     private RelativeLayout rl_eye;
     private ImageView img_more;
@@ -83,7 +87,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
 
     private RelativeLayout rl_transfer, rl_collect;
 
-    private RelativeLayout img_add;
     private WalletFgBroadcastReceiver walletFgBroadcastReceiver;
 
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -107,8 +110,8 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
     private RelativeLayout rl_all;
     private TextView tv_coin_name;
     private RecyclerView walletRecyclerView;
-    private ImageView img_all_icon;
-    private View line_all;
+    private ImageView img_all_icon, img_file_coin;
+    private View line_all, line_file_coin;
     private RelativeLayout rl_file_coin;
     private RelativeLayout rl_copy;
 
@@ -155,7 +158,7 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                 WalletApplication.setCurrentWallet(walletInfo);
                 CurrentWalletSharedPreferences.getInstance(getActivity()).changeCurrentWallet(walletInfo);
 
-                if (walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_PRIVATE_KEY || walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_KEYSTORE || walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_MNEMONIC || walletInfo.getStorageSaveType() == StorageSaveType.EXTERNAL) {
+                if (walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_PRIVATE_KEY || walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_KEYSTORE || walletInfo.getWalletCreatedType() == WalletCreatedType.IMPORTED_MNEMONIC) {
                     //导入钱包全部默认为true
                     MnemonicSharedPreferences.getInstance(getActivity()).saveBackUpMnemonic(walletInfo.getAddress(), true);
                 }
@@ -166,40 +169,23 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                     ll_mnemonic.setVisibility(View.VISIBLE);
                 }
 
-                if (walletInfo.getStorageSaveType() == StorageSaveType.LOCAL) {
-                    switch (walletInfo.getChain()) {
-                        case ACL:
-                            if (position % 4 == 1) {
-                                //第二个
-                                rl_assets_card.setBackgroundResource(R.drawable.acl_card_bg_03);
-                            } else if (position % 4 == 2) {
-                                //第三个
-                                rl_assets_card.setBackgroundResource(R.drawable.acl_card_bg_02);
-                            } else if (position % 4 == 0) {
-                                //第一个
-                                rl_assets_card.setBackgroundResource(R.drawable.acl_card_bg_04);
-                            } else if (position % 4 == 3) {
-                                //第四个
-                                rl_assets_card.setBackgroundResource(R.drawable.acl_card_bg_01);
-                            }
-                            break;
+                switch (walletInfo.getChain()) {
+                    case FIL:
+                        if (position % 4 == 1) {
+                            //第二个
+                            rl_assets_card.setBackgroundResource(R.drawable.filecoin_card_bg_03);
+                        } else if (position % 4 == 2) {
+                            //第三个
+                            rl_assets_card.setBackgroundResource(R.drawable.filecoin_card_bg_02);
+                        } else if (position % 4 == 0) {
+                            //第一个
+                            rl_assets_card.setBackgroundResource(R.drawable.filecoin_card_bg_04);
+                        } else if (position % 4 == 3) {
+                            //第四个
+                            rl_assets_card.setBackgroundResource(R.drawable.filecoin_card_bg_01);
+                        }
+                        break;
 
-                    }
-                }
-                //请求消息列表
-                if (presenter == null) {
-                    presenter = new WalletFragmentPresenter(getActivity(), this);
-                }
-                Map<String, String> params = new HashMap<>();
-                params.put("page", "0");
-                params.put("pageSize", "1000");
-                presenter.getInformationList(params);
-
-                //ETH显示添加资产按钮，其余货币暂时不显示
-                if (walletInfo.getChain() == Chain.ETH) {
-                    img_add.setVisibility(View.VISIBLE);
-                } else {
-                    img_add.setVisibility(View.GONE);
                 }
                 //初始化钱包列表
                 initWalletManagerDialog();
@@ -221,7 +207,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                         } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
                             tv_my_assets_value.setText("$ " + MathUtils.doubleKeep2(allTotalPrice));
                         }
-
                     }
                 }
                 //加载数据
@@ -230,9 +215,7 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                 adapter.setItemClickListener(assetsListener);
                 adapter.setEyes(WalletApplication.getApp().isAssetsIsHidden(), img_eye);
                 recyclerView.setAdapter(adapter);
-                if (walletInfo.getChain() == Chain.ETH) {
-                    setData();
-                }
+                setData();
                 if (swipeRefreshLayout.isRefreshing()) {
                     swipeRefreshLayout.setRefreshing(false);
                 }
@@ -250,7 +233,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
         ViewCommonUtils.recyclerViewNoSliding(WalletApplication.getApp(), recyclerView);
         rl_wallet_name = findViewById(R.id.rl_wallet_name);
         tv_wallet_name = findViewById(R.id.tv_wallet_name);
-        img_message = findViewById(R.id.img_message);
         img_scan = findViewById(R.id.img_scan);
         img_eye = findViewById(R.id.img_eye);
         img_more = findViewById(R.id.img_more);
@@ -259,7 +241,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
         img_copy = findViewById(R.id.img_copy);
         rl_transfer = findViewById(R.id.rl_transfer);
         rl_collect = findViewById(R.id.rl_collect);
-        img_add = findViewById(R.id.img_add);
         rl_eye = findViewById(R.id.rl_eye);
         ll_mnemonic = findViewById(R.id.ll_mnemonic);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -271,14 +252,12 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
         tv_no_mnemonic.setSelected(true);
 
         rl_wallet_name.setOnClickListener(this);
-        img_message.setOnClickListener(this);
         img_scan.setOnClickListener(this);
         rl_eye.setOnClickListener(this);
         img_more.setOnClickListener(this);
         rl_copy.setOnClickListener(this);
         rl_transfer.setOnClickListener(this);
         rl_collect.setOnClickListener(this);
-        img_add.setOnClickListener(this);
         ll_mnemonic.setOnClickListener(this);
         tv_address.setOnClickListener(this);
 
@@ -341,11 +320,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     protected void setData() {
-        if (presenter == null) {
-            presenter = new WalletFragmentPresenter(getActivity(), this);
-        }
-        presenter.checkAssetsList(walletInfo, assetsDetailsItemEntityList);
-
     }
 
     @Override
@@ -372,9 +346,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
             case R.id.rl_wallet_name:
                 startWalletListDialog();
                 break;
-            case R.id.img_message:
-                startActivity(InformationListActivity.class);
-                break;
             case R.id.tv_address:
                 CommonUtils.showOperateSelectDialog(selectDialog, walletInfo, walletInfo.getAddress());
                 break;
@@ -384,17 +355,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
             case R.id.rl_eye:
                 WalletApplication.getApp().setAssetsIsHidden(!WalletApplication.getApp().isAssetsIsHidden());
                 ViewCommonUtils.showPwd(WalletApplication.getApp().isAssetsIsHidden(), tv_my_assets_value, img_eye);
-                if (walletInfo.getChain() == Chain.ETH) {
-                    if (WalletApplication.getApp().isAssetsIsHidden()) {
-                        tv_my_assets_value.setText("****");
-                    } else {
-                        if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-                            tv_my_assets_value.setText("¥ " + MathUtils.doubleKeep2(allTotalPrice));
-                        } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-                            tv_my_assets_value.setText("$ " + MathUtils.doubleKeep2(allTotalPrice));
-                        }
-                    }
-                }
                 if (adapter != null) {
                     adapter.setEyes(WalletApplication.getApp().isAssetsIsHidden(), img_eye);
                     adapter.notifyDataSetChanged();
@@ -430,11 +390,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                 }
 
                 break;
-            case R.id.img_add:
-                Intent addIntent = new Intent(getActivity(), AddAssetsActivity.class);
-                addIntent.putExtra("_walletInfo", walletInfo);
-                startActivity(addIntent);
-                break;
             case R.id.ll_mnemonic:
                 showPasswordDialog();
                 break;
@@ -468,10 +423,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                 startActivity(WalletManagerActivity.class);
                 walletManagerDialog.dismiss();
                 break;
-            case R.id.tv_software_wallet:
-                changeWalletType(R.id.tv_software_wallet);
-                changeChainType(Chain.ALL);
-                break;
             case R.id.img_close:
                 if (walletManagerDialog != null) {
                     walletManagerDialog.dismiss();
@@ -480,89 +431,11 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
             case R.id.rl_all:
                 changeChainType(Chain.ALL);
                 break;
-            case R.id.rl_eth:
-                changeChainType(Chain.ETH);
-                break;
-            case R.id.rl_acl:
-                changeChainType(Chain.ACL);
-                break;
             case R.id.rl_file_coin:
-                showToast("Filecoin 即将开放，敬请期待");
+                changeChainType(Chain.FIL);
                 break;
-            case R.id.rl_btc:
-                changeChainType(Chain.BTC);
-                break;
+
         }
-    }
-
-
-    /**
-     * 网络请求回调接口请求
-     *
-     * @param object
-     * @param type
-     */
-    @Override
-    public void getDataSuccess(Object object, int type) {
-        switch (type) {
-            case WalletFragmentPresenter.TYPE_GET_ASSETS_INFO_LIST:
-                WalletFragmentAssetsListEntity entity = (WalletFragmentAssetsListEntity) object;
-                if (entity.getKey().equals(walletInfo.getAddress() + walletInfo.getChain())) {
-                    List<AssetsDetailsItemEntity> assetsList = entity.getAssetsList();
-                    assetsDetailsItemEntityList.clear();
-                    assetsDetailsItemEntityList.addAll(assetsList);
-                    adapter.updateData(assetsDetailsItemEntityList);
-                    allTotalPrice = 0;
-                    for (int i = 0; i < assetsDetailsItemEntityList.size(); i++) {
-                        AssetsListSharedPreferences.getInstance(getActivity()).addAssetes(entity.getKey(), assetsDetailsItemEntityList.get(i));
-                        allTotalPrice += assetsDetailsItemEntityList.get(i).getTotalPrice();
-                    }
-
-                    if (WalletApplication.getApp().isAssetsIsHidden()) {
-                        tv_my_assets_value.setText("****");
-                    } else {
-                        if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_CNY) {
-                            tv_my_assets_value.setText("¥ " + MathUtils.doubleKeep2(allTotalPrice));
-                        } else if (WalletApplication.getApp().getCurrentCurrency() == Constant.CurrencyType.TYPE_USD) {
-                            tv_my_assets_value.setText("$ " + MathUtils.doubleKeep2(allTotalPrice));
-                        }
-                    }
-                    swipeRefreshLayout.setRefreshing(false);
-                } else {
-                    LogUtils.log(fragmentClassName + " -- 当前显示钱包是请求的钱包，不执行操作");
-                }
-                break;
-            case WalletFragmentPresenter.TYPE_GET_INFORMATION_LIST:
-                InformationListEntity informationListEntity = (InformationListEntity) object;
-                if (informationListEntity != null) {
-                    if (informationListEntity.getContent().size() > 0) {
-                        List<InformationEntity> informationEntityList = informationListEntity.getContent();
-                        for (int i = 0; i < informationEntityList.size(); i++) {
-                            if (!informationEntityList.get(i).isReaded()) {
-                                img_message.setImageResource(R.drawable.message_red);
-                                return;
-                            }
-                        }
-                        img_message.setImageResource(R.drawable.message);
-                    } else {
-                        img_message.setImageResource(R.drawable.message);
-                        InformationListSharedPreferences.getInstance(getActivity()).removeInformationList();
-                    }
-                }
-                break;
-        }
-    }
-
-    @Override
-    public void getDataFail(Object error, int type) {
-        if (swipeRefreshLayout.isRefreshing()) {
-            swipeRefreshLayout.setRefreshing(false);
-        }
-    }
-
-    @Override
-    public void getDataFail(int errCode, String errMsg, int type) {
-
     }
 
     /**
@@ -655,6 +528,8 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
             walletRecyclerView = view.findViewById(R.id.recyclerView);
             line_all = view.findViewById(R.id.line_all);
             rl_file_coin = view.findViewById(R.id.rl_file_coin);
+            img_file_coin = view.findViewById(R.id.img_file_coin);
+            line_file_coin = view.findViewById(R.id.line_file_coin);
             img_all_icon = view.findViewById(R.id.img_all_icon);
             walletListDialogSwiperefresh = view.findViewById(R.id.walletListDialogSwiperefresh);
             walletListDialogSwiperefresh.setEnabled(false);
@@ -673,8 +548,6 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
             walletRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             walletRecyclerView.setAdapter(walletAdapter);
 
-
-            changeWalletType(R.id.tv_software_wallet);
             changeChainType(Chain.ALL);
 
             walletManagerDialog.setContentView(view);
@@ -724,27 +597,35 @@ public class WalletFragment extends BaseFragment implements View.OnClickListener
                 walletAdapter.setItemClickListener(walletListIntentListener);
                 walletRecyclerView.setAdapter(walletAdapter);
                 break;
+            case FIL:
+                LogUtils.d(className + " -- FIL钱包");
+                setChainSelected(chain);
+                typeList = WalletListHelper.getInstance(getActivity()).getSoftwareWalletInfoListFIL();
+                setWalletSelected(typeList);
+                walletAdapter = new RVAdapterWalletList(getActivity(), getActivity(), typeList, walletManagerDialog, 1, Chain.FIL);
+                walletAdapter.setItemClickListener(walletListIntentListener);
+                walletRecyclerView.setAdapter(walletAdapter);
+                break;
         }
     }
 
     private void setChainSelected(Chain chain) {
         line_all.setVisibility(View.GONE);
-
+        line_file_coin.setVisibility(View.GONE);
         img_all_icon.setImageResource(R.drawable.all_icon_normal);
-
+        img_file_coin.setImageResource(R.drawable.file_coin_normal);
         switch (chain) {
             case ALL:
                 img_all_icon.setImageResource(R.drawable.all_icon_selected);
                 line_all.setVisibility(View.VISIBLE);
                 tv_coin_name.setText(getResources().getString(R.string.all_wallet));
                 break;
-            case BTC:
-                line_btc.setVisibility(View.VISIBLE);
-                img_btc_icon.setImageResource(R.drawable.btc);
-                tv_coin_name.setText(getResources().getString(R.string.btc_wallet));
+            case FIL:
+                line_file_coin.setVisibility(View.VISIBLE);
+                img_file_coin.setImageResource(R.drawable.file_coin_select);
+                tv_coin_name.setText("FileCoin钱包");
                 break;
         }
-
     }
 
     /**

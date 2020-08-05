@@ -7,13 +7,13 @@
     android:layout_marginTop="16dp"
     android:orientation="vertical">
     
-    <com.tianji.tjwallet.component.RoundImageView
+    <com.tianji.blockchain.component.RoundImageView
         app:border_radius="12"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/img_default"
         android:layout_gravity="center_horizontal">
-    </com.tianji.tjwallet.component.RoundImageView>
+    </com.tianji.blockchain.component.RoundImageView>
 
     <TextView
         android:layout_width="56dp"

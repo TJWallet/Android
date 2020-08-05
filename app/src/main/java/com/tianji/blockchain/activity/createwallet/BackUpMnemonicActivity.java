@@ -5,22 +5,17 @@ import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.tianji.blockchainwallet.WalletManager;
-import com.tianji.blockchainwallet.constant.enums.ResultCode;
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchainwallet.wallet.IRequestListener;
 import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
 import com.tianji.blockchain.WalletApplication;
 import com.tianji.blockchain.activity.MainActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
-import com.tianji.blockchain.activity.home.HomeActivity;
 import com.tianji.blockchain.adapter.gridView.GVAdapterMnemonic;
 import com.tianji.blockchain.dialog.TipsDialog;
 import com.tianji.blockchain.entity.DialogEntity;
@@ -38,6 +33,7 @@ public class BackUpMnemonicActivity extends BasicConnectShowActivity {
 
     private GVAdapterMnemonic adapter;
     private String mnemonic;
+    private int pageType;
 
     private WalletInfo walletInfo;
 
@@ -81,8 +77,6 @@ public class BackUpMnemonicActivity extends BasicConnectShowActivity {
     protected void initView() {
         mnemonic = getIntent().getStringExtra("_mnemonic");
         pageType = getIntent().getIntExtra("_pageType", -1);
-        source = getIntent().getIntExtra("_source", -1);
-        LogUtils.log(className + " -- 创建钱包成功,来源是 == " + source);
         walletInfo = (WalletInfo) getIntent().getSerializableExtra("_walletInfo");
         if (walletInfo != null) {
             LogUtils.log("BackUpMnemonicActivity钱包" + walletInfo.toString());

@@ -32,14 +32,8 @@ public class RVAdapterAddressBooks extends BasicItemClickRecyclerViewAdapter<Add
         AddressEntity entity = data.get(position);
 
         switch (entity.getChainType()) {
-            case Constant.ChainType.CHAIN_TYPE_ETH:
-                addressBooksViewHolder.img_icon.setImageResource(R.drawable.eth_icon_selected);
-                break;
-            case Constant.ChainType.CHAIN_TYPE_ACL:
-                addressBooksViewHolder.img_icon.setImageResource(R.drawable.acl_icon_select);
-                break;
-            case Constant.ChainType.CHAIN_TYPE_BTC:
-                addressBooksViewHolder.img_icon.setImageResource(R.drawable.btc);
+            case Constant.ChainType.CHAIN_TYPE_FIL:
+                addressBooksViewHolder.img_icon.setImageResource(R.drawable.file_coin_select);
                 break;
         }
         addressBooksViewHolder.tv_address.setText(entity.getAddress());

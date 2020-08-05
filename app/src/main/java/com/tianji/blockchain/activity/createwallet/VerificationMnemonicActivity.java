@@ -6,32 +6,19 @@ import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.tianji.blockchainwallet.WalletManager;
-import com.tianji.blockchainwallet.constant.Constants;
-import com.tianji.blockchainwallet.constant.enums.ResultCode;
-import com.tianji.blockchainwallet.constant.enums.StorageSaveType;
 import com.tianji.blockchainwallet.entity.WalletInfo;
-import com.tianji.blockchainwallet.wallet.IRequestListener;
-import com.tianji.blockchain.Constant;
 import com.tianji.blockchain.R;
-import com.tianji.blockchain.WalletApplication;
-import com.tianji.blockchain.activity.MainActivity;
-import com.tianji.blockchain.activity.basic.BasicActionBarActivity;
 import com.tianji.blockchain.activity.basic.BasicConnectShowActivity;
-import com.tianji.blockchain.activity.home.HomeActivity;
 import com.tianji.blockchain.adapter.gridView.GVAdapterMnemonic;
 import com.tianji.blockchain.adapter.gridView.GVAdapterSimpleText;
 import com.tianji.blockchain.entity.MnemoinicButtonEntity;
-import com.tianji.blockchain.sharepreferences.MnemonicSharedPreferences;
 import com.tianji.blockchain.utils.LogUtils;
-import com.tianji.blockchain.utils.ThreadManager;
 import com.tianji.blockchain.utils.ViewCommonUtils;
 
 import java.util.ArrayList;
@@ -41,7 +28,6 @@ import java.util.List;
 public class VerificationMnemonicActivity extends BasicConnectShowActivity {
     private static final int TYPE_UNFILLED = 0;
     private static final int TYPE_FILLED = 1;
-    private static final int TYPE_NEXT = 2;
 
     private GridView gv_mnemonic_one, gv_mnemonic_two;
     private TextView tv_next;
@@ -51,6 +37,7 @@ public class VerificationMnemonicActivity extends BasicConnectShowActivity {
     private String mnemonic;
     private List<MnemoinicButtonEntity> btnList = new ArrayList<>();
     private List<MnemonicSelectorEntity> textList = new ArrayList<>();
+    private int pageType;
 
     private WalletInfo walletInfo;
     private boolean createLock = true;
@@ -88,8 +75,8 @@ public class VerificationMnemonicActivity extends BasicConnectShowActivity {
 
     @Override
     protected void initView() {
-//        WalletApplication.getApp().addActivity(this);
         mnemonic = getIntent().getStringExtra("_mnemonic");
+        pageType = getIntent().getIntExtra("_pageType", -1);
         walletInfo = (WalletInfo) getIntent().getSerializableExtra("_walletInfo");
         if (walletInfo != null) {
             LogUtils.log(className + "-- getIntent 钱包地址是" + walletInfo.getAddress());
@@ -188,9 +175,10 @@ public class VerificationMnemonicActivity extends BasicConnectShowActivity {
                     }
                 }
                 if (verification.equals(mnemonic)) {
-                    LogUtils.log(className + "-- 助记词验证成功2");
+                    LogUtils.log(className + "-- 助记词验证成功");
                     Intent intent = new Intent(VerificationMnemonicActivity.this, VerificationSuccessActivity.class);
                     intent.putExtra("_walletInfo", walletInfo);
+                    intent.putExtra("_pageType", pageType);
                     startActivity(intent);
                 } else {
                     showToast(R.string.mnemonic_wrong);

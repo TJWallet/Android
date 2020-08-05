@@ -30,7 +30,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
@@ -81,10 +81,6 @@
         <!-- 地址详情 -->
         <activity
             android:name=".activity.main.AddressDetailsActivity"
-            android:screenOrientation="portrait" />
-        <!-- 添加币种 -->
-        <activity
-            android:name=".activity.assets.AddAssetsActivity"
             android:screenOrientation="portrait" />
         <!--资产首页-->
         <activity
@@ -150,21 +146,9 @@
         <activity
             android:name=".activity.sacn.MipcaActivityCapture"
             android:screenOrientation="portrait" />
-        <!--导入钱包-->
-        <activity
-            android:name=".activity.importwallet.ImportWalletActivity"
-            android:screenOrientation="portrait" />
-        <!--设置安全信息-->
-        <activity
-            android:name=".activity.importwallet.CompleteInfoActivity"
-            android:screenOrientation="portrait" />
         <!--关于我们-->
         <activity
             android:name=".activity.aboutus.AboutUsActivity"
-            android:screenOrientation="portrait" />
-        <!--选择钱包-->
-        <activity
-            android:name=".activity.assets.SelectAssetsActivity"
             android:screenOrientation="portrait" />
         <!--帮助中心-->
         <activity

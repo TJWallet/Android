@@ -19,33 +19,5 @@ public class AboutUsPresenter extends BasicPresenter {
 
     @Override
     public void getData(Map<String, String> params) {
-        if (WalletApplication.getApp().isDeveloperVersion()) {
-            HttpVolley.getInstance(context).HttpVolleyGet(Constant.HttpUrl.updateUrl + "?flag=1", new HttpVolley.VolleyCallBack() {
-                @Override
-                public void onSuccess(String data) {
-                    UpdateEntity entity = gson.fromJson(data, UpdateEntity.class);
-                    basicMvpInterface.getDataSuccess(entity, 0);
-                }
-
-                @Override
-                public void onFail(VolleyError error) {
-                    basicMvpInterface.getDataFail(error, 0);
-                }
-            });
-        } else {
-            HttpVolley.getInstance(context).HttpVolleyGet(Constant.HttpUrl.updateUrl, new HttpVolley.VolleyCallBack() {
-                @Override
-                public void onSuccess(String data) {
-                    UpdateEntity entity = gson.fromJson(data, UpdateEntity.class);
-                    basicMvpInterface.getDataSuccess(entity, 0);
-                }
-
-                @Override
-                public void onFail(VolleyError error) {
-                    basicMvpInterface.getDataFail(error, 0);
-                }
-            });
-        }
-
     }
 }

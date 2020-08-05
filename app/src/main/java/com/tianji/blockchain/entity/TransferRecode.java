@@ -1,9 +1,7 @@
 package com.tianji.blockchain.entity;
 
-import com.tianji.blockchain.btcApi.Transaction;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class TransferRecode implements Serializable {
     private String hash;
@@ -27,8 +25,6 @@ public class TransferRecode implements Serializable {
     private long timestamp;
     private boolean isTransferInTo;
     private int speed;
-    private List<Transaction.Input> inputList;
-    private List<Transaction.Output> outputList;
     private long btcFee;
     private boolean isWait;
     private int transferType;
@@ -193,22 +189,6 @@ public class TransferRecode implements Serializable {
         this.isTransferInTo = transferInTo;
     }
 
-    public List<Transaction.Input> getInputList() {
-        return inputList;
-    }
-
-    public void setInputList(List<Transaction.Input> inputList) {
-        this.inputList = inputList;
-    }
-
-    public List<Transaction.Output> getOutputList() {
-        return outputList;
-    }
-
-    public void setOutputList(List<Transaction.Output> outputList) {
-        this.outputList = outputList;
-    }
-
     public long getBtcFee() {
         return btcFee;
     }
@@ -265,8 +245,6 @@ public class TransferRecode implements Serializable {
                 ", timestamp=" + timestamp +
                 ", isTransferInTo=" + isTransferInTo +
                 ", speed=" + speed +
-                ", inputList=" + inputList +
-                ", outputList=" + outputList +
                 ", btcFee=" + btcFee +
                 ", isWait=" + isWait +
                 ", transferType=" + transferType +

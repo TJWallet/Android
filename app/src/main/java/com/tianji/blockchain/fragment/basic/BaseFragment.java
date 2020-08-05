@@ -12,17 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.tianji.blockchainwallet.WalletManager;
-import com.tianji.blockchainwallet.constant.Constants;
-import com.tianji.blockchainwallet.usb.IUsbAttachListener;
-import com.tianji.blockchainwallet.wallet.IRequestListener;
 import com.tianji.blockchain.WalletApplication;
-import com.tianji.blockchain.activity.basic.BasicAppActivity;
-import com.tianji.blockchain.activity.basic.UsbCallbackListener;
 import com.tianji.blockchain.basic.BasicPresenter;
-import com.tianji.blockchain.utils.LogUtils;
-
-import java.util.Locale;
 
 public abstract class BaseFragment extends Fragment {
     protected Handler mHandler;

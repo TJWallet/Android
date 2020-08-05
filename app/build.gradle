@@ -2,17 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-//    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.tianji.blockchain"
         minSdkVersion 23
         targetSdkVersion 28
-        //正式服版本
-//        versionCode 25
-//        versionName "1.1.0"
-        //灰度测试服版本
-        versionCode 26
-        versionName "1.1.0.1"
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
@@ -64,7 +59,7 @@ dependencies {
     // Universal-Image-Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     //钱包SDK
-    implementation project(path: ':walletSdk')
+    implementation project(path: ':filecoinSDK')
     //GSON
     implementation 'com.google.code.gson:gson:2.8.6'
     //富文本

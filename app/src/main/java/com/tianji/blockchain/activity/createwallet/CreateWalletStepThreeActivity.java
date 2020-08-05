@@ -23,6 +23,14 @@ import com.tianji.blockchain.sharepreferences.CurrentWalletSharedPreferences;
 import com.tianji.blockchain.utils.LogUtils;
 import com.tianji.blockchain.utils.SharePreferencesHelper;
 import com.tianji.blockchain.utils.ViewCommonUtils;
+import com.tianji.blockchainwallet.WalletManager;
+import com.tianji.blockchainwallet.constant.enums.Chain;
+import com.tianji.blockchainwallet.constant.enums.HDWalletAddressPath;
+import com.tianji.blockchainwallet.constant.enums.ResultCode;
+import com.tianji.blockchainwallet.constant.enums.StorageSaveType;
+import com.tianji.blockchainwallet.constant.enums.WalletCreatedType;
+import com.tianji.blockchainwallet.entity.WalletInfo;
+import com.tianji.blockchainwallet.wallet.IRequestListener;
 
 public class CreateWalletStepThreeActivity extends BasicConnectShowActivity implements View.OnClickListener {
     private String walletName;
@@ -42,6 +50,7 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
     private String privateKey;
 
     private boolean createLock = true;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +78,6 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
         walletName = getIntent().getStringExtra("_walletName");
         oldPwd = getIntent().getStringExtra("_oldPwd");
         addSource = getIntent().getIntExtra("_addSource", -1);
-
 
 
         ViewCommonUtils.createDefaultActionBar(mActionBar, this, R.string.create_wallet);
@@ -159,7 +167,7 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
 
     /***创建新钱包***/
     private void createWallet(String pwd) {
-        WalletManager.getInstance().createWallet(this, WalletCreatedType.LOCAL_CREATED, StorageSaveType.LOCAL, chainType, 0, hdWalletAddressPath, null, walletName, pwd, "", new IRequestListener<WalletInfo>() {
+        WalletManager.getInstance().createWallet(this, WalletCreatedType.LOCAL_CREATED, StorageSaveType.LOCAL, Chain.FIL, 0, HDWalletAddressPath.FIL, null, walletName, pwd, "", new IRequestListener<WalletInfo>() {
             @Override
             public void onResult(ResultCode resultCode, WalletInfo result) {
                 switch (resultCode) {
@@ -174,7 +182,7 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
                         intent.putExtra("_pwd", pwd);
                         startActivity(intent);
                         //添加默认资产
-                        SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), chainType);
+                        SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), Chain.FIL);
                         break;
                     case WALLET_FILE_ADDRESS_EXISTS:
                         showToast(R.string.WALLET_FILE_ADDRESS_EXISTS);
@@ -199,9 +207,9 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
         WalletManager.getInstance().createWallet(this,
                 WalletCreatedType.IMPORTED_MNEMONIC,
                 StorageSaveType.LOCAL,
-                chainType,
+                Chain.FIL,
                 0,
-                hdWalletAddressPath,
+                HDWalletAddressPath.FIL,
                 mnemonic,
                 walletName,
                 pwd,
@@ -219,7 +227,7 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
                                 WalletApplication.setCurrentWallet(result);
                                 CurrentWalletSharedPreferences.getInstance(CreateWalletStepThreeActivity.this).changeCurrentWallet(result);
                                 //添加默认资产
-                                SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), chainType);
+                                SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), Chain.FIL);
                                 break;
                             case FAIL:
                                 LogUtils.logError(className + " -- 通过助记词导入钱包失败");
@@ -248,12 +256,13 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
      * 通过私钥导入钱包接口
      */
     public void importWalletByPrivateKey(String pwd) {
+        LogUtils.log("传入私钥 == " + privateKey);
         WalletManager.getInstance().createWallet(this,
                 WalletCreatedType.IMPORTED_PRIVATE_KEY,
                 StorageSaveType.LOCAL,
-                chainType,
+                Chain.FIL,
                 0,
-                hdWalletAddressPath,
+                HDWalletAddressPath.FIL,
                 privateKey,
                 walletName,
                 pwd,
@@ -271,7 +280,7 @@ public class CreateWalletStepThreeActivity extends BasicConnectShowActivity impl
                                 WalletApplication.setCurrentWallet(result);
                                 CurrentWalletSharedPreferences.getInstance(CreateWalletStepThreeActivity.this).changeCurrentWallet(result);
                                 //添加默认资产
-                                SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), chainType);
+                                SharePreferencesHelper.addDefaultAssets(CreateWalletStepThreeActivity.this, result.getAddress(), Chain.FIL);
                                 break;
                             case FAIL:
                                 LogUtils.logError(className + " -- 通过私钥导入钱包失败");

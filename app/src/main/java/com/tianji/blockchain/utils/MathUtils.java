@@ -51,17 +51,17 @@ public class MathUtils {
      * @param speed    0 慢，1中，2快
      * @return
      */
-    public static String getMinersFee(BigDecimal gasPrice, int speed) {
+    public static String getMinersFee(BigDecimal gasPrice, BigDecimal gasLimit, int speed) {
         BigDecimal price;
         switch (speed) {
             case 0:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_SLOW)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_SLOW)).divide(new BigDecimal(Math.pow(10, 18))).multiply(gasLimit);
                 break;
             case 1:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_NORMAL)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_NORMAL)).divide(new BigDecimal(Math.pow(10, 18))).multiply(gasLimit);
                 break;
             case 2:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_FAST)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_FAST)).divide(new BigDecimal(Math.pow(10, 18))).multiply(gasLimit);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + speed);
@@ -74,17 +74,17 @@ public class MathUtils {
         return doubleKeep10(fee.doubleValue());
     }
 
-    public static BigDecimal getMinersFeeBigDecimal(BigDecimal gasPrice, int speed) {
+    public static BigDecimal getMinersFeeBigDecimal(BigDecimal gasPrice, BigDecimal gasLimit, int speed) {
         BigDecimal price;
         switch (speed) {
             case 0:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_SLOW)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_SLOW)).divide(new BigDecimal(Math.pow(10, 9))).multiply(gasLimit);
                 break;
             case 1:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_NORMAL)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_NORMAL)).divide(new BigDecimal(Math.pow(10, 9))).multiply(gasLimit);
                 break;
             case 2:
-                price = gasPrice.multiply(new BigDecimal(Constant.EthGasPriceSpeed.TYPE_SPEED_FAST)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(60000));
+                price = gasPrice.multiply(new BigDecimal(Constant.GasPriceSpeed.TYPE_SPEED_FAST)).divide(new BigDecimal(Math.pow(10, 9))).multiply(gasLimit);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + speed);
@@ -92,49 +92,4 @@ public class MathUtils {
         return price;
     }
 
-    /**
-     * @param gasPrice
-     * @param speed    0 慢，1中，2快
-     * @return
-     */
-    public static String getACLMinersFee(BigDecimal gasPrice, int speed) {
-        BigDecimal price;
-        switch (speed) {
-            case 0:
-                price = gasPrice.multiply(new BigDecimal(1.0)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(22000));
-                break;
-            case 1:
-                price = gasPrice.multiply(new BigDecimal(1.1)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(22000));
-                break;
-            case 2:
-                price = gasPrice.multiply(new BigDecimal(1.2)).divide(new BigDecimal(Math.pow(10, 18))).multiply(new BigDecimal(22000));
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + speed);
-        }
-        return doubleKeep10(price.setScale(10, RoundingMode.DOWN).doubleValue());
-    }
-
-    /**
-     * @param gasPrice
-     * @param speed    0 慢，1中，2快
-     * @return
-     */
-    public static BigDecimal getACLMinersFeeBigDecimal(BigDecimal gasPrice, int speed) {
-        BigDecimal price;
-        switch (speed) {
-            case 0:
-                price = gasPrice.multiply(new BigDecimal(1.0)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(22000));
-                break;
-            case 1:
-                price = gasPrice.multiply(new BigDecimal(1.1)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(22000));
-                break;
-            case 2:
-                price = gasPrice.multiply(new BigDecimal(1.2)).divide(new BigDecimal(Math.pow(10, 9))).multiply(new BigDecimal(22000));
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + speed);
-        }
-        return price;
-    }
 }

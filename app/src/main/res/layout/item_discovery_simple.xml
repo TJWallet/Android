@@ -7,13 +7,13 @@
     android:layout_marginTop="16dp"
     android:orientation="vertical">
     
-    <com.tianji.tjwallet.component.RoundImageView
+    <com.tianji.blockchain.component.RoundImageView
         android:id="@+id/ivIcon"
         app:border_radius="12"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal">
-    </com.tianji.tjwallet.component.RoundImageView>
+    </com.tianji.blockchain.component.RoundImageView>
 
     <TextView
         android:id="@+id/tvName"

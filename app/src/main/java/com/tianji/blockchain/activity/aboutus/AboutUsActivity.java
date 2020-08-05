@@ -33,15 +33,13 @@ import com.tianji.blockchain.utils.ViewCommonUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AboutUsActivity extends BasicConnectShowActivity implements View.OnClickListener, BasicMvpInterface {
+public class AboutUsActivity extends BasicConnectShowActivity implements View.OnClickListener {
     private TextView tv_version;
     private RelativeLayout rl_agreement;
     private RelativeLayout rl_privacy;
-    private RelativeLayout rl_updates;
     private RelativeLayout rl_off_website;
     private RelativeLayout rl_wechat_public_account;
     private RelativeLayout rl_off_email;
-    private TextView tv_check_update;
     private View line_developer;
 
 
@@ -60,11 +58,6 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
 
     @Override
     protected void setData() {
-        if (presenter == null) {
-            presenter = new AboutUsPresenter(this, this);
-        }
-        Map<String, String> params = new HashMap<>();
-        presenter.getData(params);
     }
 
     @Override
@@ -86,12 +79,9 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
         tv_version = findViewById(R.id.tv_version);
         rl_agreement = findViewById(R.id.rl_agreement);
         rl_privacy = findViewById(R.id.rl_privacy);
-        rl_updates = findViewById(R.id.rl_updates);
         rl_off_website = findViewById(R.id.rl_off_website);
         rl_wechat_public_account = findViewById(R.id.rl_wechat_public_account);
         rl_off_email = findViewById(R.id.rl_off_email);
-//        rl_feedback = findViewById(R.id.rl_feedback);
-        tv_check_update = findViewById(R.id.tv_check_update);
         rl_developer = findViewById(R.id.rl_developer);
         line_developer = findViewById(R.id.line_developer);
 
@@ -99,7 +89,6 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
 
         rl_agreement.setOnClickListener(this);
         rl_privacy.setOnClickListener(this);
-        rl_updates.setOnClickListener(this);
         rl_off_website.setOnClickListener(this);
         rl_wechat_public_account.setOnClickListener(this);
         rl_off_email.setOnClickListener(this);
@@ -165,15 +154,6 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
                 intentPrivacy.putExtra("_url", Constant.HttpUrl.PRIVACY_URL);
                 startActivity(intentPrivacy);
                 break;
-            case R.id.rl_updates:
-                if (tv_check_update.getVisibility() == View.VISIBLE) {
-                    if (dateDialog != null) {
-                        dateDialog.show();
-                    }
-                } else {
-                    showToast(R.string.already_new_version);
-                }
-                break;
             case R.id.rl_off_website:
                 String url = "https://tjwallet.net";
                 Uri uri = Uri.parse(url);
@@ -186,8 +166,6 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
             case R.id.rl_off_email:
                 emailDialog.show();
                 break;
-//            case R.id.rl_feedback:
-//                break;
             case R.id.tv_version:
                 if (rl_developer.getVisibility() == View.GONE) {
                     if (versionCount < 10) {
@@ -202,28 +180,6 @@ public class AboutUsActivity extends BasicConnectShowActivity implements View.On
                 startActivity(DeveloperActivity.class);
                 break;
         }
-    }
-
-    @Override
-    public void getDataSuccess(Object object, int type) {
-        UpdateEntity entity = (UpdateEntity) object;
-        long code = CommonUtils.getAppVersionCode(this);
-        if (code < entity.getVersionCode()) {
-            tv_check_update.setVisibility(View.VISIBLE);
-            dateDialog = new UpDateDialog(this, entity);
-        } else {
-            tv_check_update.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void getDataFail(Object error, int type) {
-
-    }
-
-    @Override
-    public void getDataFail(int errCode, String errMsg, int type) {
-
     }
 
 

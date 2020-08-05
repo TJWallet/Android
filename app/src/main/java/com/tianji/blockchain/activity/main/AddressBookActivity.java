@@ -38,7 +38,6 @@ public class AddressBookActivity extends BasicConnectShowActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setRightImgPosition(2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_book);
     }
